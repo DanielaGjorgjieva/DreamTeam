@@ -1,0 +1,42 @@
+<main>
+    <h1>Song Upload Form</h1>
+    <div class="form-div">
+        <form method="POST" action="/songs" encType="multipart/form-data" class="upload-form">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Title of the song" />
+
+            <label>Test</label>
+            <input type="text" name="test" placeholder="Test" />
+
+            <label>Artist</label>
+            <input type="text" name="artist" placeholder="Artist of the song" />
+
+            <label>Album</label>
+            <input type="text" name="album" placeholder="Album of the song" />
+
+            <label>Genre</label>
+            <select name="genre">
+                <option value="Pop">Pop</option>
+                <option value="Rnb">RnB</option>
+                <option value="Rap">Rap</option>
+                <option value="Rock">Rock</option>
+                <option value="Classical">Classical</option>
+            </select>
+
+            <label>Description</label>
+            <textarea name="desc" cols="30" rows="3" placeholder="Put a description of the song..."></textarea>
+
+            <label>Input File</label>
+            <input type="file" name="filename"/>
+
+            <label>Favorite</label>
+            <input type="checkbox" name="favorite">
+
+            <label>Quality</label>
+            <input type="range" name="quality" min="1" max="10">
+
+            <span></span>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</main>
