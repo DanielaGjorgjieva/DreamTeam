@@ -19,17 +19,17 @@
       padding: 2em;
     }
     header.page-header {
-      color: black;
+      /* color: black; */
     }
 
     nav a {
-      color: black;
+      /* color: black;s */
     }
 
 
     aside.sidebar a {
 
-      color: black;
+      /* color: black; */
     }
     /* MUSIC TABLE */
     #section.list {
@@ -40,7 +40,7 @@
     #song_table header a {
       text-decoration: none;
       font-weight: bold;
-      color: black;
+      /* color: black; */
     }
 
     #song_table header {

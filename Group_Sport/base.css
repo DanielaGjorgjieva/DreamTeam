@@ -11,7 +11,8 @@
   and (min-device-width: 768px){
 
     body {
-      height: 100vw;
+      /* height: 100vw; */
+      min-height: 100vh;
       font-family: 'Quicksand', sans-serif;
       margin: 0;
       display: grid;
@@ -24,8 +25,8 @@
       display: grid;
       grid-template-columns: 200px 1fr 200px;
       text-align: center;
-      /* background: #F8F873; */
-      color: 	rgb(210,105,30);
+      background: #023E8A;
+      color: 	rgb(255, 255, 255);
       font-size: 30px;
       grid-row: 1;
       grid-column: 1/4;
@@ -50,11 +51,11 @@
     nav {
       display: flex;
       flex-direction: column;
-      /* background: #F3F3F3; */
+      background: #ecbf42;
     }
 
     nav a {
-      color: 		rgb(210,105,30);
+      color: 		rgb(0, 0, 0);
       font-size: 20px;
       padding: 15px;
       text-decoration: none;
@@ -63,23 +64,23 @@
     }
     nav a:hover{
       font-size: 25px;
-      background: #BABABA;
+      background: #EFCB68;
     }
     nav a.active {
       font-size: 25px;
-      background: #BABABA;
+      background: #EFCB68;
     }
     /* NAVIGATION SECTION */
 
     /* SIDEBAR SECTION */
     aside.sidebar {
-      /* background: #F3F3F3; */
+      background: #ecbf42;
       font-size: 25px;
       padding-bottom: 50px;
     }
     aside.sidebar a {
       text-decoration: none;
-      color: 	rgb(210,105,30);
+      color: 	rgb(0, 0, 0);
     }
     section.title {
       text-align: center;
@@ -119,7 +120,7 @@
       transition: 250ms;
     }
     aside.sidebar a:hover section {
-      background: #BABABA;
+      background: #EFCB68;
     }
     aside.sidebar a:hover img {
       border: 5px solid black;

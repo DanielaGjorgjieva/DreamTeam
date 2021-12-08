@@ -9,70 +9,71 @@
 -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>LiS-10: Song Uploader</title>
-        <link href="base.css" rel="stylesheet"/>
-        <link href="upload.css" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
-        <meta charset="UTF-8"/>
-        <meta name="author" content="Francesco Casarella">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body background="images/ww.jpg"></body>
-    <!-- <div class="fade-element"></div> -->
 
-      <!-- HEADER -->
-      <header class="page-header">
-        <a href="index.html">
-          <img src="images/WeLis.svg" alt="logo">
-        </a>
-        <h1>WeListen</h1>
-      </header>
+<head>
+  <title>LiS-10: Song Uploader</title>
+  <link href="base.css" rel="stylesheet" />
+  <link href="upload.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="author" content="Francesco Casarella">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-      <!-- NAVIGATION BAR -->
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="songs.html">Song Catalog</a>
-        <a href="player.html">Music Player</a>
-        <a href="upload.html" class="active">Song Uploader</a>
-        <a href="about.html">About Us</a>
-      </nav>
+<body>
+  <!-- background="images/ww.jpg" -->
+  <!-- <div class="fade-element"></div> -->
 
-      <!-- MAIN CONTENT -->
-      <main background ="images/uploadd.jpg">
-        <section class= "title">
-          <h1>Add your sport acitivity!</h1>
-        </section>
+  <!-- HEADER -->
+  <header class="page-header">
+    <a href="index.html">
+      <img src="images/WeLis.svg" alt="logo">
+    </a>
+    <h1>WeListen</h1>
+  </header>
 
-        <form class="upload-section">
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="index.html">Homepage</a>
+    <a href="songs.html">Sports List</a>
+    <a href="upload.html" class="active">Create an event</a>
+    <a href="about.html">About Us</a>
+  </nav>
 
-          <label for="Song-Name"> Sport </label>
-          <input type="text" id="Song-Name" name="Song Name" placeholder="Soccer">
+  <!-- MAIN CONTENT -->
+  <main background="images/uploadd.jpg">
+    <section class="title">
+      <h1>Add your sport acitivity!</h1>
+    </section>
 
-          <label for="Artist-Name"> Duration </label>
-          <input type="text" id="Artist-Name"name="Artist Name" placeholder="Caparezza">
+    <form class="upload-section">
 
-          <label for="Song-Description"> Description</label>
-          <textarea id="Song-Description" name="Song Description" rows="5" cols="60" placeholder="Write here your sport's description..."></textarea>
+      <label for="Song-Name"> Sport </label>
+      <input type="text" id="Song-Name" name="Song Name" placeholder="Soccer">
 
-          <label for="Song-Name"> Place </label>
-          <input type="text" id="Song-Name" name="Song Name" placeholder="Lugano">
+      <label for="Artist-Name"> Duration </label>
+      <input type="text" id="Artist-Name" name="Artist Name" placeholder="Caparezza">
 
-          <label for="start">Start date:</label>
+      <label for="Song-Description"> Description</label>
+      <textarea id="Song-Description" name="Song Description" rows="5" cols="60"
+        placeholder="Write here your sport's description..."></textarea>
 
-                  <input type="date" id="date" name="trip-start"
-                        value="2018-07-22"
-                        min="2018-01-01" max="2018-12-31">
-          
-          <label for="quantity">Participants</label>
-          <input type="number" id="quantity" name="quantity" min="1" max="15"><br><br>
-<!--         
+      <label for="Song-Name"> Place </label>
+      <input type="text" id="Song-Name" name="Song Name" placeholder="Lugano">
+
+      <label for="start">Start date:</label>
+
+      <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+
+      <label for="quantity">Participants</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="15"><br><br>
+      <!--         
           <input type="text" id="Album-Name" name="Album Name" placeholder="Exuvia"> -->
 
-          <!-- <label for="Song-Year"> Song Year</label>
+      <!-- <label for="Song-Year"> Song Year</label>
           <input type="number" id="Song-Year" name="Song Year" min="1900" max="2099" step="1" value="2021"> -->
 
-          <!-- <label for="Song-Genre">Song Genre</label>
+      <!-- <label for="Song-Genre">Song Genre</label>
           <select name="Song Genre" id="Song-Genre">
             <option value="Pop">Pop</option>
             <option value="Rock">Rock</option>
@@ -97,121 +98,121 @@
           <label for="Song-Valutation"> Song Valutation</label>
           <input type="range" min="0" max="10" value="0"/> -->
 
-          <button type="submit" name="submit"> Submit </button>
+      <button type="submit" name="submit"> Submit </button>
 
-        </form>
+    </form>
 
-        <!-- ADVICE SECTION -->
-        <section class= "title">
-          <h1>You may be also interested in: </h1>
+    <!-- ADVICE SECTION -->
+    <section class="title">
+      <h1>You may be also interested in: </h1>
+    </section>
+
+    <section class="advices">
+      <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz" class="odd">
+        <section>
+          Others Songs<br>from
         </section>
-
-        <section class= "advices">
-          <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz" class="odd">
-            <section>
-              Others Songs<br>from
-            </section>
-            <img src="images/linking-park.png" alt="Linking Park photo">
-            <section>
-              Linking Park
-            </section>
-          </a>
-
-          <a href="https://open.spotify.com/playlist/3ZXGhyfw2DwIjxCrIjAef4" class="even">
-            <section>
-              WeListen Playlist <br> about
-            </section>
-            <img src="images/hiphop.png" alt="hip hop logo">
-            <section>
-              Hip Hop
-            </section>
-          </a>
-
-          <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB" class="odd">
-            <section>
-              Others Songs<br>from
-            </section>
-            <img src="images/caparezza.png" alt="Caparezza Photo">
-            <section>
-              Caparezza
-            </section>
-          </a>
-
-          <a href="https://open.spotify.com/playlist/44IU4j4hQ8fB5cCEmSig1E" class="even">
-            <section>
-              WeListen Playlist <br> about
-            </section>
-            <img src="images/rap.png" alt="rap logo">
-            <section>
-              Rap
-            </section>
-          </a>
-
-          <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6" class="odd">
-            <section>
-              Others Songs<br>from
-            </section>
-            <img src="images/avicii.png" alt="Avicii Photo">
-            <section>
-              Avicii
-            </section>
-          </a>
+        <img src="images/linking-park.png" alt="Linking Park photo">
+        <section>
+          Linking Park
         </section>
+      </a>
 
-        <!-- PROMO SECTION -->
-        <section class="promo-title">
-          <h1>We are here for you!<br>(And for free)</h1>
+      <a href="https://open.spotify.com/playlist/3ZXGhyfw2DwIjxCrIjAef4" class="even">
+        <section>
+          WeListen Playlist <br> about
         </section>
-        <section class="promo">
-          <h2>With a collection of over 20'000 songs!</h2>
+        <img src="images/hiphop.png" alt="hip hop logo">
+        <section>
+          Hip Hop
         </section>
-        <section class="promo">
-          <h2>More than 5'000 Albums of every genre!</h2>
-        </section>
-        <section class="promo">
-          <h2>Collaboration of 10'000 Artist from all over the world!</h2>
-        </section>
-        <section class="promo">
-          <h2>And last but not least, our fantastic development team!</h2>
-        </section>
+      </a>
 
-      </main>
-
-      <aside class="sidebar">
-        <section class="title">
-          Best Intructors
+      <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB" class="odd">
+        <section>
+          Others Songs<br>from
         </section>
-
-        <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6">
-        <section class="section-left">
-          <img src="images/avicii.png" alt="first musician">
-          <p class="Artist-Name">
-            Francesco Casarella <br>
-            <cite> ""</cite>
-          </p>
+        <img src="images/caparezza.png" alt="Caparezza Photo">
+        <section>
+          Caparezza
         </section>
-        </a>
+      </a>
 
-        <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB">
-        <section class="section-right">
-          <p class="Artist-Name">
-            Andrea Prato <br>
-            <cite> "...Non mi piace la bara Versace, mi piace la bara plebea, mia l'idea di comperarla all'Ikea..."</cite>
-          </p>
-          <img src="images/caparezza.png" alt="second musician">
+      <a href="https://open.spotify.com/playlist/44IU4j4hQ8fB5cCEmSig1E" class="even">
+        <section>
+          WeListen Playlist <br> about
         </section>
-        </a>
-
-        <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz">
-        <section class="section-left">
-          <img src="images/linking-park.png" alt="first musician">
-          <p class="Artist-Name">
-            Daniela Gjorgjieva <br>
-            <cite> "...but in the end it doesn't even matter..."</cite>
-          </p>
+        <img src="images/rap.png" alt="rap logo">
+        <section>
+          Rap
         </section>
+      </a>
 
-        <a href="https://open.spotify.com/artist/2caOYPej26UoQOyFnzXW3G">
+      <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6" class="odd">
+        <section>
+          Others Songs<br>from
+        </section>
+        <img src="images/avicii.png" alt="Avicii Photo">
+        <section>
+          Avicii
+        </section>
+      </a>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo-title">
+      <h1>We are here for you!<br>(And for free)</h1>
+    </section>
+    <section class="promo">
+      <h2>With a collection of over 20'000 songs!</h2>
+    </section>
+    <section class="promo">
+      <h2>More than 5'000 Albums of every genre!</h2>
+    </section>
+    <section class="promo">
+      <h2>Collaboration of 10'000 Artist from all over the world!</h2>
+    </section>
+    <section class="promo">
+      <h2>And last but not least, our fantastic development team!</h2>
+    </section>
+
+  </main>
+
+  <aside class="sidebar">
+    <section class="title">
+      Best Intructors
+    </section>
+
+    <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6">
+      <section class="section-left">
+        <img src="images/avicii.png" alt="first musician">
+        <p class="Artist-Name">
+          Francesco Casarella <br>
+          <cite> ""</cite>
+        </p>
+      </section>
+    </a>
+
+    <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB">
+      <section class="section-right">
+        <p class="Artist-Name">
+          Andrea Prato <br>
+          <cite> "...Non mi piace la bara Versace, mi piace la bara plebea, mia l'idea di comperarla all'Ikea..."</cite>
+        </p>
+        <img src="images/caparezza.png" alt="second musician">
+      </section>
+    </a>
+
+    <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz">
+      <section class="section-left">
+        <img src="images/linking-park.png" alt="first musician">
+        <p class="Artist-Name">
+          Daniela Gjorgjieva <br>
+          <cite> "...but in the end it doesn't even matter..."</cite>
+        </p>
+      </section>
+
+      <a href="https://open.spotify.com/artist/2caOYPej26UoQOyFnzXW3G">
         <section class="section-right">
           <p class="Artist-Name">
             Alessandro Cravioglio<br>
@@ -219,9 +220,9 @@
           </p>
           <img src="images/lucio-battisti.png" alt="second musician">
         </section>
-        </a>
+      </a>
 
-        <a href="https://open.spotify.com/artist/4x1nvY2FN8jxqAFA0DA02H">
+      <a href="https://open.spotify.com/artist/4x1nvY2FN8jxqAFA0DA02H">
         <section class="section-left">
           <img src="images/john-lennon.png" alt="first musician">
           <p class="Artist-Name">
@@ -229,11 +230,12 @@
             <cite> "...imagine all the people living for today..."</cite>
           </p>
         </section>
-        </a>
-      </aside>
+      </a>
+  </aside>
 
-      <footer>
-        © Francesco Casarella - Software Atelier 3
-      </footer>
-    </body>
+  <footer>
+    © Francesco Casarella - Software Atelier 3
+  </footer>
+</body>
+
 </html>
