@@ -1,0 +1,279 @@
+/*
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Stylesheet
+
+    Author: Bojan Lazarevski
+*/
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Desktop Layout
+*/
+body {
+
+    /* Positioning */
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    /* Styling */
+}
+
+.logo-header {
+    /* Positioning */
+    height: 15vh;
+
+    /* Styling */
+    background: black;
+}
+
+
+footer {
+
+    /* Positioning */
+    height: 5vh;
+
+    /* Styling */
+    background: black;
+}
+
+aside {
+
+    /* Styling */
+    background: black;
+    border-left: 1px solid white;
+}
+
+nav {
+
+    /* Positioning */
+    /* Put nav bar on the left */
+    order: -1;
+
+    /* Styling */
+    background: black;
+    border-right: 1px solid white;
+}
+
+.all-content {
+    display: flex;
+    flex: 1;
+}
+
+main {
+
+    /* Positioning */
+    flex: 1;
+
+    /* Styling */
+    background: black;
+    
+}
+  
+nav, aside {
+
+    /* Positioning */
+    /* Including width of columns */
+    flex: 0 0 12em;
+
+    /* Styling */
+}
+
+
+/*************************************/
+/* Main Page Positioning and Styling */
+/*************************************/
+
+.main-page {
+
+    /* Positioning */
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: start;
+
+}
+
+.current-page {
+
+    /* Styling */
+    background-color: rgb(15, 15, 15);
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+}
+
+/* Grid Photos */
+
+.photo-in-grid {
+
+    /* Styling */
+    padding: 10px;
+    background: black;
+    
+}
+
+.photo-in-grid>img {
+
+    /* Positioning */
+    object-fit: cover;
+    width: 100%;
+
+    /* Animation Settings */
+    transition: filter .4s ease-in-out;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.photo-in-grid>img:hover {
+
+    /* Styling on hover */
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.logo-header {
+
+    /* Positioning */
+    padding:20px;
+
+}
+
+.logo-header img {
+
+    /* Positioning */
+    display: block;
+    margin: auto;
+    max-height: 100%;
+}
+
+footer p {
+
+    /* Positioning */
+    text-align: center;
+
+    /* Styling */
+    color: white;
+    font-family: monospace, Tahoma, Helvetica, sans-serif;
+    font-size: 13;
+}
+
+aside p {
+    /* Positioning */
+    text-align: center;
+
+    /* Styling */
+    color: white;
+    font-family: monospace, Tahoma, Helvetica, sans-serif;
+    font-size: 20;
+}
+
+.main-page-header {
+    /* Positioning */
+    text-align: center;
+    margin: 0px;
+
+    /* Styling */
+    background: white;
+    font-family: monospace, Tahoma, Helvetica, sans-serif;
+    font-size: 23;
+}
+
+.main-page-list-target ul {
+    
+    /* Positioning */
+    margin: 0;
+    padding: 0;
+    width: 200px;
+
+    /* Styling */
+    list-style-type: none;
+    background-color: black;
+}
+  
+.main-page-list-target li a {
+
+    /* Positioning */
+    display: block;
+    padding: 8px 10px;
+    text-align: center;
+
+    /* Styling */
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 20;
+    color: white;
+}
+
+.main-page-list-target li a:hover {
+
+    /* Styling on hover */
+    background-color: white;
+    color: black;
+    transition: 0.25s;
+}
+
+audio {
+    
+    /* Positioning */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2vh;
+}
+
+#extra-content {
+
+    /* Positioning */
+    padding: 3vh;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    /* Styling */
+    font-family: monospace;
+    color:white;
+    
+}
+
+/* Individual picture hover */
+#pic1:hover {
+    background-image: url(../images/ed.png);
+}
+#pic2:hover {
+    background-image: url(../images/weeknd.png);
+}
+#pic3:hover {
+    background-image: url(../images/sleepy.png);
+}
+#pic4:hover {
+    background-image: url(../images/silksonic.png);
+}
+#pic5:hover {
+    background-image: url(../images/meetmeatourspot.png);
+}
+#pic6:hover {
+    background-image: url(../images/leavebeforeyouloveme.png);
+}
+#pic7:hover {
+    background-image: url(../images/taiverdes.png);
+}
+#pic8:hover {
+    background-image: url(../images/beyonce.png);
+}
+#pic9:hover {
+    background-image: url(../images/butter.png);
+}
+#pic10:hover {
+    background-image: url(../images/heatwave.png);
+}

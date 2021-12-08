@@ -28,7 +28,7 @@ MongoClient
 
         //Task 2
         //TODO uncomment this to call your module
-        require('./sync').check(model.music, "public/music").then(console.log);
+        // require('./sync').check(model.music, "public/music").then(console.log);
 
     })
     .catch(err => console.error(err));

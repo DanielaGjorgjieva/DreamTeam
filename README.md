@@ -1,6 +1,6 @@
-## Web Atelier Project - Dream Team
+# Web Atelier Project - Dream Team
 
-# Group Members
+## Group Members
 
 Daniela Gjorjieva
 
@@ -12,6 +12,6 @@ Andrea Prato
 
 Samuel Corecco
 
-# Basic Web App Features
+## Basic Web App Features
 
 Work in Progress

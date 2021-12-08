@@ -1,0 +1,98 @@
+/*
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Stylesheet
+
+    Author: Bojan Lazarevski
+*/
+
+@media screen and (max-width: 768px) {
+    
+    .desc, .size, .filename, .genre, .quality, .songs-header  {
+        /* Hidden classes as non important */
+        display: none;
+    }
+
+    .song {
+
+        /* Positioning */
+        display: grid;
+
+        grid-template-areas: 
+            "title title title"
+            "author dur album"
+            "mp3 play edit"
+            "fav1 . fav2";
+        
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 2fr 1fr 1fr 1fr;
+
+        padding: 0;
+    
+        /* Styling */
+        background-color: black;
+        border:1px solid white;
+        
+    }
+
+
+    .song a[rel~="download"], .song a[rel~="edit"],
+    .song button[data-action~="fav"], .song button[data-action~="delete"] {
+    
+    /* Positioning */
+    display: grid;
+
+    }
+
+    .playing {
+        animation: currently-playing-song 2.5s infinite;
+    }
+    
+    @keyframes currently-playing-song {
+        0% {
+            background-color: black;
+        }
+        50% {
+            background-color: rgb(24, 24, 24);
+        }
+        100% {
+            background-color: black;
+        }
+    }
+
+    /* Grid Areas and small design changes */
+    .title {
+        grid-area: title;
+
+        font-size: 35;
+    }
+    .duration {
+        grid-area: dur;
+    }
+    .album {
+        grid-area: album;
+    }
+    .artist {
+        grid-area: author;
+    }
+    a[rel="download"] {
+        grid-area: mp3;
+    }
+    a[rel="play"] {
+        grid-area: play;
+        background-size: 100px;
+    }
+    a[rel="edit"] {
+        grid-area: edit;
+    }
+    button[data-action="fav"] {
+        grid-area: fav1;
+    }
+    button[data-action="delete"] {
+        grid-area: fav2;
+    }
+
+
+}
