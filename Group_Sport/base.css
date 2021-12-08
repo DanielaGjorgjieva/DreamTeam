@@ -7,6 +7,7 @@
 
     Author: Francesco Casarella
 */
+
 @media screen /*desktop*/
   and (min-device-width: 768px){
 
@@ -26,7 +27,7 @@
       grid-template-columns: 200px 1fr 200px;
       text-align: center;
       background: #023E8A;
-      color: 	rgb(255, 255, 255);
+      color: 	#FAFDF6;
       font-size: 30px;
       grid-row: 1;
       grid-column: 1/4;
@@ -64,10 +65,13 @@
     }
     nav a:hover{
       font-size: 25px;
+      font-weight: bold;
       background: #EFCB68;
+      
     }
     nav a.active {
       font-size: 25px;
+      font-weight: bold;
       background: #EFCB68;
     }
     /* NAVIGATION SECTION */

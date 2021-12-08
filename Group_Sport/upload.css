@@ -50,7 +50,7 @@
       grid-template-columns: 30% 70%;
       grid-template-rows: repeat 10(auto);
     }
-    #Song-Name {
+    #sport-name {
       grid-column: 2;
     }
     form label{

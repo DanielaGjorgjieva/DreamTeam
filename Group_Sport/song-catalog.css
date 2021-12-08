@@ -7,313 +7,343 @@
 
     Author: Francesco Casarella
 */
-@media screen /*desktop*/
-  and (min-device-width: 768px){
-    main {
-    font-size: 20px;
-    /* background: #F7F7E5; */
-    }
+@media screen
 
-    main section.title{
-      text-align: left;
-      padding: 2em;
-    }
-    header.page-header {
-      /* color: black; */
+/*desktop*/
+and (min-device-width: 768px) {
+  main {
+    font-size: 20px;
+    background: #FAFDF6;
+  }
+
+  main section.title {
+    text-align: left;
+    padding: 2em;
+  }
+
+  /* header.page-header {
+      color: black;
     }
 
     nav a {
-      /* color: black;s */
-    }
-
-
-    aside.sidebar a {
-
-      /* color: black; */
-    }
-    /* MUSIC TABLE */
-    #section.list {
-      padding-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-    }
-    #song_table header a {
-      text-decoration: none;
-      font-weight: bold;
-      /* color: black; */
-    }
-
-    #song_table header {
-      font-size: 15px;
-      text-align: center;
-      margin-top: auto;
-      margin-bottom: auto;
-      display: grid;
-      grid-column-gap: 10px;
-      padding-bottom: 10px;
-      grid-template-columns: 35fr 90fr 50fr 90fr 25fr 25fr 25fr  25fr;
-      word-wrap: break-word;
-    }
-    #song_table article.song {
-      font-size: 13px;
-      text-align: center;
-      vertical-align: middle;
-      display: grid;
-      align-items: center;
-      grid-column-gap: 10px;
-      grid-template-columns: 35fr 90fr 50fr 90fr  25fr 25fr 25fr  25fr;
-      word-wrap: break-word;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    #song_table article.song span {
-      border-radius: 5px;
-      overflow: hidden;
-      background: #BABABA;
-      transition: 250ms;
-      height: 50px;
-      display: table-cell;
-      vertical-align: middle;
-    }
-    #song_table article.song:hover span {
-      background: #373737;
-      color: white;
-    }
-    #song_table article.playing span {
-      background: #FFDA5F;
-    }
-    #song_table article.playing:hover span {
-      background: #FFCB1E;
       color: black;
-    }
-    #song_table header a {
-      border-radius: 5px;
-      background:#FFCB1E;
-    }
-    #song_table header a[href="songs.html?sort=favourite"] {
-      display: none;
+    } */
+  /* aside.sidebar a {
 
-    }
+      color: black;
+    } */
 
-    #song_table progress {
-      margin-top: 14px;
-      width: 50px;
-      padding-top: 20px;
-    }
-    #song_table button{
-      margin: auto;
-      width: 25px;
-      height: 25px;
-      opacity: 0%;
-      transition: 250ms;
-    }
-    #song_table article.song:hover button{
-      opacity: 100%
-    }
-    #song_table a[rel="play"]{
-      padding-top: 20px;
-      padding-bottom: 20px;
-      text-indent: -9999px;
-      background-image: url("images/play-button.png");
-      background-size: 30px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    #song_table article.playing a[rel="play"]{
-      background-image: url("images/play-button (1).png");
-      background-size: 30px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    #song_table a[rel="edit"]{
-      padding-top: 20px;
-      padding-bottom: 20px;
-      text-indent: -9999px;
-      background-image: url("images/edit.png");
-      background-size: 25px;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0%;
-      transition: 250ms;
-    }
-    #song_table a[rel="download"]{
-      padding-top: 20px;
-      padding-bottom: 20px;
-      text-indent: -9999px;
-      background-image: url("images/download.png");
-      background-size: 20px;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0%;
-      transition: 250ms;
-    }
-    #song_table article.song:hover a[rel="edit"]{
-      opacity: 100%
-    }
-    #song_table article.song:hover a[rel="download"]{
-      opacity: 100%
-    }
-    #song_table button[data-action="fav"]{
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: rgba(0,0,0,0);
-      color: rgba(0,0,0,0);
-      background-image: url("images/heart.png");
-      border: none;
-      outline: none;
-    }
-    #song_table button[data-fav="true"]{
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: rgba(0,0,0,0);
-      color: rgba(0,0,0,0);
-      background-image: url("images/like.png");
-    }
-    #song_table button[data-action="delete"]{
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: rgba(0,0,0,0);
-      color: rgba(0,0,0,0);
-      background-image: url("images/garbage-can.png");
-      border: none;
-      outline: none;
-    }
-    /* MUSIC TABLE */
+  /* SPORT TABLE */
+
+  #sports_table header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+
+  #sports_table header {
+    font-size: 15px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: grid;
+    grid-column-gap: 10px;
+    padding-bottom: 10px;
+    grid-template-columns: 10fr 20fr 20fr 50fr 20fr 15fr 15fr 15fr 10fr;
+    word-wrap: break-word;
+  }
+
+  #sports_table article.sport {
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    display: grid;
+    align-items: center;
+    grid-column-gap: 10px;
+    grid-template-columns: 10fr 20fr 20fr 50fr 20fr 15fr 15fr 15fr 10fr;
+    word-wrap: break-word;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #sports_table article.sport span {
+    border-radius: 5px;
+    overflow: hidden;
+    background: #BABABA;
+    transition: 250ms;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  #sports_table article.sport:hover span {
+    background: #373737;
+    color: white;
+  }
+
+  #sports_table article.playing span {
+    background: #FFDA5F;
+  }
+
+  #sports_table article.playing:hover span {
+    background: #FFCB1E;
+    color: black;
+  }
+
+  #sports_table header a {
+    border-radius: 5px;
+    background: #FFCB1E;
+  }
+
+  #sports_table header a[href="sports.html?sort=favourite"] {
+    display: none;
 
   }
 
-@media screen /*mobile*/
- and (max-device-width: 768px)
- and (orientation: portrait) {
+  #sports_table progress {
+    margin-top: 14px;
+    width: 50px;
+    padding-top: 20px;
+  }
 
-   main {
-   background: #F7F7E5;
-   }
+  #sports_table button {
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    opacity: 0%;
+    transition: 250ms;
+  }
 
-   #song_table header{
-     display: none;
-   }
-   #song_table section.title{
-     display: none;
-   }
-   #song_table {
-     height: 54vh;
-     text-align: center;
-     overflow: scroll;
-     scroll-snap-type: y mandatory;
-   }
+  #sports_table article.sport:hover button {
+    opacity: 100%
+  }
 
-   #song_table article.song{
-     padding: 0.5em;
-     scroll-snap-align: center;
-     font-size: 10px;
-     border-bottom: 1px solid black;
-     display: grid;
-     text-align: center;
-     grid-template-columns: 1fr 1fr 1fr 1fr ;
-     grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr 2fr  ;
-     height: 54vh;
-     overflow: hidden;
-     word-wrap: break-word;
-   }
+  #sports_table a[rel="play"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("images/play-button.png");
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-   /* FIFTH ROW */
-   #song_table span{
-     grid-row: 5;
-     grid-column:1/5;
-   }
+  #sports_table article.playing a[rel="play"] {
+    background-image: url("images/play-button (1).png");
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-   #song_table progress{
-     padding-top: 20px;
-     width: 300px;
-   }
+  #sports_table a[rel="edit"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("images/edit.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    transition: 250ms;
+  }
 
-   /* FIRST ROW */
-   #song_table article span.title{
-     grid-row: 1;
-     grid-column: 1/5;
-     font-size: 25px;
-     font-weight: bold;
-     padding-top: 15px;
-     padding-bottom: 30px;
-     overflow: hidden;
-     word-wrap: break-word;
-   }
+  #sports_table a[rel="download"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("images/download.png");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    transition: 250ms;
+  }
 
-    /* SECOND ROW */
-    #song_table article span.album{
-      grid-row: 2;
-      grid-column: 1;
-      font-size: 13px;
-    }
-   #song_table article span.artist{
-     grid-row: 2;
-     grid-column: 2/4;
-     font-size: 13px;
-   }
-   #song_table article span.genre{
-     grid-row: 2;
-     grid-column: 4;
-     font-size: 13px;
-   }
+  #sports_table article.sport:hover a[rel="edit"] {
+    opacity: 100%
+  }
 
-   /* THIRD ROW */
-   #song_table article a[rel="play"]{
-     grid-row: 3;
-     grid-column: 1/5;
-     height: 75px;
-     text-indent: -9999px;
-     background-image: url("images/play-button.png");
-     background-size: 75px;
-     background-position: center;
-     background-repeat: no-repeat;
-   }
-   #song_table article.playing{
-     background: #FFDA5F;
-   }
-   #song_table article.playing a[rel="play"]{
-     background-image: url("images/play-button (1).png");
-     background-size: 75px;
-     background-position: center;
-     background-repeat: no-repeat;
-   }
-   /* FOURTH ROW */
-   #song_table article span.duration{
-     grid-row: 4;
-     grid-column: 1;
-     font-size: 13px;
-   }
-   #song_table article span.filename{
-     grid-row: 4;
-     grid-column: 2/4;
-     font-size: 13px;
-   }
-   #song_table article span.size{
-     grid-row: 4;
-     grid-column: 4;
-     font-size: 13px;
-   }
+  #sports_table article.sport:hover a[rel="download"] {
+    opacity: 100%
+  }
+
+  #sports_table button[data-action="fav"] {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-image: url("images/heart.png");
+    border: none;
+    outline: none;
+  }
+
+  #sports_table button[data-fav="true"] {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-image: url("images/like.png");
+  }
+
+  #sports_table button[data-action="delete"] {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-image: url("images/garbage-can.png");
+    border: none;
+    outline: none;
+  }
+
+  /* MUSIC TABLE */
+
+}
+
+@media screen
+
+/*mobile*/
+and (max-device-width: 768px) and (orientation: portrait) {
+
+  main {
+    background: #F7F7E5;
+  }
+
+  #sports_table header {
+    display: none;
+  }
+
+  #sports_table section.title {
+    display: none;
+  }
+
+  #sports_table {
+    height: 54vh;
+    text-align: center;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  #sports_table article.sport {
+    padding: 0.5em;
+    scroll-snap-align: center;
+    font-size: 10px;
+    border-bottom: 1px solid black;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr 2fr;
+    height: 54vh;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  /* FIFTH ROW */
+  #sports_table span {
+    grid-row: 5;
+    grid-column: 1/5;
+  }
+
+  #sports_table progress {
+    padding-top: 20px;
+    width: 300px;
+  }
+
+  /* FIRST ROW */
+  #sports_table article span.title {
+    grid-row: 1;
+    grid-column: 1/5;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  /* SECOND ROW */
+  #sports_table article span.album {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 13px;
+  }
+
+  #sports_table article span.artist {
+    grid-row: 2;
+    grid-column: 2/4;
+    font-size: 13px;
+  }
+
+  #sports_table article span.genre {
+    grid-row: 2;
+    grid-column: 4;
+    font-size: 13px;
+  }
+
+  /* THIRD ROW */
+  #sports_table article a[rel="play"] {
+    grid-row: 3;
+    grid-column: 1/5;
+    height: 75px;
+    text-indent: -9999px;
+    background-image: url("images/play-button.png");
+    background-size: 75px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #sports_table article.playing {
+    background: #FFDA5F;
+  }
+
+  #sports_table article.playing a[rel="play"] {
+    background-image: url("images/play-button (1).png");
+    background-size: 75px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* FOURTH ROW */
+  #sports_table article span.duration {
+    grid-row: 4;
+    grid-column: 1;
+    font-size: 13px;
+  }
+
+  #sports_table article span.filename {
+    grid-row: 4;
+    grid-column: 2/4;
+    font-size: 13px;
+  }
+
+  #sports_table article span.size {
+    grid-row: 4;
+    grid-column: 4;
+    font-size: 13px;
+  }
+
   /* SIXTH ROW */
-  #song_table article span.desc{
+  #sports_table article span.desc {
     grid-row: 7;
-    grid-column:1/5;
+    grid-column: 1/5;
   }
+
   /* SEVENTH ROW */
-  #song_table article button{
+  #sports_table article button {
     height: 30px;
     width: 40px;
   }
-  #song_table article button[data-action="fav"]{
+
+  #sports_table article button[data-action="fav"] {
     grid-row: 6;
     grid-column: 1;
     align-self: center;
     margin-left: auto;
-    margin-right:auto;
-    background-color: rgba(0,0,0,0);
-    color: rgba(0,0,0,0);
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
     background-image: url("images/heart.png");
     background-size: 30px;
     background-position: center;
@@ -321,20 +351,22 @@
     border: none;
     outline: none;
   }
-  #song_table article button[data-fav="true"]{
+
+  #sports_table article button[data-fav="true"] {
     background-image: url("images/like.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
   }
-  #song_table article button[data-action="delete"]{
+
+  #sports_table article button[data-action="delete"] {
     grid-row: 6;
     grid-column: 4;
     align-self: center;
     margin-left: auto;
-    margin-right:auto;
-    background-color: rgba(0,0,0,0);
-    color: rgba(0,0,0,0);
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
     background-image: url("images/garbage-can.png");
     background-size: 30px;
     background-position: center;
@@ -342,7 +374,8 @@
     border: none;
     outline: none;
   }
-  #song_table article a[rel="edit"]{
+
+  #sports_table article a[rel="edit"] {
     grid-row: 6;
     grid-column: 2;
     text-indent: -9999px;
@@ -351,7 +384,8 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  #song_table article a[rel="download"]{
+
+  #sports_table article a[rel="download"] {
     grid-row: 6;
     grid-column: 3;
     text-indent: -9999px;
@@ -360,53 +394,61 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
   aside.sidebar {
-    display:none;
+    display: none;
   }
-   /* ADVICE SECTION */
-   main section.advices {
-     display: grid;
-     text-align: center;
-     align-items: center;
-     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-   }
-   main section.advices img {
-     margin-top: 10px;
-     margin-bottom: 10px;
-     margin-left: auto;
-     margin-right: auto;
-     border-radius: 50%;
-     width: 130px;
-     height: 130px;
-     border: 2px solid black;
-   }
-   main section.advices a {
-     font-size: 25px;
-     padding-top: 10px;
-     padding-bottom: 10px;
-     color: white;
-     text-decoration: none;
-   }
-   main a.odd {
-     background: #373737;
-     display: grid;
-     text-align: center;
-     align-items: center;
-     grid-template-rows: 2fr 3fr 1fr;
-   }
-   main a.even {
-     background: #575757;
-     display: grid;
-     text-align: center;
-     align-items: center;
-     grid-template-rows: 2fr 3fr 1fr;
-   }
-   /* PROMO SECTION */
-   section.promo-title{
-     text-align: center;
-     font-size: 75px;
-   }
-   section.promo{
-     text-align: center;
-   }
+
+  /* ADVICE SECTION */
+  main section.advices {
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  main section.advices img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    border: 2px solid black;
+  }
+
+  main section.advices a {
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  main a.odd {
+    background: #373737;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-rows: 2fr 3fr 1fr;
+  }
+
+  main a.even {
+    background: #575757;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-rows: 2fr 3fr 1fr;
+  }
+
+  /* PROMO SECTION */
+  section.promo-title {
+    text-align: center;
+    font-size: 75px;
+  }
+
+  section.promo {
+    text-align: center;
+  }
 }

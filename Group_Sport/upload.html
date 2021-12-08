@@ -5,13 +5,13 @@
 
     Home Page
 
-    Author: __Francesco Casarella__
+    Author: Francesco Casarella
 -->
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>LiS-10: Song Uploader</title>
+  <title>Placeholder: Homepage</title>
   <link href="base.css" rel="stylesheet" />
   <link href="upload.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
@@ -35,38 +35,44 @@
   <!-- NAVIGATION BAR -->
   <nav>
     <a href="index.html">Homepage</a>
-    <a href="songs.html">Sports List</a>
+    <a href="sports.html">Sports List</a>
     <a href="upload.html" class="active">Create an event</a>
     <a href="about.html">About Us</a>
   </nav>
 
   <!-- MAIN CONTENT -->
-  <main background="images/uploadd.jpg">
+  <main>
     <section class="title">
-      <h1>Add your sport acitivity!</h1>
+      <h1>Add your sport activity!</h1>
     </section>
 
     <form class="upload-section">
 
-      <label for="Song-Name"> Sport </label>
-      <input type="text" id="Song-Name" name="Song Name" placeholder="Soccer">
+      <label for="sport_name"> Sport </label>
+      <input type="text" id="sport_name" name="sport_name" placeholder="Soccer...">
+
+      <label for="sport-description"> Description</label>
+      <textarea id="sport-description" name="sport-description" rows="5" cols="45"
+        placeholder="Write here your sport's description..."></textarea>
+
+      <label for="place"> Place </label>
+      <input type="text" id="place" name="place" placeholder="Lugano...">
 
       <label for="Artist-Name"> Duration </label>
       <input type="text" id="Artist-Name" name="Artist Name" placeholder="Caparezza">
 
-      <label for="Song-Description"> Description</label>
-      <textarea id="Song-Description" name="Song Description" rows="5" cols="60"
-        placeholder="Write here your sport's description..."></textarea>
+      <label for="date">Start date</label>
+      <input type="date" id="date" name="date" value="" min="" max="2025-12-31">
 
-      <label for="Song-Name"> Place </label>
-      <input type="text" id="Song-Name" name="Song Name" placeholder="Lugano">
+      <label for="frequency">Frequency</label>
+      <select name="frequency" id="frequency">
+        <option value="Weekly">Weekly</option>
+        <option value="Daily">Daily</option>
+        <option value="Monthly">Monthly</option>
+      </select>
 
-      <label for="start">Start date:</label>
-
-      <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
-
-      <label for="quantity">Participants</label>
-      <input type="number" id="quantity" name="quantity" min="1" max="15"><br><br>
+      <label for="members">Members</label>
+      <input type="number" id="members" name="members" min="1" max="30"><br><br>
       <!--         
           <input type="text" id="Album-Name" name="Album Name" placeholder="Exuvia"> -->
 
@@ -180,15 +186,15 @@
 
   <aside class="sidebar">
     <section class="title">
-      Best Intructors
+      Instructors
     </section>
 
     <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6">
       <section class="section-left">
-        <img src="images/avicii.png" alt="first musician">
+        <img src="images/img_avatar.png" alt="first musician">
         <p class="Artist-Name">
-          Francesco Casarella <br>
-          <cite> ""</cite>
+          Avicii <br>
+          <cite> "...he said one day, you'll leave this world behind..."</cite>
         </p>
       </section>
     </a>
@@ -196,18 +202,18 @@
     <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB">
       <section class="section-right">
         <p class="Artist-Name">
-          Andrea Prato <br>
+          Caparezza <br>
           <cite> "...Non mi piace la bara Versace, mi piace la bara plebea, mia l'idea di comperarla all'Ikea..."</cite>
         </p>
-        <img src="images/caparezza.png" alt="second musician">
+        <img src="images/img_avatar.png" alt="second musician">
       </section>
     </a>
 
     <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz">
       <section class="section-left">
-        <img src="images/linking-park.png" alt="first musician">
+        <img src="images/img_avatar.png" alt="first musician">
         <p class="Artist-Name">
-          Daniela Gjorgjieva <br>
+          Linking Park <br>
           <cite> "...but in the end it doesn't even matter..."</cite>
         </p>
       </section>
@@ -215,18 +221,18 @@
       <a href="https://open.spotify.com/artist/2caOYPej26UoQOyFnzXW3G">
         <section class="section-right">
           <p class="Artist-Name">
-            Alessandro Cravioglio<br>
+            Lucio Battisti<br>
             <cite> "...il mio canto libero, sei tu..."</cite>
           </p>
-          <img src="images/lucio-battisti.png" alt="second musician">
+          <img src="images/img_avatar.png" alt="second musician">
         </section>
       </a>
 
       <a href="https://open.spotify.com/artist/4x1nvY2FN8jxqAFA0DA02H">
         <section class="section-left">
-          <img src="images/john-lennon.png" alt="first musician">
+          <img src="images/img_avatar.png" alt="first musician">
           <p class="Artist-Name">
-            Samuel Correco <br>
+            John Lennon <br>
             <cite> "...imagine all the people living for today..."</cite>
           </p>
         </section>
@@ -236,6 +242,22 @@
   <footer>
     © Francesco Casarella - Software Atelier 3
   </footer>
+  <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("date").setAttribute("min", today);
+    document.getElementById("date").setAttribute("value", today);
+  </script>
 </body>
 
 </html>
