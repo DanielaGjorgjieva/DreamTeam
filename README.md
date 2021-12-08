@@ -3,9 +3,13 @@
 # Group Members
 
 Daniela Gjorjieva
+
 Francesco Casarella
+
 Alessandro Cravioglio
+
 Andrea Prato
+
 Samuel Corecco
 
 # Basic Web App Features
