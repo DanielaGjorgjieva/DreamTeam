@@ -11,10 +11,6 @@
 const express = require('express');
 const router = express.Router();
 module.exports = router;
-
-const sync = require("../models/sync.js")
-
-
 const jsmediatags = require('jsmediatags');
 const fs = require('fs-extra');
 
