@@ -13,7 +13,6 @@
 and (min-device-width: 768px) {
   main {
     font-size: 20px;
-    background: #FAFDF6;
   }
 
   main section.title {
@@ -122,14 +121,14 @@ and (min-device-width: 768px) {
     padding-top: 20px;
     padding-bottom: 20px;
     text-indent: -9999px;
-    background-image: url("images/play-button.png");
+    background-image: url("../images/play-button.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
   }
 
   #sports_table article.playing a[rel="play"] {
-    background-image: url("images/play-button (1).png");
+    background-image: url("../images/play-button (1).png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,7 +138,7 @@ and (min-device-width: 768px) {
     padding-top: 20px;
     padding-bottom: 20px;
     text-indent: -9999px;
-    background-image: url("images/edit.png");
+    background-image: url("../images/edit.png");
     background-size: 25px;
     background-position: center;
     background-repeat: no-repeat;
@@ -151,7 +150,7 @@ and (min-device-width: 768px) {
     padding-top: 20px;
     padding-bottom: 20px;
     text-indent: -9999px;
-    background-image: url("images/download.png");
+    background-image: url("../images/download.png");
     background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
@@ -173,7 +172,7 @@ and (min-device-width: 768px) {
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0);
-    background-image: url("images/heart.png");
+    background-image: url("../images/heart.png");
     border: none;
     outline: none;
   }
@@ -184,7 +183,7 @@ and (min-device-width: 768px) {
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0);
-    background-image: url("images/like.png");
+    background-image: url("../images/like.png");
   }
 
   #sports_table button[data-action="delete"] {
@@ -193,7 +192,7 @@ and (min-device-width: 768px) {
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0);
-    background-image: url("images/garbage-can.png");
+    background-image: url("../images/garbage-can.png");
     border: none;
     outline: none;
   }
@@ -288,7 +287,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
     grid-column: 1/5;
     height: 75px;
     text-indent: -9999px;
-    background-image: url("images/play-button.png");
+    background-image: url("../images/play-button.png");
     background-size: 75px;
     background-position: center;
     background-repeat: no-repeat;
@@ -299,7 +298,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
   }
 
   #sports_table article.playing a[rel="play"] {
-    background-image: url("images/play-button (1).png");
+    background-image: url("../images/play-button (1).png");
     background-size: 75px;
     background-position: center;
     background-repeat: no-repeat;
@@ -344,7 +343,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0);
-    background-image: url("images/heart.png");
+    background-image: url("../images/heart.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -353,7 +352,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
   }
 
   #sports_table article button[data-fav="true"] {
-    background-image: url("images/like.png");
+    background-image: url("../images/like.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -367,7 +366,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0);
-    background-image: url("images/garbage-can.png");
+    background-image: url("../images/garbage-can.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -379,7 +378,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
     grid-row: 6;
     grid-column: 2;
     text-indent: -9999px;
-    background-image: url("images/edit.png");
+    background-image: url("../images/edit.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -389,7 +388,7 @@ and (max-device-width: 768px) and (orientation: portrait) {
     grid-row: 6;
     grid-column: 3;
     text-indent: -9999px;
-    background-image: url("images/download.png");
+    background-image: url("../images/download.png");
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;

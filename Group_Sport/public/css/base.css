@@ -10,7 +10,9 @@
 
 @media screen /*desktop*/
   and (min-device-width: 768px){
-
+    main {
+      background: #FAFDF6;
+    }
     body {
       /* height: 100vw; */
       min-height: 100vh;

@@ -16,7 +16,7 @@
       height: 100%;
    
     
-      background-image: url("images/eee.webp");
+      background-image: url("../images/eee.webp");
       background-position: center;
     
      
@@ -29,7 +29,7 @@
     } */
     main {
     font-size: 20px;
-    /* background-image: url("images/perfect.webp"); */
+    /* background-image: url("../images/perfect.webp"); */
     color:	rgb(0, 0, 0);
     }
 
@@ -131,7 +131,7 @@
     }
     label.checkbox::before{
       content: "";
-      background: url("images/heart.png");
+      background: url("../images/heart.png");
       background-position: center;
       background-size: contain;
       width: 30px;
@@ -142,7 +142,7 @@
     }
     label.checkbox::after{
       content: "";
-      background: url("images/like.png");
+      background: url("../images/like.png");
       background-position: center;
       background-size: contain;
       width: 30px;
@@ -328,7 +328,7 @@
    }
    label.checkbox::before{
      content: "";
-     background: url("images/heart.png");
+     background: url("../images/heart.png");
      background-position: center;
      background-size: contain;
      width: 50px;
@@ -339,7 +339,7 @@
    }
    label.checkbox::after{
      content: "";
-     background: url("images/like.png");
+     background: url("../images/like.png");
      background-position: center;
      background-size: contain;
      width: 50px;

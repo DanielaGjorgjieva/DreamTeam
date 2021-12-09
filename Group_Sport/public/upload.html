@@ -3,7 +3,7 @@
     Exercise 1
     HTML and CSS
 
-    Home Page
+    Upload
 
     Author: Francesco Casarella
 -->
@@ -12,24 +12,25 @@
 
 <head>
   <title>Placeholder: Homepage</title>
-  <link href="base.css" rel="stylesheet" />
-  <link href="upload.css" rel="stylesheet" />
+  <link href="css/base.css" rel="stylesheet" />
+  <link href="css/upload.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="author" content="Francesco Casarella">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/occurencies.js"></script>
 </head>
 
-<body>
+<body onload="today()">
   <!-- background="images/ww.jpg" -->
   <!-- <div class="fade-element"></div> -->
 
   <!-- HEADER -->
   <header class="page-header">
     <a href="index.html">
-      <img src="images/WeLis.svg" alt="logo">
+      <img src="logo-placeholder-png.png" alt="logo">
     </a>
-    <h1>WeListen</h1>
+    <h1>Sport Web-App</h1>
   </header>
 
   <!-- NAVIGATION BAR -->
@@ -66,9 +67,10 @@
 
       <label for="frequency">Frequency</label>
       <select name="frequency" id="frequency">
-        <option value="Weekly">Weekly</option>
         <option value="Daily">Daily</option>
+        <option value="Weekly">Weekly</option>
         <option value="Monthly">Monthly</option>
+        <option value="Undefined">Undefined</option>
       </select>
 
       <label for="members">Members</label>
@@ -110,62 +112,62 @@
 
     <!-- ADVICE SECTION -->
     <section class="title">
-      <h1>You may be also interested in: </h1>
+      <h1>Popular Activities: </h1>
     </section>
 
     <section class="advices">
-      <a href="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz" class="odd">
+      <a href="" class="odd">
         <section>
-          Others Songs<br>from
+          placeholder
         </section>
-        <img src="images/linking-park.png" alt="Linking Park photo">
+        <img src="images/img_avatar.png" alt="Linking Park photo">
         <section>
-          Linking Park
-        </section>
-      </a>
-
-      <a href="https://open.spotify.com/playlist/3ZXGhyfw2DwIjxCrIjAef4" class="even">
-        <section>
-          WeListen Playlist <br> about
-        </section>
-        <img src="images/hiphop.png" alt="hip hop logo">
-        <section>
-          Hip Hop
+          placeholder
         </section>
       </a>
 
-      <a href="https://open.spotify.com/artist/4l0PmbNvFq3m5JaUuAPbcB" class="odd">
+      <a href="" class="even">
         <section>
-          Others Songs<br>from
+          placeholder
         </section>
-        <img src="images/caparezza.png" alt="Caparezza Photo">
+        <img src="images/img_avatar.png" alt="Linking Park photo">
         <section>
-          Caparezza
-        </section>
-      </a>
-
-      <a href="https://open.spotify.com/playlist/44IU4j4hQ8fB5cCEmSig1E" class="even">
-        <section>
-          WeListen Playlist <br> about
-        </section>
-        <img src="images/rap.png" alt="rap logo">
-        <section>
-          Rap
+          placeholder
         </section>
       </a>
 
-      <a href="https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6" class="odd">
+      <a href="" class="odd">
         <section>
-          Others Songs<br>from
+          placeholder
         </section>
-        <img src="images/avicii.png" alt="Avicii Photo">
+        <img src="images/img_avatar.png" alt="Linking Park photo">
         <section>
-          Avicii
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="even">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
         </section>
       </a>
     </section>
-
-    <!-- PROMO SECTION -->
+    <br>
+    <!-- PROMO SECTION
     <section class="promo-title">
       <h1>We are here for you!<br>(And for free)</h1>
     </section>
@@ -180,7 +182,7 @@
     </section>
     <section class="promo">
       <h2>And last but not least, our fantastic development team!</h2>
-    </section>
+    </section> -->
 
   </main>
 
@@ -240,24 +242,8 @@
   </aside>
 
   <footer>
-    © Francesco Casarella - Software Atelier 3
+    © Dream Team - Software Atelier 3
   </footer>
-  <script>
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd
-    }
-    if (mm < 10) {
-      mm = '0' + mm
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("date").setAttribute("min", today);
-    document.getElementById("date").setAttribute("value", today);
-  </script>
 </body>
 
 </html>
