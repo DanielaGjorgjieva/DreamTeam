@@ -1,7 +1,6 @@
 /**
- * Web Atelier 2021  Exercise 6 - MongoDB
- *
- * Student: __STUDENT NAME__
+ * 
+ * Edited by Alessandro Cravioglio
  *
  * Router auto-loader
  *

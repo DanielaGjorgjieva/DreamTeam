@@ -1,7 +1,7 @@
 /**
  * Web Atelier 2021  Exercise 6 - MongoDB
  *
- * Student: __STUDENT NAME__
+ * Student: Alessandro Cravioglio
  *
  * Task 1
  *
@@ -12,8 +12,13 @@ const ObjectId = mongodb.ObjectId;
 const MongoClient = mongodb.MongoClient;
 
 const mongodb_uri = 'mongodb://localhost:27017';
-const db_name = 'web-atelier-ex';
-const collection_name = 'music';
+const db_name = 'web-atelier-project';
+// first collection:s sports
+const sport_name = 'sport';
+// second collectin: users
+const users_name = 'users';
+// TODO: after the website is converted to sport application
+// NEW COLLECTION -> USERS
 
 const model = {};
 
@@ -23,12 +28,8 @@ MongoClient
     .then(client => {
         console.log("Connected to ", mongodb_uri);
         model.db = client.db(db_name);
-        model.music = model.db.collection(collection_name);
-
-
-        //Task 2
-        //TODO uncomment this to call your module
-        // require('./sync').check(model.music, "public/music").then(console.log);
+        model.sport = model.db.collection(sport_name);
+        model.users = model.db.collection(users_name);
 
     })
     .catch(err => console.error(err));

@@ -1,13 +1,10 @@
 /**
-* Web Atelier 2021  Exercise 5 - Express and EJS
+* 
+* Student: Daniela Gjorgjieva
 *
-* Student: 
+* Edited by Alessandro Cravioglio 
 *
 * /songs API router
-*
-* This module skeleton exports the routes for Task 1
-*
-* You can extend it to include the routes for Task 2
 *
 */
 
@@ -23,12 +20,11 @@ const fs = require('fs-extra');
 
 const model = require('../models/index.js').model;
 
-const musicfolder = "public/music"
-
+// TODO: rework all views
 
 router.get('/', function(req, res) {
  
-    model.music.find({}).toArray().then(result => {
+    model.sport.find({}).toArray().then(result => {
         res.status(200);
         res.render("../views/songs.ejs", {result: result});
     })
@@ -37,35 +33,30 @@ router.get('/', function(req, res) {
 
 router.get('/home', function(req, res) {
  
-    model.music.find({}).toArray().then(result => {
+    model.sport.find({}).toArray().then(result => {
         res.status(200);
         res.json(result);
     })
 
 });
 
+// is this route somehow useful? -alessandro
 router.get('/playlist', function(req, res) {
-    model.music.find({}).toArray().then(result => {
+    model.sport.find({}).toArray().then(result => {
     if(req.accepts("html")) {
         res.render("../views/includes/player.ejs", {result: result});
     }})
 })
 
+// see comment above
 router.get('/play', function(req, res) {
-    model.music.find({}).toArray().then(result => {
+    model.sport.find({}).toArray().then(result => {
     if(req.accepts("html")) {
         res.render("../views/includes/play.ejs", {result: result});
     }})
 })
 
-
-
-router.get('/music/*.mp3', function(req, res) {
-    res.sendFile('${req.params[0]}.mp3', {root: '/music/'}, err => {
-        res.status(404).end();
-    })
-})
-
+// REMOTE feature could be implemented: think about that
 router.get("/player/remote", function (req, res) {
     res.status(200).json();
 })
