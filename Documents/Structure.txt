@@ -32,3 +32,27 @@ GET/user/:id/edit                   #user information edit page
 PUT/user/:id                        #on submit button in the user  edit page
 
 DELETE/user/:id                     #on submit button in the user page
+
+
+
+Type of objects:
+
+Event:
+{
+    sport : "",
+    owner : "",
+    description : "",
+    place : "",
+    date : "",        #stating date
+    frequency : "",
+    max_members : 10,
+    members : [],
+}
+
+User:
+{
+    username: "",
+    password: "",
+    created: [],
+    joined: [],
+}
