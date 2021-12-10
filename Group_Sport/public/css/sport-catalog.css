@@ -80,24 +80,11 @@ and (min-device-width: 768px) {
     color: white;
   }
 
-  #sports_table article.playing span {
-    background: #FFDA5F;
-  }
-
-  #sports_table article.playing:hover span {
-    background: #FFCB1E;
-    color: black;
-  }
-
   #sports_table header a {
     border-radius: 5px;
     background: #FFCB1E;
   }
 
-  #sports_table header a[href="sports.html?sort=favourite"] {
-    display: none;
-
-  }
 
   #sports_table progress {
     margin-top: 14px;
