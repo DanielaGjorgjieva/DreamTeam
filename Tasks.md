@@ -35,3 +35,7 @@ In detail:
 -created sign in page, along with javascript.
 
 #### Andrea Prato
+10/12
+-Started working on the fetch and the socket with Samuel
+-Deleted all the useless parte related to the player and the playlist
+-Checked all the code in the files related to fetch and sockets (ajax.js, ws.js)

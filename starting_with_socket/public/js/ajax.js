@@ -14,17 +14,7 @@ function init_socket() {
      
         socket.on('delete', (msg) => {
 
-            let player = document.getElementById("player");
-            let t = player.querySelector("header .title").innerHTML
-
-            if((msg.src).includes(t)) {
-                let nxt = player.querySelector("#next");
-                nxt.dispatchEvent(new Event("click"))
-            }
-
-            ls_remove_activity(msg.src);
-
-            console.log("A activity has been deleted.")
+            console.log("An activity has been deleted.")
             let activity = document.getElementById(msg.id);
             if(activity) {
                 activity.remove();
@@ -38,7 +28,7 @@ function init_socket() {
         })
 
         socket.on('edit', (msg) => {
-            console.log("A activity has been edited.")
+            console.log("An activity has been edited.")
             let hashstr = document.location.hash;
             if (hashstr.includes(msg)) {
                 fetch("/activities/"+msg)
@@ -53,6 +43,7 @@ function init_socket() {
                     let closebtn = document.getElementById("closebtn");
                     closebtn.addEventListener("click", (e)=> {
                         getActivityTable();
+//where is the submit???
         })
                 })
             } else if (hashstr.includes("activities")) {
@@ -61,25 +52,8 @@ function init_socket() {
         })
 
         socket.on('upload', (msg) => {
-            console.log("A activity has been uploaded. View is being refreshed.")
+            console.log("An activity has been uploaded. View is being updated.")
             getActivityTable();
-        })
-
-        socket.on('append', (msg) => {
-            console.log("A activity has been added to local storage.");
-            ls_add_activity(msg);
-        })
-
-        socket.on('playremote', () => {
-            console.log("Remote play started.");
-            let playbtn = document.getElementById("play");
-            playbtn.dispatchEvent(new Event("click"));
-        })
-
-        socket.on('pauseremote', () => {
-            console.log("Remote play started.");
-            let pause_btn = document.getElementById("pause");
-            pause_btn.dispatchEvent(new Event("click"));
         })
         
         socket.on('disconnect', ()=> {
@@ -99,21 +73,11 @@ function upload_redirect() {
     upload_button.addEventListener('click', link_click);
     home_button.addEventListener('click', home_click);
     activity_button.addEventListener('click', activity_click);
-    remote_button.addEventListener('click', remote_click);
 
     // restoreURI_activities(document.location.hash)
     restoreURI(document.location.hash)
 }
 
-function remote_click(e) {
-    console.log("Remote player button clicked.")
-    e.preventDefault();
-
-    let url = new URL(e.currentTarget.href);
-    if(url.pathname == "/player/remote") {
-        remotePlayer(); // asyn chronous excecutiuion 
-    }
-}
 
 function link_click(e) {
     console.log("Upload button clicked.")
@@ -180,8 +144,6 @@ function getActivityTable() {
         page.insertAdjacentHTML("afterbegin", html);
         delete_redirect();
         edit_redirect();
-        play_redirect();
-        append_redirect();
         document.location.hash = "#activities"
     })
 }
@@ -248,19 +210,6 @@ function delete_redirect() {
     }
 }
 
-function play_redirect() {
-    let play_buttons = document.querySelectorAll(".playbtns");
-    for(let i=0;i < play_buttons.length;i++) {
-        play_buttons[i].addEventListener('click', play_click)
-    }
-}
-
-function append_redirect() {
-    let append_buttons = document.querySelectorAll(".append-button");
-    for(let i=0; i < append_buttons.length;i++) {
-        append_buttons[i].addEventListener('click', append_click)
-    }
-}
 
 function init_listeners() {
     let places = document.querySelectorAll(".placelink");
@@ -337,6 +286,8 @@ function titlelink(e) {
     })
 }
 
+//Title and instructor seem incomplete (don't set the hash)
+
 function delete_click(e) {
 
     let id = e.target.parentNode.id;
@@ -351,13 +302,6 @@ function delete_click(e) {
         console.log(res.status);
         console.log("H: " + this.innerHTML)
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-        let player = document.getElementById("player");
-            let t = player.querySelector("header .title").innerHTML
-
-            if(t === this.innerHTML) {
-                let nxt = player.querySelector("#next");
-                nxt.dispatchEvent(new Event("click"))
-            }
         socket.emit('deleted', {id: id, src: this.innerHTML});
     })
 }
@@ -370,32 +314,6 @@ function edit_click(e) {
     if(url.pathname.includes("/edit")) {
         editActivity(url);
     }
-}
-
-function play_click(e) {
-    console.log("Play clicked");
-    e.preventDefault();
-
-    let audio = document.getElementById("player-audio");
-    let player = document.getElementById("player");
-    player.querySelector(".title").innerHTML = e.target.id;
-    audio.src = e.target.id;
-    audio.play();
-}
-
-function append_click(e) {
-    console.log("Append clicked");
-    e.preventDefault();
-
-    let id = e.target.id;
-    fetch(`/activities/${id}`, { method: 'GET', headers: {'Accept': 'application/json'}}).then(res => res.json()).then(activity_data => {
-        ls_add_activity(activity_data.src.replace('public/', '/'));
-        socket.emit('appended', activity_data.src)
-    // automatically 'refresh' the audio element when adding a activity
-    }).then( () => {
-        window.dispatchEvent(new StorageEvent('storage'));
-    });
-
 }
 
 function editActivity(url) {
@@ -433,8 +351,8 @@ function editActivity(url) {
                 body : new FormData(this)
             })
             .then(() => {
-                getActivityTable()
-                socket.emit('edited', i)
+                getActivityTable();
+                socket.emit('edited', i);
             })
         })
     })
@@ -490,27 +408,6 @@ function restoreURI(URI_frag) {
         document.getElementById("home-link").dispatchEvent(new Event("click"))
     }
 }
-
-
-
-///////////////////////////////////////////////////////
-// PLAYER INIT BELOW //////////////////////////////////
-
-var playlist;
-
-function ls_add_activity(activity_src) {
-    playlist.load(localStorage.getItem("pl"));
-    playlist.activities.push(activity_src);
-    localStorage.setItem("pl", playlist.toJSON());
-    console.log("Local storage activities: "+playlist.activities)
-} 
-
-function ls_remove_activity(activity_src) {
-    playlist.load(localStorage.getItem("pl"));
-    playlist.activities = playlist.activities.filter(activity => (!activity.includes(activity_src) || !activity_src.includes(activity)));
-    localStorage.setItem("pl", playlist.toJSON());
-    console.log("Local storage activities: "+playlist.activities)
-} 
 
     
 
