@@ -18,25 +18,38 @@ const ObjectId = require('mongodb').ObjectId;
 // GET user
 
 router.get('/:id', function(req, res) {
-
+    // go to profile page
 })
 
 // create user
-router.get('/sing_in', function(req, res) {
+router.get('/singin', function(req, res) {
+    // go to signin page
+})
+
+// get login
+router.get('/login', function (req, res) {
 
 })
 
 // post user
 router.post('/', function (req, res) {
 
+    const newUser = {
+        // TODO: manage password
+        username: req.body.username,
+        password: req.body.password,
+        created: [],
+        joined: []
+    }
+
 })
 
 // delete user
 router.delete('/:id', function (req, res) {
-
+    // delete user
+    // redirect to main
 })
 
 // edit user
 router.put('/:id', function (req, res) {
-
 })

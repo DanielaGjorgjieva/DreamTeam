@@ -15,31 +15,39 @@ const fs = require('fs-extra');
 const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
+// DEFAULT NOT FOUND
+function notFound() {res.status(404).end()};
+
 // ROUTES
 router.get("/", function (req, res) {
-   model.sport.find({}).toArray().then(result => {
-      if (req.query.place !== undefined) {
-         let place = req.query.place;
-         res.status(200);
-         res.json(result);
-      } else {
-         res.status(200);
-         if(req.accepts("application/json"))
-            res.json(result);
-         else if (req.accepts("text/html"))
-         // TODO: all EJS 
-         // ??????
-            res.render("../views/includes/activity_table.ejs", { result: result, ge: "no"})
-      }    
-   })
+   
+   try {
+      model.sport.find({}).toArray()
+      .then(result => {
+         res.status(200).json(result);
+      }).catch(error => {
+         console.error(error);
+         notFound();
+      })
+   } catch {
+      notFound();
+   }
 })
 
 router.get('/upload', function (req, res) {
-   res.status(200).json();
+   try {
+      res.status(200);
+   } catch {
+      notFound();
+   }
 })
 
 router.get('/about', function (req, res) {
-
+   try {
+      res.status(200);
+   } catch {
+      notFound();
+   }
 })
 
 // GET AND EDIT SPORT ACTIVITY
@@ -47,25 +55,45 @@ router.get('/about', function (req, res) {
 router.get('/:id', function (req, res) {
 
    let filter = { _id: new ObjectId(req.params.id)};
-   model.sport.findOne(filter).then(result => {
-      if (result === null) {
-         res.status(404).end();
-      } else {
-         res.status(200).json(result);
-      }
-   });
+
+   try {
+      model.sport.findOne(filter)
+      .then(result => {
+         if (result === null) {
+            res.status(404).end();
+         } else {
+            res.status(200).json(result);
+         }
+      })
+      .catch(error => {
+         console.error(error);
+         notFound();
+      })
+   } catch {
+      notFound();
+   }
 });
 
 router.get('/:id/edit', function (req, res) {
 
-   let filter = { _id: new ObjectId(req.params.id) };
-   model.sport.findOne(filter).then(result => {
-      if (result === null) {
-         res.status(404).end();
-      } else {
-         res.render('../views/edit.ejs', { result: result });
-      }
-   })
+   let filter = { _id: new ObjectId(req.params.id)};
+
+   try {
+      model.sport.findOne(filter)
+      .then(result => {
+         if (result === null) {
+            res.status(404).end();
+         } else {
+            res.status(200).json(result);
+         }
+      })
+      .catch(error => {
+         console.error(error);
+         notFound();
+      })
+   } catch {
+      notFound();
+   }
 })
 
 // POST AND PUT
@@ -73,61 +101,86 @@ router.get('/:id/edit', function (req, res) {
 // post activity
 
 router.post('/', function (req, res) {
-   console.log(req.body);
-   const newActivity = {
-     
-      instructor: req.body.instructor,
-      title: req.body.title,
-      place: req.body.place,
- 
-      duration: req.body.duration,
-      quantity: req.body.quantity,
 
-      desc: req.body.desc,
-   };
+   try {
+      const newActivity = {
+         sport: req.body.sport,
+         // owner: req.body.owner,
+         description: req.body.description,
+         place: req.body.place,
+         frequency: req.body.frequency,
+         date: req.body.date,
+         members: [],
+         max_members: req.body.max_members,
+      };
+   
+      // TODO: complete
+      model.sport.insertOne(newActivity)
+      .then(result => {
+         console.log(result);
+         
+         // INSERT SOCKET EVENT HERE
+      
+         // sent new object as json response
+         res.status(201).json(newActivity);
+      })
+      .catch(error => {
+         console.error(error);
+         notFound();
+      })
+   } catch {
+      notFound();
+   }
 });
 
 router.put('/:id', function (req, res) {
-   // where is the updated file ? you just update the db
 
-   const newActivity = {
-      // TODO: verify fields of newActivity
-      instructor: req.body.instructor,
-      title: req.body.title,
-      place: req.body.place,
-      src: req.body.src,
-      duration: req.body.duration,
-      quantity: req.body.quantity,
-      desc: req.body.desc
-   };
+   try {
+      const newActivity = {
+         sport: req.body.sport,
+         // owner: req.body.owner,
+         description: req.body.description,
+         place: req.body.place,
+         frequency: req.body.frequency,
+         date: req.body.date,
+         members: [],
+         max_members: req.body.max_members,
+      };
    
-   let filter = { _id: new ObjectId(req.params. id)};
-   const update = { $set: newActivity }
-   model.sport.updateOne(filter, update)
-   .then(result => {
-      let found = (result.upsertedCount == 0);
-      if (found) {
+      // TODO: complete
+      model.sport.updateOne(filter, newActivity)
+      .then(result => {
+         console.log(result);
+         
+         // INSERT SOCKET EVENT HERE
+      
+         // sent new object as json response
          res.status(200).json(newActivity);
-      } else { 
-         res.status(201).json(newActivity);
-      }
-   })
+      })
+      .catch(error => {
+         console.error(error);
+         notFound();
+      })
+   } catch {
+      notFound();
+   }
 });
 
 // DELETE
 router.delete('/:id', function (req, res) {
 
    let filter = { _id: new ObjectId(req.params.id)};
-   model.sport.findOneAndDelete(filter).then(result => {
-      if (result.value == null) {
-         res.status(404).end();
-      } else {
-         if (req.accepts("html")) {
-            // ????????
-            res.redirect("/activities");
+
+   try {
+      model.sport.findOneAndDelete(filter)
+      .then(result => {
+         if (result.value == null) {
+            res.status(404).end();
          } else {
             res.status(204).end();
          }
-      }
-   })
+      })
+   } catch {
+      notFound();
+   }
 });
