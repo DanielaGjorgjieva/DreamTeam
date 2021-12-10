@@ -44,7 +44,7 @@ const routers = require('./routes');
 
 app.use('/sports', routers.sports);
 app.use('/', routers.init);
-//app.use('/playlist', routers.playlist);
+app.use('/users', routers.users);
 
 //default fallback handlers
 // catch 404 and forward to error handler

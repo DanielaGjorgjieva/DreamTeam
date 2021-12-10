@@ -34,17 +34,27 @@ router.get("/", function (req, res) {
    })
 })
 
-router.get("/home", function (req, res) {
-   model.sport.find({}).toArray().then(result => {
-
-      res.status(200);
-      res.json(result);
-   })
-})
-
 router.get('/upload', function (req, res) {
    res.status(200).json();
 })
+
+router.get('/about', function (req, res) {
+
+})
+
+// GET AND EDIT SPORT ACTIVITY
+
+router.get('/:id', function (req, res) {
+
+   let filter = { _id: new ObjectId(req.params.id)};
+   model.sport.findOne(filter).then(result => {
+      if (result === null) {
+         res.status(404).end();
+      } else {
+         res.status(200).json(result);
+      }
+   });
+});
 
 router.get('/:id/edit', function (req, res) {
 
@@ -60,8 +70,9 @@ router.get('/:id/edit', function (req, res) {
 
 // POST AND PUT
 
-router.post('/', function (req, res) {
+// post activity
 
+router.post('/', function (req, res) {
    console.log(req.body);
    const newActivity = {
      
@@ -74,28 +85,12 @@ router.post('/', function (req, res) {
 
       desc: req.body.desc,
    };
-
-   // EDIT: I don't think they'll be ever needed  (files post/deletion) -Alessandro
-});
-
-router.get('/:id', function (req, res) {
-
-   let filter = { _id: new ObjectId(req.params.id)};
-   model.sport.findOne(filter).then(result => {
-      if (result === null) {
-         res.status(404).end();
-      } else {
-         res.status(200).json(result);
-      }
-   });
 });
 
 router.put('/:id', function (req, res) {
-   // where is the updated file ? you just update the db 
-   // TODO
+   // where is the updated file ? you just update the db
 
    const newActivity = {
-    
       // TODO: verify fields of newActivity
       instructor: req.body.instructor,
       title: req.body.title,
@@ -120,7 +115,6 @@ router.put('/:id', function (req, res) {
 });
 
 // DELETE
-
 router.delete('/:id', function (req, res) {
 
    let filter = { _id: new ObjectId(req.params.id)};

@@ -15,3 +15,7 @@ Samuel Corecco
 ## Basic Web App Features
 
 Work in Progress
+
+
+
+## Features implemented
