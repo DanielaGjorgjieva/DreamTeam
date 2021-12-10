@@ -16,7 +16,7 @@ const db_name = 'web-atelier-project';
 // first collection:s sports
 const sport_name = 'sport';
 // second collectin: users
-const users_name = 'users';
+const users_name = 'user';
 // TODO: after the website is converted to sport application
 // NEW COLLECTION -> USERS
 
@@ -29,7 +29,7 @@ MongoClient
         console.log("Connected to ", mongodb_uri);
         model.db = client.db(db_name);
         model.sport = model.db.collection(sport_name);
-        model.users = model.db.collection(users_name);
+        model.user = model.db.collection(users_name);
 
     })
     .catch(err => console.error(err));
