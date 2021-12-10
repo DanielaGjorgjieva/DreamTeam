@@ -12,13 +12,24 @@
     /* CONTENT FIRST PAGE SECTION */
     main {
     font-size: 20px;
-    /* background: #F7F7E5; */
+    background: #F7F7E5;
+    }
+
+    main section.homepage_title{
+      /* color: white; */
+      /* background-image: url("../images/groups.jpeg"); */
+      /* background-position:50%; */
+      text-align: center;
+      padding-top: 2em;
+      /* padding-bottom: 10em; */
+      /* border: 2em; */
     }
 
     /* TOP TEN SONG SECTION */
     main section.title{
       text-align: left;
-      padding: 2em;
+      /* padding: 2em; */
+
     }
     main a.song-l {
       background: #EDEDDD;

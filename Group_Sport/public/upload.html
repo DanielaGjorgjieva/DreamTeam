@@ -42,7 +42,7 @@
   </nav>
 
   <!-- MAIN CONTENT -->
-  <main>
+  <main id="upload">
     <section class="title">
       <h1>Add your sport activity!</h1>
     </section>
@@ -50,23 +50,20 @@
     <form class="upload-section">
 
       <label for="sport_name"> Sport </label>
-      <input type="text" id="sport_name" name="sport_name" placeholder="Soccer...">
+      <input type="text" id="sport_name" name="sport_name" placeholder="Soccer..." required>
 
       <label for="sport-description"> Description</label>
       <textarea id="sport-description" name="sport-description" rows="5" cols="45"
         placeholder="Write here your sport's description..."></textarea>
 
       <label for="place"> Place </label>
-      <input type="text" id="place" name="place" placeholder="Lugano...">
-
-      <label for="Artist-Name"> Duration </label>
-      <input type="text" id="Artist-Name" name="Artist Name" placeholder="Caparezza">
+      <input type="text" id="place" name="place" placeholder="Lugano..." required>
 
       <label for="date">Start date</label>
-      <input type="date" id="date" name="date" value="" min="" max="2025-12-31">
+      <input type="date" id="date" name="date" value="" min="" max="2025-12-31" required>
 
       <label for="frequency">Frequency</label>
-      <select name="frequency" id="frequency">
+      <select name="frequency" id="frequency" required>
         <option value="Daily">Daily</option>
         <option value="Weekly">Weekly</option>
         <option value="Monthly">Monthly</option>
@@ -74,7 +71,7 @@
       </select>
 
       <label for="members">Members</label>
-      <input type="number" id="members" name="members" min="1" max="30"><br><br>
+      <input type="number" id="members" name="members" value ="1" min="1" max="30" required><br><br>
       <!--         
           <input type="text" id="Album-Name" name="Album Name" placeholder="Exuvia"> -->
 
