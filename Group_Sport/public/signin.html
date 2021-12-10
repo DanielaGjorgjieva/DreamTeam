@@ -1,0 +1,203 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Upload
+
+    Author: Francesco Casarella
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Placeholder: Homepage</title>
+  <link href="css/base.css" rel="stylesheet" />
+  <link href="css/upload.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="author" content="Francesco Casarella">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/occurencies.js"></script>
+</head>
+
+<body>
+  <!-- background="images/ww.jpg" -->
+  <!-- <div class="fade-element"></div> -->
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <a href="index.html">
+      <img src="images/logo-placeholder-png.png" alt="logo">
+    </a>
+    <h1>Sport Web-App</h1>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="navigation bar">
+    <a href="index.html">Homepage</a>
+    <a href="sports.html">Sports List</a>
+    <a href="upload.html">Create an event</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="upload">
+    <section class="title">
+      <h1>Create your Account!</h1>
+    </section>
+    <form class="upload-section" onSubmit = "return checkPassword(this)" >
+
+        <label for="sport"> Username </label>
+        <input type="text" id="sport" name="sport" placeholder="" required>
+  
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="password1"
+               minlength="8" required>
+  
+          <label for="pass">Confirm Password</label>
+          <input type="password" id="pass" name="password2"
+              minlength="8" required>
+  
+        <button type="submit" name="submit">Sign In</button>
+     
+    </form>
+       
+
+    <!-- ADVICE SECTION -->
+    <section class="title">
+      <h1>Popular Activities: </h1>
+    </section>
+
+    <section class="advices">
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="even">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="even">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+    </section>
+    <br>
+    <!-- PROMO SECTION
+    <section class="promo-title">
+      <h1>We are here for you!<br>(And for free)</h1>
+    </section>
+    <section class="promo">
+      <h2>With a collection of over 20'000 songs!</h2>
+    </section>
+    <section class="promo">
+      <h2>More than 5'000 Albums of every genre!</h2>
+    </section>
+    <section class="promo">
+      <h2>Collaboration of 10'000 Artist from all over the world!</h2>
+    </section>
+    <section class="promo">
+      <h2>And last but not least, our fantastic development team!</h2>
+    </section> -->
+
+  </main>
+
+  <aside class="sidebar">
+    <section class="title">
+      Instructors
+    </section>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-right">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+        <img src="images/img_avatar.png" alt="second musician">
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+
+      <a href="">
+        <section class="section-right">
+          <p class="Artist-Name">
+            Placeholder<br>
+            <cite> "...something something something..."</cite>
+          </p>
+          <img src="images/img_avatar.png" alt="second musician">
+        </section>
+      </a>
+
+      <a href="">
+        <section class="section-left">
+          <img src="images/img_avatar.png" alt="first musician">
+          <p class="Artist-Name">
+            Placeholder <br>
+            <cite> "...something something something..."</cite>
+          </p>
+        </section>
+      </a>
+  </aside>
+
+  <footer>
+    © Dream Team - Software Atelier 3
+  </footer>
+</body>
+
+</html>
