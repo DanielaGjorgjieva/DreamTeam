@@ -8,9 +8,9 @@ Francesco Casarella
 
 Alessandro Cravioglio
 
-Andrea Prato first commit
+Andrea Prato
 
-Samuel Corecco first commit
+Samuel Corecco
 
 ## Basic Web App Features
 
