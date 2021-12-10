@@ -1,0 +1,34 @@
+Routes:
+
+GET /		                        #homepage
+
+GET /sports	                        #song table	
+
+GET /upload	                        #upload page, upload form to create a sport event
+
+GET /about	                        #about page
+
+GET/sports/:id	                    #specific sport page
+
+GET/sports/:id/edit                 #edit form to edit sport event
+
+POST/sports                         #on submit button from upload
+
+PUT/sports/:id                      #on submit button from edit
+
+DELETE/sports/:id                   #on submit button in the user page
+
+
+GET/signin                         #sign in page for new user
+
+GET/login                          #log-in page for users
+
+GET/user/:id                        #specific user page
+
+POST/user                           #on submit button in the user page
+
+GET/user/:id/edit                   #user information edit page
+
+PUT/user/:id                        #on submit button in the user  edit page
+
+DELETE/user/:id                     #on submit button in the user page
