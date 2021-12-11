@@ -80,7 +80,7 @@ app.use(function(req, res, next) {
 
 
 //start server
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8888);
 var server = require('http').createServer(app);
 
 server.on('listening', function() {
