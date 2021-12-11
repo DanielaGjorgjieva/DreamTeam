@@ -7,7 +7,7 @@ this file should check if the user is logged or not
         <h1>Add your sport activity!</h1>
     </section>
 
-    <%if (user.username == "") {%>
+    <%if (!user) {%>
 
     <section class="formdesc">
         If you want to create an event please <a href="/login">Login</a>!
