@@ -56,3 +56,17 @@ User:
     created: [],
     joined: [],
 }
+
+
+
+
+Se non sei loggato:
+-fai vedere la scritta login o sign in
+
+Se sei l'owner:
+-fai vedere il tasto modifica (+ delete) + la chat
+
+Se sei un user:
+- fai vedere il tasto join
+o
+- fai vedere il tasto leave + la chat

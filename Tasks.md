@@ -3,6 +3,22 @@
 
 #### Francesco Casarella
 
+11/12
+- created ejs based on html
+
+10/12
+- improved HTML and CSS
+- removed useless files
+- created strucure.txt
+- modelled object structures and routes
+
+09/12
+- improved HTML and CSS
+- added presentation
+
+08/12
+- created new website style
+
 #### Samuel Corecco
 
 #### Alessandro Cravioglio
