@@ -580,6 +580,11 @@
   "resolved" "https://registry.npmjs.org/dotdir-regex/-/dotdir-regex-0.1.0.tgz"
   "version" "0.1.0"
 
+"dotenv@^10.0.0":
+  "integrity" "sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz"
+  "version" "10.0.0"
+
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
   "resolved" "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -1482,6 +1487,7 @@
     "regex-cache" "^0.4.2"
 
 "micromatch@github:jonschlinkert/micromatch#2.2.0":
+  "integrity" "sha1-5ygb+XEQCCe4kON12ZTxIDSJj/U="
   "version" "2.2.0"
   dependencies:
     "arr-diff" "^1.0.1"
