@@ -24,6 +24,7 @@
     "jsmediatags": "^3.9.7",
     "method-override": "^3.0.0",
     "mongodb": "^4.1.4",
+    "mongoose": "^6.1.1",
     "morgan": "^1.10.0",
     "socket.io": "^4.4.0"
   },

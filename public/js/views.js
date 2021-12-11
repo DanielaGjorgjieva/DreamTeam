@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //EJS Compiled Views - This file was automatically generated on Sat Dec 11 2021 15:39:46 GMT+0100 (Central European Standard Time)
+=======
+//EJS Compiled Views - This file was automatically generated on Sat Dec 11 2021 15:40:30 GMT+0100 (Central European Standard Time)
+>>>>>>> 8b54294141b5d084a60cdc5706331f561965b342
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {

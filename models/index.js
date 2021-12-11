@@ -11,7 +11,6 @@ const mongodb = require('mongodb');
 const ObjectId = mongodb.ObjectId;
 const MongoClient = mongodb.MongoClient;
 
-const mongodb_uri = 'mongodb://localhost:27017';
 const db_name = 'web-atelier-project';
 // first collection:s sports
 const sport_name = 'sport';
@@ -22,15 +21,16 @@ const users_name = 'user';
 
 const model = {};
 
+const url = 'mongodb+srv://alessandro_cravioglio:12345@teamproject.ol3il.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 MongoClient
-    .connect(mongodb_uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(client => {
-        console.log("Connected to ", mongodb_uri);
+        console.log("Connected to ", url);
         model.db = client.db(db_name);
         model.sport = model.db.collection(sport_name);
         model.user = model.db.collection(users_name);
-
+    
     })
     .catch(err => console.error(err));
 
