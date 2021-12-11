@@ -22,18 +22,6 @@ function checkPassword(form) {
         password = form.password.value;
         password_check = form.password_check.value;
 
-        //don't needed cause password is required, the form already complains if you forget the password
-        //                                                                        Francesco 10 Dec 18:40
-
-        // // If password not entered
-        // if (password == '')
-        //     alert ("Please enter Password");
-                
-        // // If confirm password not entered
-        // else if (password_check == '')
-        //     alert ("Please confirm your password");
-                
-
         // If Not same return False.    
         if (password != password_check) {
             alert ("\nPassword did not match: Please try again...")
