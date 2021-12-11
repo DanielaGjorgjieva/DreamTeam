@@ -1,4 +1,4 @@
-﻿## This file is intended to keep track of the work of every single member
+## This file is intended to keep track of the work of every single member
 ### Should updated by each team member for his/her work
 
 #### Francesco Casarella
@@ -18,8 +18,6 @@
 
 08/12
 - created new website style
-
-#### Samuel Corecco
 
 #### Alessandro Cravioglio
 
@@ -59,3 +57,10 @@ In detail:
 -Started working on the fetch and the socket with Samuel
 -Deleted all the useless parte related to the player and the playlist
 -Checked all the code in the files related to fetch and sockets (ajax.js, ws.js)
+
+
+
+#### Samuel Corecco
+10/12
+-Started working on the fetch/socket with Andrea
+-Read reade all documentation to understand the structure (nem, id, functionality, ...) of the program
