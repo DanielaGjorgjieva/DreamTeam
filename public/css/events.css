@@ -1,0 +1,499 @@
+/*
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Stylesheet
+
+    Author: Francesco Casarella
+*/
+@media screen /*desktop*/
+  and (min-device-width: 768px){
+
+    /* .fade-element{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+   
+    
+      background-image: url("../images/eee.webp");
+      background-position: center;
+    
+     
+      animation: fade-animation ease 5s forwards;
+      animation-iteration-count: 1;
+    }
+    @keyframes fade-animation {
+      0% { opacity: 1;}
+      100% { opacity: 0;}
+    } */
+    main {
+    font-size: 20px;
+    /* background-image: url("../images/perfect.webp"); */
+    color:	rgb(0, 0, 0);
+    }
+
+    main section.formdesc {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
+    main section.formdesc a {
+      color: black;
+    }
+
+    main section.title{
+      text-align: left;
+      padding: 2em;
+    }
+
+    /* CONTENT UPLOAD PAGE */
+    main form.upload-section {
+      padding: 3em;
+      padding-top: 0em;
+      display: grid;
+      align-items: left;
+      text-align:left;
+      grid-gap: 20px;
+      grid-column-gap: 40px;
+      grid-template-columns: 30% 70%;
+      grid-template-rows: repeat 10(auto);
+    }
+    #sport-name {
+      grid-column: 2;
+    }
+    form label{
+      text-align: right;
+      font-size: 25px;
+    }
+    form input{
+      width:200px;
+      border-radius: 5px;
+      border: 1px solid black;
+      font-size: 20px;
+      font-family: 'Quicksand', sans-serif;
+      transition: 250ms;
+    }
+    .upload-section input[type="text"]:focus{
+      width: 250px;
+      border-width: medium;
+    }
+    .upload-section input[type="number"]:focus{
+      width: 250px;
+      border-width: medium;
+    }
+    form select {
+      width: 100px;
+      font-size: 20px;
+      background: white;
+      border-radius: 5px;
+      font-family: 'Quicksand', sans-serif;
+      transition: 250ms;
+    }
+    form select:focus{
+      border: 5px solid black;
+      border-width: medium;
+    }
+    form input[type="file"]{
+      width: 400px;
+      border-radius: 0px;
+    }
+    form input[type=range]{
+      width: 300px;
+      border-radius: 5px;
+    }
+    input.larger {
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 25px;
+      height: 25px;
+     }
+     form button {
+      width: 150px;
+      grid-column: 2;
+      font-size: 25px;
+      border-radius: 5px;
+      border-width: thin;
+      font-family: 'Quicksand', sans-serif;
+      background: #E9E9E9;
+    }
+    form button:hover {
+      border-radius: 5px;
+      border-width: thin;
+      background: #b3b3b3;
+    }
+    form button:hover:active{
+      background: #E9E9E9;
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+      padding: 0;
+      width: 30px;
+      opacity: 0%;
+    }
+
+    label.checkbox {
+      font-size: 10px;
+      justify-content: center;
+      position: relative;
+    }
+    label.checkbox::before{
+      content: "";
+      background: url("../images/heart.png");
+      background-position: center;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: -28px;
+      transition: 250ms;
+    }
+    label.checkbox::after{
+      content: "";
+      background: url("../images/like.png");
+      background-position: center;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: -28px;
+      opacity: 0%;
+    }
+    input[type="checkbox"]:checked + label.checkbox::after {
+      opacity: 100%
+    }
+
+    form input[type="file"]{
+      border-radius: 0px;
+      font-family: 'Quicksand', sans-serif;
+      border: 0px;
+    }
+    form textarea {
+      width: 500px;
+      padding: 5px;
+      border: 1px solid black;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 20px;
+      resize: none;
+      border-radius: 5px;
+      transition: 250ms;
+    }
+    form textarea:focus{
+      width: 580px;
+      border-width: medium;
+    }
+    /* CONTENT UPLOAD PAGE */
+
+    /* ADVICE SECTION */
+    main section.advices {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      align-items: center;
+      text-align: center;
+    }
+    main section.advices a {
+      text-decoration: none;
+      color: white;
+      transition: 250ms;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      transition: 250ms;
+    }
+    main section.advices a.odd {
+      background: #373737 ;
+      display: grid;
+      text-align: center;
+      align-items: center;
+      grid-template-rows: 2fr 3fr 2fr;
+    }
+    main section.advices a.even {
+      background: #575757 ;
+      display: grid;
+      text-align: center;
+      align-items: center;
+      grid-template-rows: 2fr 3fr 2fr;
+    }
+    main section.advices img {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      transition: 250ms;
+      border: 2px solid black;
+      grid-row: 2;
+    }
+    main section.advices a:hover {
+      background: #FFDA5F;
+      color: black;
+    }
+    main section.advices a:hover img {
+      border: 5px solid black;
+    }
+
+    /* PROMO SECTION */
+    main section.promo-title{
+      text-align: center;
+      font-size: 70px;
+      padding: auto;
+    }
+    main section.promo{
+      text-align: center;
+      font-size: 25px;
+      padding-left: 0.5em;
+      padding-bottom: 0.5em;
+    }
+    /* PROMO SECTION */
+
+
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+      
+      img {
+        max-width: 100%
+      }
+    main a:hover {
+        background-color: yellow;
+    }
+      .image {
+        margin-top: 25px;
+        vertical-align: middle;
+        float: left;
+        width:  260px;
+        height: 200px;
+        object-fit: cover;
+        max-width: 90%;
+        min-width: 200px;
+        transition: 250ms;flex-basis: 40%
+      }
+      
+      .text {
+        font-size: 20px;
+        padding-left: 20px;
+      }
+      .zoom {
+       
+        transition: transform .2s; /* Animation */
+        
+        margin: 0 auto;
+      }
+
+      .zoom:hover {
+        transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+
+
+
+      /* IMAGES  */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    justify-content: center;
+}
+
+
+.row img {
+    margin-top: 25px;
+    vertical-align: middle;
+    float: left;
+    width:  260px;
+    height: 200px;
+    object-fit: cover;
+    max-width: 90%;
+    min-width: 200px;
+    transition: 250ms;
+    
+}
+
+
+figcaption {
+    font-family: 'Arial';
+    font-size: 1em;
+    color:goldenrod
+}
+
+.music_photo figcaption {
+    visibility: hidden;
+}
+
+.music_photo:hover img{
+    filter: opacity(.5);
+ 
+      
+}
+
+.music_photo:hover figcaption{
+    visibility: visible;
+}
+
+}
+
+@media screen /*mobile*/
+ and (max-device-width: 768px)
+ and (orientation: portrait) {
+   main {
+   font-size: 15px;
+   background: #F7F7E5;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   }
+
+   /* UPLOAD SECTION */
+   main form.upload-section {
+     text-align: center;
+     font-size: 25px;
+     display: grid;
+     align-items: center;
+     justify-content: center;
+     grid-row-gap: 25px;
+   }
+   form label {
+     font-size: 25px;
+   }
+   form input {
+     font-size: 25px;
+     text-align: center;
+     border-radius: 10px;
+     font-family: 'Quicksand', sans-serif;
+     border-width: thin;
+   }
+   form select {
+     font-size: 25px;
+     text-align: center;
+     border-radius: 10px;
+     background: white;
+     height: 35px;
+   }
+   form textarea {
+     font-size: 25px;
+     text-align: left;
+     padding: 0.15em;
+     border-radius: 10px;
+     border-width: thin;
+     font-family: 'Quicksand', sans-serif;
+   }
+   form input[type="file"]{
+     border-radius: 0px;
+     text-align: center;
+     align-items: center;
+     padding-left: 1em;
+     padding-right: 1em;
+     word-wrap: break-word;
+    }
+    form input[type="range"]{
+     margin-left: 0.5em;
+     margin-right: 0.5em;
+     height: 25px;
+   }
+   input.larger {
+     margin-left: auto;
+     margin-right: auto;
+     width: 25px;
+     height: 25px;
+    }
+    form button {
+     margin-top: 0.5em;
+     margin-left:auto;
+     margin-right: auto;
+     font-size: 25px;
+     width: 150px;
+     border-radius: 5px;
+     border-width: thin;
+   }
+
+   input[type="checkbox"] {
+     margin: 0;
+     padding: 0;
+     width: 50px;
+     opacity: 0%;
+   }
+
+   label.checkbox {
+     font-size: 10px;
+     justify-content: center;
+     position: relative;
+   }
+   label.checkbox::before{
+     content: "";
+     background: url("../images/heart.png");
+     background-position: center;
+     background-size: contain;
+     width: 50px;
+     height: 50px;
+     position: absolute;
+     left: -50px;
+     transition: 250ms;
+   }
+   label.checkbox::after{
+     content: "";
+     background: url("../images/like.png");
+     background-position: center;
+     background-size: contain;
+     width: 50px;
+     height: 50px;
+     position: absolute;
+     left: -50px;
+     opacity: 0%;
+   }
+   input[type="checkbox"]:checked + label.checkbox::after {
+     opacity: 100%
+   }
+
+   /* ADVICE SECTION */
+   main section.advices {
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     align-items: center;
+   }
+   main section.advices img {
+     margin-top: 10px;
+     margin-bottom: 10px;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 50%;
+     width: 130px;
+     height: 130px;
+     border: 2px solid black;
+   }
+   main section.advices a {
+     width: 100%;
+     font-size: 25px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     color: white;
+     text-decoration: none;
+   }
+   main a.odd {
+     background: #373737;
+     display: grid;
+     text-align: center;
+     align-items: center;
+     grid-template-rows: 2fr 3fr 1fr;
+   }
+   main a.even {
+     background: #575757;
+     display: grid;
+     text-align: center;
+     align-items: center;
+     grid-template-rows: 2fr 3fr 1fr;
+   }
+   /* PROMO SECTION */
+   section.promo-title{
+     padding: 0.5;
+     text-align: center;
+     font-size: 20px;
+   }
+   section.promo{
+     text-align: center;
+   }
+
+}

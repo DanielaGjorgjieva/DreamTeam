@@ -32,8 +32,52 @@ function linkClickHandler(event) {
     if (url.pathname.endsWith("/login")) {
         logUser();
     }
-    //log out user
-    //edit and delete
+
+}
+
+function SetButtonUser(){
+    //ID
+    let edit_buttons = document.querySelectorAll('[rel="edit"]');
+    for(let i = 0; i < edit_buttons.length ; ++i){
+        edit_buttons[i].setAttribute("onclick", "editSport(this.id)");
+    }
+
+    let delate_buttons = document.querySelectorAll('[rel="delete"]');
+    for(let i = 0; i < edit_buttons.length ; ++i){
+        delate_buttons[i].setAttribute("onclick", "deletSport(this.id)");
+    }
+}
+
+
+function LogOutUser(){
+    you = undefined;
+    goHome();
+}
+
+function editSport(clicked_id){
+    let id = clicked_id.split("_")[0];
+    fetch("/edit/"+ id).then(res=>res.json()).then(obj=>{
+        setHash('#edit/'+id);
+        html = ejs.views_edit(obj);
+        document.querySelector("main").innerHTML = html;
+        let form = document.querySelector("form.upload-section");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let body = new FormData(form);
+            fetch(""+id, {method: "PUT", body}).then(res=>{
+                ejs.views_user(you);
+       })
+    })
+ })
+}
+
+function deletSport(clicked_id){
+    let id = clicked_id.split("_")[0];
+    // ID
+    let section_sport = document.getElementById(id);
+    fetch(""+id, {method: "DELETE", headers: {"Accept" : "application/json"}}).then(res=> {
+        section_sport.remove();
+    })
 }
 
 function goHome() {
@@ -100,6 +144,8 @@ function logUser() {
                         fetch("/user/" + result._id).then(res=> {
                             you = res.json();
                             ejs.views_user(res.json());
+                        }).then({
+                            SetButtonUser()
                         });
                     } else {
                         alert("Wrong password inserted!");
