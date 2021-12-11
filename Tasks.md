@@ -34,6 +34,10 @@ In detail:
 - created users.js
 - checked and modified sports.js
 - created Tasks.md
+- modelled object structures and routes
+
+11/12
+
 
 #### Daniela Gjorgjieva
 03/12
