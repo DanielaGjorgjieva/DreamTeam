@@ -57,6 +57,7 @@ In detail:
 -Started working on the fetch and the socket with Samuel
 -Deleted all the useless parte related to the player and the playlist
 -Checked all the code in the files related to fetch and sockets (ajax.js, ws.js)
+
 11/12
 -Started writing ajax.js (FETCH-only).
 
@@ -66,5 +67,6 @@ In detail:
 10/12
 -Started working on the fetch/socket with Andrea
 -Read reade all documentation to understand the structure (nem, id, functionality, ...) of the program
+
 11/12
 -startded writing the fetch in ajax.js. finished some function
