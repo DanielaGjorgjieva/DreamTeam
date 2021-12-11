@@ -35,7 +35,9 @@ In detail:
 - modelled object structures and routes
 
 11/12
-
+worked on DB
+- now using ATLAS to deploy db 
+- scurity issues solved
 
 #### Daniela Gjorgjieva
 03/12
