@@ -1,0 +1,93 @@
+<main id="upload">
+    <section class="title">
+        <h1>Add your sport activity!</h1>
+    </section>
+
+    <form method="POST" name="file" action="/sports" encType="multipart/form-data" class="upload-section">
+
+        <label for="sport"> Sport </label>
+        <input type="text" id="sport" name="sport" placeholder="Soccer..." required>
+
+        <label for="description"> Description</label>
+        <textarea id="description" name="description" rows="5" cols="45"
+            placeholder="Write here your sport's description..."></textarea>
+
+        <label for="place"> Place </label>
+        <input type="text" id="place" name="place" placeholder="Lugano..." required>
+
+        <label for="date">Starting date</label>
+        <input type="date" id="date" name="date" value="" min="" max="2025-12-31" required>
+
+        <label for="frequency">Frequency</label>
+        <select name="frequency" id="frequency" required>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+            <option value="Undefined">Undefined</option>
+        </select>
+
+        <label for="max_members">Members</label>
+        <input type="number" id="max_members" name="max_members" value="1" min="1" max="30" required><br><br>
+
+        <button type="submit" name="submit"> Submit </button>
+
+    </form>
+
+    <!-- ADVICE SECTION -->
+    <section class="title">
+        <h1>Popular Activities: </h1>
+    </section>
+
+    <section class="advices">
+        <a href="" class="odd">
+            <section>
+                placeholder
+            </section>
+            <img src="images/img_avatar.png" alt="Linking Park photo">
+            <section>
+                placeholder
+            </section>
+        </a>
+
+        <a href="" class="even">
+            <section>
+                placeholder
+            </section>
+            <img src="images/img_avatar.png" alt="Linking Park photo">
+            <section>
+                placeholder
+            </section>
+        </a>
+
+        <a href="" class="odd">
+            <section>
+                placeholder
+            </section>
+            <img src="images/img_avatar.png" alt="Linking Park photo">
+            <section>
+                placeholder
+            </section>
+        </a>
+
+        <a href="" class="even">
+            <section>
+                placeholder
+            </section>
+            <img src="images/img_avatar.png" alt="Linking Park photo">
+            <section>
+                placeholder
+            </section>
+        </a>
+
+        <a href="" class="odd">
+            <section>
+                placeholder
+            </section>
+            <img src="images/img_avatar.png" alt="Linking Park photo">
+            <section>
+                placeholder
+            </section>
+        </a>
+    </section>
+    <br>
+</main>

@@ -33,6 +33,15 @@
     color:	rgb(0, 0, 0);
     }
 
+    main section.formdesc {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
+    main section.formdesc a {
+      color: black;
+    }
+
     main section.title{
       text-align: left;
       padding: 2em;

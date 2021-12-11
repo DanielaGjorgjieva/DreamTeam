@@ -3,10 +3,11 @@
     Exercise 1
     HTML and CSS
 
-    Upload
+    Signin
 
     Author: Francesco Casarella
 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -31,6 +32,11 @@
       <img src="images/logo-placeholder-png.png" alt="logo">
     </a>
     <h1>Sport Web-App</h1>
+    <section class="login">
+      <a href="login.html">Login</a> <br>
+      or <br>
+      <a href="signin.html">Sign in!</a>
+  </section>
   </header>
 
   <!-- NAVIGATION BAR -->
@@ -42,27 +48,25 @@
   </nav>
 
   <!-- MAIN CONTENT -->
-  <main id="upload">
+  <main id="signin">
     <section class="title">
       <h1>Create your Account!</h1>
     </section>
-    <form class="upload-section" onSubmit = "return checkPassword(this)" >
+    <form class="upload-section" onSubmit="return checkPassword(this)">
 
-        <label for="sport"> Username </label>
-        <input type="text" id="sport" name="sport" placeholder="" required>
-  
-        <label for="pass">Password</label>
-        <input type="password" id="pass" name="password1"
-               minlength="8" required>
-  
-          <label for="pass">Confirm Password</label>
-          <input type="password" id="pass" name="password2"
-              minlength="8" required>
-  
-        <button type="submit" name="submit">Sign In</button>
-     
+      <label for="username"> Username </label>
+      <input type="text" id="username" name="username" placeholder="" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" minlength="8" required>
+
+      <label for="password_check">Confirm Password</label>
+      <input type="password" id="pass" name="password_check" minlength="8" required>
+
+      <button type="submit" name="submit">Sign In</button>
+
     </form>
-       
+
 
     <!-- ADVICE SECTION -->
     <section class="title">

@@ -19,19 +19,23 @@ function today() {
             // Function to check Whether both passwords
             // is same or not.
 function checkPassword(form) {
-        password1 = form.password1.value;
-        password2 = form.password2.value;
+        password = form.password.value;
+        password_check = form.password_check.value;
 
-        // If password not entered
-        if (password1 == '')
-            alert ("Please enter Password");
+        //don't needed cause password is required, the form already complains if you forget the password
+        //                                                                        Francesco 10 Dec 18:40
+
+        // // If password not entered
+        // if (password == '')
+        //     alert ("Please enter Password");
                 
-        // If confirm password not entered
-        else if (password2 == '')
-            alert ("Please enter confirm password");
+        // // If confirm password not entered
+        // else if (password_check == '')
+        //     alert ("Please confirm your password");
                 
+
         // If Not same return False.    
-        else if (password1 != password2) {
+        if (password != password_check) {
             alert ("\nPassword did not match: Please try again...")
             return false;
         }

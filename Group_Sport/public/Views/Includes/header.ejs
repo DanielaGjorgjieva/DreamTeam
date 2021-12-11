@@ -1,0 +1,22 @@
+<header class="page-header">
+
+    <a href="/">
+        <img src="/images/logo-placeholder-png.png" alt="logo">
+    </a>
+
+    <h1>DreamTeam</h1>
+
+    //here we check if the user already logged in
+    <% if(user.username=="" ){ %>
+        <section class="login">
+            <a href="/login">Login</a> <br>
+            or <br>
+            <a href="/signin">Sign in!</a>
+        </section>
+    <% } else {%>
+        <section class="login">
+            Hi, <a href="/user/<%=user._id%>"><%= user.username%></a>!
+        </section>
+
+    <%}%>
+</header>

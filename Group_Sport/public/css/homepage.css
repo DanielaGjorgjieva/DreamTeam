@@ -97,6 +97,12 @@
       padding-top: 1.5em;
     }
 
+    /* PROFILE STYLE */
+    main section.profile {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
     /* ADVICE SECTION */
     main section.advices {
       display: grid;

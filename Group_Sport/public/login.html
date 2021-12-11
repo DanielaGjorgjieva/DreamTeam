@@ -1,0 +1,191 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Login
+
+    Author: Francesco Casarella
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Placeholder: Homepage</title>
+  <link href="css/base.css" rel="stylesheet" />
+  <link href="css/upload.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="author" content="Francesco Casarella">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/occurencies.js"></script>
+</head>
+
+<body>
+  <!-- background="images/ww.jpg" -->
+  <!-- <div class="fade-element"></div> -->
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <a href="index.html">
+      <img src="images/logo-placeholder-png.png" alt="logo">
+    </a>
+    <h1>Sport Web-App</h1>
+    <section class="login">
+        <a href="login.html">Login</a> <br>
+        or <br>
+        <a href="signin.html">Sign in!</a>
+    </section>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="navigation bar">
+    <a href="index.html">Homepage</a>
+    <a href="sports.html">Sports List</a>
+    <a href="upload.html">Create an event</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="login">
+    <section class="title">
+      <h1>Log in your Account!</h1>
+    </section>
+    <form class="upload-section" onSubmit = "return checkPassword(this)" >
+
+        <label for="username"> Username </label>
+        <input type="text" id="username" name="username" placeholder="" required>
+  
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               minlength="8" required>
+  
+        <button type="submit" name="submit">Log In</button>
+    </form>
+
+    <section class="formdesc">
+        You don't have an account? <a href="signin.html">Sign in!</a>
+    </section>       
+
+    <!-- ADVICE SECTION -->
+    <section class="title">
+      <h1>Popular Activities: </h1>
+    </section>
+
+    <section class="advices">
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="even">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="even">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+
+      <a href="" class="odd">
+        <section>
+          placeholder
+        </section>
+        <img src="images/img_avatar.png" alt="Linking Park photo">
+        <section>
+          placeholder
+        </section>
+      </a>
+    </section>
+    <br>
+    
+  </main>
+
+  <aside class="sidebar">
+    <section class="title">
+      Instructors
+    </section>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-right">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+        <img src="images/img_avatar.png" alt="second musician">
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+
+      <a href="">
+        <section class="section-right">
+          <p class="Artist-Name">
+            Placeholder<br>
+            <cite> "...something something something..."</cite>
+          </p>
+          <img src="images/img_avatar.png" alt="second musician">
+        </section>
+      </a>
+
+      <a href="">
+        <section class="section-left">
+          <img src="images/img_avatar.png" alt="first musician">
+          <p class="Artist-Name">
+            Placeholder <br>
+            <cite> "...something something something..."</cite>
+          </p>
+        </section>
+      </a>
+  </aside>
+
+  <footer>
+    © Dream Team - Software Atelier 3
+  </footer>
+</body>
+
+</html>
