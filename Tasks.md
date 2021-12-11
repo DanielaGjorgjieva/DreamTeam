@@ -70,3 +70,4 @@ In detail:
 
 11/12
 -startded writing the fetch in ajax.js. finished some function
+-fetch delete add and log_out (function for the user)
