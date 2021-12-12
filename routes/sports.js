@@ -15,6 +15,9 @@ const fs = require('fs-extra');
 const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
+//SOCKET
+const {eventBus} = require("../ws.js");
+
 // DEFAULT NOT FOUND
 function notFound() {res.status(404).end()};
 
@@ -119,7 +122,7 @@ router.post('/', function (req, res) {
       .then(result => {
          console.log(result);
          
-         // INSERT SOCKET EVENT HERE
+         eventBus.emit('sport.uploaded', newActivity);
       
          // sent new object as json response
          res.status(201).json(newActivity);
@@ -152,7 +155,7 @@ router.put('/:id', function (req, res) {
       .then(result => {
          console.log(result);
          
-         // INSERT SOCKET EVENT HERE
+         eventBus.emit('sport.edited', result);
       
          // sent new object as json response
          res.status(200).json(newActivity);
@@ -177,6 +180,7 @@ router.delete('/:id', function (req, res) {
          if (result.value == null) {
             res.status(404).end();
          } else {
+            eventBus.emit('sport.deleted', result);
             res.status(204).end();
          }
       })

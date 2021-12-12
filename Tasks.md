@@ -73,6 +73,8 @@ worked on DB
 -Minor modifications to some ejs
 -Started working on socket
 -Finished sockets non-user related
+-Debugged fetch code
+-Added four event handlers
 
 
 
@@ -90,3 +92,4 @@ worked on DB
 -no more fetches for everything we currently have available in theory all fetches and associated functions should be done
 -correct one thing for editing ejs updated (ids added)
 -start with socket (done the possible things to do)
+-debugging and uploading fetch 
