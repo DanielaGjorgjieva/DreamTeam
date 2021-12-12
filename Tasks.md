@@ -68,6 +68,8 @@ worked on DB
 -Fetch for user login, signin and logout
 -Init function updated
 -Minor modifications to some ejs
+-Started working on socket
+-Finished sockets non-user related
 
 
 
@@ -84,3 +86,4 @@ worked on DB
 12/12
 -no more fetches for everything we currently have available in theory all fetches and associated functions should be done
 -correct one thing for editing ejs updated (ids added)
+-start with socket (done the possible things to do)
