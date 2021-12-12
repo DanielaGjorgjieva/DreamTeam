@@ -1,43 +1,45 @@
 const io = require('socket.io')();
-
-var clients = 0;
+const EventEmitter = require('events');
+const eventBus = new EventEmitter();
 
 function init(server) {
-    console.log("Starting WS server.")
     io.attach(server);
 
-    io.on('connection', function(socket) {
-        clients += 1;
-        console.log("Connected client.")
-/*
-        socket.on('daniela', (msg) => {
-            console.log(msg)
-            socket.broadcast.emit('danielaclient', msg*2);
-        })
-*/
-        socket.on('deleted', (msg) => {
-            console.log("Song deleted: " + msg.id)
-            socket.broadcast.emit('delete', msg);
-        })
-
-        socket.on('uploaded', (msg) => {
-            console.log("Song uploaded:" + msg)
-            socket.broadcast.emit('upload', msg);
-        })
-
-        socket.on('edited', (msg) => {
-            console.log("Song edited: " + msg)
-            socket.broadcast.emit('edit', msg);
-        })
+    io.on('connection', function (socket) {
+        console.log("A new client has connected!");
 
         socket.on('disconnect', function() {
-            console.log("Client disconnected.")
-            clients -= 1;
-        })
-
-    })
-
-
+            console.log("A client has disconnected!");
+        });
+        
+    });
 }
 
+//edit into list
+
+eventBus.on('sport.edited', (event) => {
+    console.log('Sport has been edited!');
+    io.emit('sport.edited', event);
+});
+
+//delete into list
+
+eventBus.on('sport.deleted', (event) => {
+    console.log('Sport has been deleted!');
+    io.emit('sport.deleted', event);
+});
+
+//upload into list
+
+eventBus.on('sport.uploaded', (event) => {
+    console.log('Sport has been uploaded!');
+    io.emit('sport.uploaded', event);
+});
+
+//NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
+
+//join into list and user profile
+//leave into list and user profile
+
+module.exports.eventBus = eventBus;
 module.exports.init = init;

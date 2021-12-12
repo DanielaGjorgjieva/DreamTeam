@@ -18,7 +18,7 @@ function init() {
 
 function linkClickHandler(event) {
     event.preventDefault();
-    let url = new URL(event.current.href);
+    let url = new URL(event.target.href);
     
     if(url.pathname === "/") {
         goHome();
@@ -38,7 +38,7 @@ function linkClickHandler(event) {
     if (url.pathname.endsWith("/login")) {
         logUser();
     }
-    if(url.pathname.contains("sports")) {
+    if(url.pathname.includes("sports")) {
         if(url.pathname.endsWith("edit")){
             editSport(event.parentNode.id);
         } else {
@@ -93,9 +93,11 @@ function activityUpload() {
 }
 
 function listSports() {
-    fetch("/sport").then(res=>res.json()).then(obj=>{
-        setHash("#sport");
-        html = ejs.views_about({event: obj});
+    fetch("/sports").then(res=>res.json()).then(obj=>{
+        setHash("#sports");
+        console.log(obj);
+        html = ejs.views_sports({sports: obj});
+        console.log(html);
         document.querySelector("main").innerHTML = html;
     })
 }
