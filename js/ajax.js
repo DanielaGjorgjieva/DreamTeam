@@ -6,9 +6,16 @@ let you;
 
 //Fetch for the navbar//
 
-function init(){
-
+function init() {
+    parse_path();
+    document.getElementById("navigation-bar").querySelectorAll("a").forEach(a=> {
+        a.addEventListener("click", linkClickHandler);
+    });
+    document.getElementById("page-header").querySelectorAll("a").forEach(a=> {
+        a.addEventListener("click", linkClickHandler);
+    });
 }
+
 
 function linkClickHandler(event) {
     event.preventDefault();
@@ -20,7 +27,7 @@ function linkClickHandler(event) {
    if (url.pathname.endsWith("/upload")){
         activityUpload();
     }
-    if (url.pathname.endsWith("/sports")) {
+    if (url.pathname === "/sports") {
         listSports();
     }
     if (url.pathname.endsWith("/about")) {
@@ -32,30 +39,21 @@ function linkClickHandler(event) {
     if (url.pathname.endsWith("/login")) {
         logUser();
     }
-
-}
-
-function SetButtonUser(){
-    //ID
-    let edit_buttons = document.querySelectorAll('[rel="edit"]');
-    for(let i = 0; i < edit_buttons.length ; ++i){
-        edit_buttons[i].setAttribute("onclick", "editSport(this.id)");
-    }
-
-    let delate_buttons = document.querySelectorAll('[rel="delete"]');
-    for(let i = 0; i < edit_buttons.length ; ++i){
-        delate_buttons[i].setAttribute("onclick", "deletSport(this.id)");
+    if(url.pathname.contains("sports")) {
+        if(url.pathname.endsWith("edit")){
+            editSport(event.parentNode.id);
+        } else {
+            visitEvent();
+        }
     }
 }
-
 
 function LogOutUser(){
     you = undefined;
     goHome();
 }
 
-function editSport(clicked_id){
-    let id = clicked_id.split("_")[0];
+function editSport(id){
     fetch("/edit/"+ id).then(res=>res.json()).then(obj=>{
         setHash('#edit/'+id);
         html = ejs.views_edit(obj);
@@ -64,19 +62,18 @@ function editSport(clicked_id){
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             let body = new FormData(form);
-            fetch(""+id, {method: "PUT", body}).then(res=>{
+            fetch("/sports/"+id, {method: "PUT", body}).then(res=>{
                 ejs.views_user(you);
        })
     })
  })
 }
 
-function deletSport(clicked_id){
+function deleteSport(clicked_id){
     let id = clicked_id.split("_")[0];
-    // ID
-    let section_sport = document.getElementById(id);
-    fetch(""+id, {method: "DELETE", headers: {"Accept" : "application/json"}}).then(res=> {
-        section_sport.remove();
+    let toDelete = document.getElementById(id);
+    fetch("/sports/"+id, {method: "DELETE", headers: {"Accept" : "application/json"}}).then(res=> {
+        toDelete.remove();
     })
 }
 
@@ -145,7 +142,7 @@ function logUser() {
                             you = res.json();
                             ejs.views_user(res.json());
                         }).then({
-                            SetButtonUser()
+                            SetButtonUser();
                         });
                     } else {
                         alert("Wrong password inserted!");
@@ -158,51 +155,68 @@ function logUser() {
     });
 }
 
+function visitEvent() {
+    //check if the user corresponds to the owner:
+    //if yes load edit/deletedelete pattern
+    //if no load the join/leave pattern
+    
+}
 
+function SetButtonUser(){
+    let delete_buttons = document.querySelectorAll('[rel="delete"]');
+    for(let i = 0; i < edit_buttons.length ; ++i){
+        delete_buttons[i].setAttribute("onclick", "deleteSport(this.id)");
+    }
+}
 
-// function setHash(position) {
-//     let window_string = window.location + '';
-//   if (window_string.includes('#')) {
-//      window.location = window.location.origin + position;
-//   } else {
-//      window.location = window.location + position;
-//   }
-// }
+function setHash(position) {
+    let window_string = window.location + '';
+  if (window_string.includes('#')) {
+     window.location = window.location.origin + position;
+  } else {
+     window.location = window.location + position;
+  }
+}
 
-// function parse_path() {
-//   let hash = window.location.hash;
-//   if (hash) {
-//      if (hash == "#songs") {
-//         search('');
-//      } else if (hash == "#upload") {
-//         search('');
-//         addSong();
-//      } else if (hash.startsWith('#edit')) {
-//         let id = hash.replace('#edit/','');
-//         let new_url = new URL('http://localhost:8888/songs/'+id+'/edit');
-//         editSong(new_url);
-//      } else if (hash.startsWith('#songs')) {
-//         let query = hash.replace('#songs/','');
-//         if (query.startsWith('artist')) {
-//            let artist = query.replace('artist/','');
-//            let param = 'artist_'+artist;
-//            filter(param);
-//         } else if (query.startsWith('album')) {
-//            let album = query.replace('album/','');
-//            let param = 'album_'+album;
-//            filter(param);
-//         } else if (query.startsWith('genre')) {
-//            let genre = query.replace('genre/','');
-//            let param = 'genre_'+genre;
-//            filter(genre);
-//         } else if (query.startsWith('search')) {
-//            let text = query.replace('search/','');
-//            search(text);
-//         }
-//      } else {
-//         search('');
-//      }
-//   } else {
-//      search('');
-//   }
-// }
+function parse_path() {
+  let hash = window.location.hash;
+  if (hash) {
+     if (hash == "#sports") {
+        listSports();
+     } else if (hash == "#upload") {
+        activityUpload();
+     } else if (hash.startsWith('#edit')) {
+        let id = hash.replace('#edit/','');
+        let new_url = new URL('http://localhost:8888/sports/'+id+'/edit');
+        editSport(new_url);
+     } else if (hash == "#home") {
+        goHome();
+     } else if (hash == "#about") {
+        goAbout();
+     } else if (hash == "#signin") {
+         addUser();
+     } else if (hash == "#login") {
+         logUser();
+     }
+     /*else if (hash.startsWith('#songs')) {
+        let query = hash.replace('#songs/','');
+        if (query.startsWith('artist')) {
+           let artist = query.replace('artist/','');
+           let param = 'artist_'+artist;
+           filter(param);
+        } else if (query.startsWith('album')) {
+           let album = query.replace('album/','');
+           let param = 'album_'+album;
+           filter(param);
+        } else if (query.startsWith('genre')) {
+           let genre = query.replace('genre/','');
+           let param = 'genre_'+genre;
+           filter(genre);
+        } else if (query.startsWith('search')) {
+           let text = query.replace('search/','');
+           search(text);
+        }*/
+  } else {
+     goHome();
+  }
+}

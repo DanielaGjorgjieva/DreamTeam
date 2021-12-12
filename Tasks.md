@@ -63,6 +63,12 @@ worked on DB
 11/12
 -Started writing ajax.js (FETCH-only).
 
+12/12
+-Ended fetch the sport related part of the web app
+-Fetch for user login, signin and logout
+-Init function updated
+-Minor modifications to some ejs
+
 
 
 #### Samuel Corecco
@@ -73,3 +79,8 @@ worked on DB
 11/12
 -startded writing the fetch in ajax.js. finished some function
 -fetch delete add and log_out (function for the user)
+
+
+12/12
+-no more fetches for everything we currently have available in theory all fetches and associated functions should be done
+-correct one thing for editing ejs updated (ids added)
