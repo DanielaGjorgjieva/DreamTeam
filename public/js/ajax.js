@@ -16,7 +16,6 @@ function init() {
     });
 }
 
-
 function linkClickHandler(event) {
     event.preventDefault();
     let url = new URL(event.current.href);
@@ -195,9 +194,9 @@ function parse_path() {
      } else if (hash == "#about") {
         goAbout();
      } else if (hash == "#signin") {
-         addUser();
+        addUser();
      } else if (hash == "#login") {
-         logUser();
+        logUser();
      }
      /*else if (hash.startsWith('#songs')) {
         let query = hash.replace('#songs/','');
