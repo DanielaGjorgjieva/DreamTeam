@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Sun Dec 12 2021 14:47:13 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Sun Dec 12 2021 14:58:36 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -6,320 +6,6 @@ ejs.views_include = function(locals) {
         return ejs["views_"+path.replace(/\//g,"_")]({...d,...locals}, null, ejs.views_include(locals));
     }
 };
-ejs.views_Includes_aside = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
-) {
-rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
-  var lines = str.split('\n');
-  var start = Math.max(lineno - 3, 0);
-  var end = Math.min(lines.length, lineno + 3);
-  var filename = esc(flnm);
-  // Error context
-  var context = lines.slice(start, end).map(function (line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? ' >> ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'ejs') + ':'
-    + lineno + '\n'
-    + context + '\n\n'
-    + err.message;
-
-  throw err;
-};
-escapeFn = escapeFn || function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-;
-var __line = 1
-  , __lines = "<aside class=\"sidebar\">\n    <form action=\"\" method=\"GET\" class=\"search\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        Instructors\n    </section>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-right\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n            <img src=\"images/img_avatar.png\" alt=\"second musician\">\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n\n        <a href=\"\">\n            <section class=\"section-right\">\n                <p class=\"Artist-Name\">\n                    Placeholder<br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n                <img src=\"images/img_avatar.png\" alt=\"second musician\">\n            </section>\n        </a>\n\n        <a href=\"\">\n            <section class=\"section-left\">\n                <img src=\"images/img_avatar.png\" alt=\"first musician\">\n                <p class=\"Artist-Name\">\n                    Placeholder <br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n            </section>\n        </a>\n</aside>"
-  , __filename = undefined;
-try {
-  var __output = "";
-  function __append(s) { if (s !== undefined && s !== null) __output += s }
-  with (locals || {}) {
-    ; __append("<aside class=\"sidebar\">\n    <form action=\"\" method=\"GET\" class=\"search\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        Instructors\n    </section>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-right\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n            <img src=\"images/img_avatar.png\" alt=\"second musician\">\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n\n        <a href=\"\">\n            <section class=\"section-right\">\n                <p class=\"Artist-Name\">\n                    Placeholder<br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n                <img src=\"images/img_avatar.png\" alt=\"second musician\">\n            </section>\n        </a>\n\n        <a href=\"\">\n            <section class=\"section-left\">\n                <img src=\"images/img_avatar.png\" alt=\"first musician\">\n                <p class=\"Artist-Name\">\n                    Placeholder <br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n            </section>\n        </a>\n</aside>")
-    ; __line = 58
-  }
-  return __output;
-} catch (e) {
-  rethrow(e, __lines, __filename, __line, escapeFn);
-}
-
-}
-
-ejs.views_Includes_footer = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
-) {
-rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
-  var lines = str.split('\n');
-  var start = Math.max(lineno - 3, 0);
-  var end = Math.min(lines.length, lineno + 3);
-  var filename = esc(flnm);
-  // Error context
-  var context = lines.slice(start, end).map(function (line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? ' >> ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'ejs') + ':'
-    + lineno + '\n'
-    + context + '\n\n'
-    + err.message;
-
-  throw err;
-};
-escapeFn = escapeFn || function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-;
-var __line = 1
-  , __lines = "<footer>\n    © DreamTeam - Software Atelier 3\n</footer>"
-  , __filename = undefined;
-try {
-  var __output = "";
-  function __append(s) { if (s !== undefined && s !== null) __output += s }
-  with (locals || {}) {
-    ; __append("<footer>\n    © DreamTeam - Software Atelier 3\n</footer>")
-    ; __line = 3
-  }
-  return __output;
-} catch (e) {
-  rethrow(e, __lines, __filename, __line, escapeFn);
-}
-
-}
-
-ejs.views_Includes_head = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
-) {
-rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
-  var lines = str.split('\n');
-  var start = Math.max(lineno - 3, 0);
-  var end = Math.min(lines.length, lineno + 3);
-  var filename = esc(flnm);
-  // Error context
-  var context = lines.slice(start, end).map(function (line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? ' >> ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'ejs') + ':'
-    + lineno + '\n'
-    + context + '\n\n'
-    + err.message;
-
-  throw err;
-};
-escapeFn = escapeFn || function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-;
-var __line = 1
-  , __lines = "<head>\n    <title>DreamTeam</title>\n    <link href=\"/css/base.css\" rel=\"stylesheet\" />\n    <link href=\"/css/homepage.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog_user.css\" rel=\"stylesheet\" />\n    <link href=\"/css/upload.css\" rel=\"stylesheet\" />\n    <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,500\" rel=\"stylesheet\">\n    <meta charset=\"UTF-8\" />\n    <meta name=\"author\" content=\"Francesco Casarella\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n"
-  , __filename = undefined;
-try {
-  var __output = "";
-  function __append(s) { if (s !== undefined && s !== null) __output += s }
-  with (locals || {}) {
-    ; __append("<head>\n    <title>DreamTeam</title>\n    <link href=\"/css/base.css\" rel=\"stylesheet\" />\n    <link href=\"/css/homepage.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog_user.css\" rel=\"stylesheet\" />\n    <link href=\"/css/upload.css\" rel=\"stylesheet\" />\n    <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,500\" rel=\"stylesheet\">\n    <meta charset=\"UTF-8\" />\n    <meta name=\"author\" content=\"Francesco Casarella\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n")
-    ; __line = 13
-  }
-  return __output;
-} catch (e) {
-  rethrow(e, __lines, __filename, __line, escapeFn);
-}
-
-}
-
-ejs.views_Includes_header = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
-) {
-rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
-  var lines = str.split('\n');
-  var start = Math.max(lineno - 3, 0);
-  var end = Math.min(lines.length, lineno + 3);
-  var filename = esc(flnm);
-  // Error context
-  var context = lines.slice(start, end).map(function (line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? ' >> ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'ejs') + ':'
-    + lineno + '\n'
-    + context + '\n\n'
-    + err.message;
-
-  throw err;
-};
-escapeFn = escapeFn || function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-;
-var __line = 1
-  , __lines = "<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    <% if(user != undefined ){ %>\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    <% } else {%>\n        <section class=\"login\">\n            Hi, <a href=\"/user/<%=user._id%>\"><%= user.username%></a>!\n        </section>\n\n    <%}%>\n</header>"
-  , __filename = undefined;
-try {
-  var __output = "";
-  function __append(s) { if (s !== undefined && s !== null) __output += s }
-  with (locals || {}) {
-    ; __append("<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    ")
-    ; __line = 10
-    ;  if(user != undefined ){ 
-    ; __append("\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    ")
-    ; __line = 16
-    ;  } else {
-    ; __append("\n        <section class=\"login\">\n            Hi, <a href=\"/user/")
-    ; __line = 18
-    ; __append(escapeFn(user._id))
-    ; __append("\">")
-    ; __append(escapeFn( user.username))
-    ; __append("</a>!\n        </section>\n\n    ")
-    ; __line = 21
-    ; }
-    ; __append("\n</header>")
-    ; __line = 22
-  }
-  return __output;
-} catch (e) {
-  rethrow(e, __lines, __filename, __line, escapeFn);
-}
-
-}
-
-ejs.views_Includes_nav = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
-) {
-rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
-  var lines = str.split('\n');
-  var start = Math.max(lineno - 3, 0);
-  var end = Math.min(lines.length, lineno + 3);
-  var filename = esc(flnm);
-  // Error context
-  var context = lines.slice(start, end).map(function (line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? ' >> ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'ejs') + ':'
-    + lineno + '\n'
-    + context + '\n\n'
-    + err.message;
-
-  throw err;
-};
-escapeFn = escapeFn || function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-;
-var __line = 1
-  , __lines = "<nav id=\"navigation-bar\">\n    <a href=\"/\" id=\"homepage\">Homepage</a>\n    <a href=\"/sports\" id=\"sport_list\">Sports List</a>\n    <a href=\"/upload\" id=\"create_event\">Create an event</a>\n    <a href=\"/about\" id=\"about_us\">About Us</a>\n</nav>"
-  , __filename = undefined;
-try {
-  var __output = "";
-  function __append(s) { if (s !== undefined && s !== null) __output += s }
-  with (locals || {}) {
-    ; __append("<nav id=\"navigation-bar\">\n    <a href=\"/\" id=\"homepage\">Homepage</a>\n    <a href=\"/sports\" id=\"sport_list\">Sports List</a>\n    <a href=\"/upload\" id=\"create_event\">Create an event</a>\n    <a href=\"/about\" id=\"about_us\">About Us</a>\n</nav>")
-    ; __line = 6
-  }
-  return __output;
-} catch (e) {
-  rethrow(e, __lines, __filename, __line, escapeFn);
-}
-
-}
-
 ejs.views_about = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
 ) {
 rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
@@ -495,6 +181,320 @@ try {
   with (locals || {}) {
     ; __append("<main id=\"homepage\">\n\n    <section class=\"homepage_title\">\n        <h1>Welcome to DreamTeam!</h1>\n    </section>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Popular Activities: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n    </section>\n    <br>\n    \n</main>")
     ; __line = 65
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_aside = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<aside class=\"sidebar\">\n    <form action=\"\" method=\"GET\" class=\"search\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        Instructors\n    </section>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-right\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n            <img src=\"images/img_avatar.png\" alt=\"second musician\">\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n\n        <a href=\"\">\n            <section class=\"section-right\">\n                <p class=\"Artist-Name\">\n                    Placeholder<br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n                <img src=\"images/img_avatar.png\" alt=\"second musician\">\n            </section>\n        </a>\n\n        <a href=\"\">\n            <section class=\"section-left\">\n                <img src=\"images/img_avatar.png\" alt=\"first musician\">\n                <p class=\"Artist-Name\">\n                    Placeholder <br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n            </section>\n        </a>\n</aside>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<aside class=\"sidebar\">\n    <form action=\"\" method=\"GET\" class=\"search\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        Instructors\n    </section>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-right\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n            <img src=\"images/img_avatar.png\" alt=\"second musician\">\n        </section>\n    </a>\n\n    <a href=\"\">\n        <section class=\"section-left\">\n            <img src=\"images/img_avatar.png\" alt=\"first musician\">\n            <p class=\"Artist-Name\">\n                Placeholder <br>\n                <cite> \"...something something something...\"</cite>\n            </p>\n        </section>\n\n        <a href=\"\">\n            <section class=\"section-right\">\n                <p class=\"Artist-Name\">\n                    Placeholder<br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n                <img src=\"images/img_avatar.png\" alt=\"second musician\">\n            </section>\n        </a>\n\n        <a href=\"\">\n            <section class=\"section-left\">\n                <img src=\"images/img_avatar.png\" alt=\"first musician\">\n                <p class=\"Artist-Name\">\n                    Placeholder <br>\n                    <cite> \"...something something something...\"</cite>\n                </p>\n            </section>\n        </a>\n</aside>")
+    ; __line = 58
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_footer = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<footer>\n    © DreamTeam - Software Atelier 3\n</footer>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<footer>\n    © DreamTeam - Software Atelier 3\n</footer>")
+    ; __line = 3
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_head = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<head>\n    <title>DreamTeam</title>\n    <link href=\"/css/base.css\" rel=\"stylesheet\" />\n    <link href=\"/css/homepage.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog_user.css\" rel=\"stylesheet\" />\n    <link href=\"/css/upload.css\" rel=\"stylesheet\" />\n    <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,500\" rel=\"stylesheet\">\n    <meta charset=\"UTF-8\" />\n    <meta name=\"author\" content=\"Francesco Casarella\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<head>\n    <title>DreamTeam</title>\n    <link href=\"/css/base.css\" rel=\"stylesheet\" />\n    <link href=\"/css/homepage.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog.css\" rel=\"stylesheet\" />\n    <link href=\"/css/sport_catalog_user.css\" rel=\"stylesheet\" />\n    <link href=\"/css/upload.css\" rel=\"stylesheet\" />\n    <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,500\" rel=\"stylesheet\">\n    <meta charset=\"UTF-8\" />\n    <meta name=\"author\" content=\"Francesco Casarella\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n")
+    ; __line = 13
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_header = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    <% if(user != undefined ){ %>\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    <% } else {%>\n        <section class=\"login\">\n            Hi, <a href=\"/user/<%=user._id%>\"><%= user.username%></a>!\n        </section>\n\n    <%}%>\n</header>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    ")
+    ; __line = 10
+    ;  if(user != undefined ){ 
+    ; __append("\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    ")
+    ; __line = 16
+    ;  } else {
+    ; __append("\n        <section class=\"login\">\n            Hi, <a href=\"/user/")
+    ; __line = 18
+    ; __append(escapeFn(user._id))
+    ; __append("\">")
+    ; __append(escapeFn( user.username))
+    ; __append("</a>!\n        </section>\n\n    ")
+    ; __line = 21
+    ; }
+    ; __append("\n</header>")
+    ; __line = 22
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_nav = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<nav id=\"navigation-bar\">\n    <a href=\"/\" id=\"homepage\">Homepage</a>\n    <a href=\"/sports\" id=\"sport_list\">Sports List</a>\n    <a href=\"/upload\" id=\"create_event\">Create an event</a>\n    <a href=\"/about\" id=\"about_us\">About Us</a>\n</nav>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<nav id=\"navigation-bar\">\n    <a href=\"/\" id=\"homepage\">Homepage</a>\n    <a href=\"/sports\" id=\"sport_list\">Sports List</a>\n    <a href=\"/upload\" id=\"create_event\">Create an event</a>\n    <a href=\"/about\" id=\"about_us\">About Us</a>\n</nav>")
+    ; __line = 6
   }
   return __output;
 } catch (e) {

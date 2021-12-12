@@ -28,7 +28,7 @@ const model = {};
 // env file? -> useful?
 const url = 'mongodb+srv://alessandro_cravioglio:12345@teamproject.ol3il.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-console.log(process.env);
+// console.log(process.env);
 process.env.ATLAS_URI = 'foo';
 
 // connection parameters

@@ -1,4 +1,4 @@
-const model = require('../models/index.js').model;
+const model = require('../../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
 // your user
@@ -141,9 +141,8 @@ function logUser() {
                             you = res.json();
                             you.password = "";
                             ejs.views_user(res.json());
-                        }).then({
-                            SetButtonUser();
-                        });
+                        }).then( ()=> SetButtonUser()
+                        );
                     } else {
                         alert("Wrong password inserted!");
                     }
