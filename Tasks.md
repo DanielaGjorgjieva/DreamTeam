@@ -2,9 +2,12 @@
 ### Should updated by each team member for his/her work
 
 #### Francesco Casarella
+08/12
+- created new website style
 
-11/12
-- created ejs based on html
+09/12
+- improved HTML and CSS
+- added presentation
 
 10/12
 - improved HTML and CSS
@@ -12,12 +15,12 @@
 - created strucure.txt
 - modelled object structures and routes
 
-09/12
-- improved HTML and CSS
-- added presentation
+11/12
+- created ejs based on html
 
-08/12
-- created new website style
+12/12
+- started fetch integration
+- minor fixes and checks
 
 #### Alessandro Cravioglio
 
