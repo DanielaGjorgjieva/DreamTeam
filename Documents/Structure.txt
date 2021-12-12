@@ -70,3 +70,9 @@ Se sei un user:
 - fai vedere il tasto join
 o
 - fai vedere il tasto leave + la chat
+
+
+
+we can add in the aside bar a list of people that is online right now
+
+and in the aside bar of the specific event, a list of online and offline users

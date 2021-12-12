@@ -22,6 +22,11 @@
 - started fetch integration
 - minor fixes and checks
 
+13/12
+-improved events.html
+-created events.ejs
+-improved events.css
+
 #### Alessandro Cravioglio
 
 09/12

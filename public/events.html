@@ -11,17 +11,22 @@
 <html>
 
 <head>
-  <title>Placeholder: Homepage</title>
+  <title>DreamTeam</title>
+
   <link href="css/base.css" rel="stylesheet" />
-  <link href="css/events.css" rel="stylesheet" />
+  <link href="css/homepage.css" rel="stylesheet" />
+  <link href="css/sport-catalog.css" rel="stylesheet" />
+  <link href="css/sport-catalog_user.css" rel="stylesheet" />
+  <link href="css/upload.css" rel="stylesheet" />
+  <link href="css/events.css" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="author" content="Francesco Casarella">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="js/occurencies.js"></script>
 </head>
 
-<body onload="today()">
+<body onload="">
   <!-- background="images/ww.jpg" -->
   <!-- <div class="fade-element"></div> -->
 
@@ -49,22 +54,44 @@
   <!-- MAIN CONTENT -->
   <main id="event description">
 
+    <section class="head">
+      <section class="title">
+        <h1>Basketball</h1>
+        <p>An event from Owner</p>
+      </section>
 
-    <div class="button_join">
+      <!-- if you are a member that can join -->
+      <section>
+        <form>
+          <button type="submit" name="submit"> Join </button>
+        </form>
+      </section>
 
-      <form>
+      <!-- if you are a member that can left -->
+      <!-- <section>
+        <form>
+          <button type="submit" name="submit"> Leave </button>
+        </form>
+      </section> -->
 
-        <button>JOIN</button>
-      </form>
-    </div>
-    <section class="title">
-      <h1>Join our Basketball Team</h1>
-      <p>Andrea Prato</p>
+      <!-- if you are the owner -->
+      <!-- <section>
+        <a rel="edit" href="">Edit</a>
+        <a rel="delete" href="">Delete</a>
+      </section> -->
+
+      <!-- if the event is full -->
+      <!-- <section>
+        Sorry, this event reached the maximum capacity chosen from the owner.
+      </section> -->
+
+      <!-- if you are not logged in -->
+      <!-- <section>
+        If you want to join the event please <a href="/login">Login</a>!
+      </section> -->
     </section>
 
-    <!-- <section class="formdesc">
-      Description about our Sport Activity</a>!
-    </section> -->
+
 
     <section class="title">
       <h1>Description</h1>
@@ -82,79 +109,52 @@
     </section>
 
 
-    </div>
-
-
-
-    </div>
-
-
     <section class="title">
       <h2>Details</h2>
-      <!-- 
-     This needs to fix with javascript -->
       <p>Place : (The exact place of the event)</p>
       <p>Starting Date : (which date it was created)</p>
       <p>Members : (how many members are in the team and how many can join)</p>
       <p>Frequency:</p>
+    </section>
 
-
-
-
-
- 
-      <!-- <div class="container">
-          <img src="/w3images/bandmember.jpg" alt="Avatar">
-          <p>Hello. How are you today?</p>
-          <span class="time-right">11:00</span>
-        </div>
-        
-        <div class="container darker">
-          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
-          <p>Hey! I'm fine. Thanks for asking!</p>
-          <span class="time-left">11:01</span>
-        </div>
-        
-        <div class="container">
-          <img src="/w3images/bandmember.jpg" alt="Avatar">
-          <p>Sweet! So, what do you wanna do today?</p>
-          <span class="time-right">11:02</span>
-        </div>
-        
-        <div class="container darker">
-          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
-          <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-          <span class="time-left">11:05</span>
-        </div>  -->
-
-
-
-        
-      <section class="title">
-     
-      </section>
-      <div class="container_chat">
-        <div class="header">
-          <h1>Group Chat</h1>
-        </div>
-        
-        <div  id = "chat" class="body">
-          <p class="message"> 
-           <!-- <span class="time-left">Andrea Prato</span> ???--> 
-          Hey! I'm fine. Thanks for asking!</p>
-          <span class="time-left">11:01</span></p>
-          <p class="message user_message">Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-          <span class="time-right">11:02</span>
-        </div>
-        <div class="footer">
-          <form>
-            <input type="text_chat" name="">
-            <button>SEND</button>
-          </form>
-        </div>
+    <div class="container_chat">
+      <div class="header">
+        <h1>Group Chat</h1>
       </div>
 
+      <div id="chat" class="body">
 
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+
+
+
+        <p class="text-right" style="color:white;">You</p>
+        <p class="message user_message">
+          Nah, I dunno. Play soccer.. or learn more coding perhaps?
+        </p>
+        <p class="text-right">11:02</p>
+
+      </div>
+
+      <div class="footer">
+        <form class="chat">
+          <input type="text_chat" name="">
+          <button>SEND</button>
+        </form>
+      </div>
+
+    </div>
 
   </main>
 
