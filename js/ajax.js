@@ -140,6 +140,7 @@ function logUser() {
                     if (password === result.password) {
                         fetch("/user/" + result._id).then(res=> {
                             you = res.json();
+                            you.password = "";
                             ejs.views_user(res.json());
                         }).then({
                             SetButtonUser();
