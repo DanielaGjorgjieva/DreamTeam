@@ -37,22 +37,6 @@ router.get("/", function (req, res) {
    }
 })
 
-router.get('/upload', function (req, res) {
-   try {
-      res.status(200);
-   } catch {
-      notFound();
-   }
-})
-
-router.get('/about', function (req, res) {
-   try {
-      res.status(200);
-   } catch {
-      notFound();
-   }
-})
-
 // GET AND EDIT SPORT ACTIVITY
 
 router.get('/:id', function (req, res) {

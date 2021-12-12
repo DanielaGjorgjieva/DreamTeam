@@ -22,3 +22,21 @@ router.get('/', function(req, res) {
         res.status(200).json(result);
     })
 });
+
+router.get('/about', function (req, res) {
+    try {
+       res.status(200);
+    } catch {
+       notFound();
+    }
+ })
+
+
+router.get('/upload', function (req, res) {
+    try {
+       res.status(200);
+    } catch {
+       notFound();
+    }
+ })
+ 
