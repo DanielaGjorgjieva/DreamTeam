@@ -47,6 +47,11 @@ worked on DB
 - now using ATLAS to deploy db 
 - scurity issues solved
 
+13/12
+worked on DB
+- now using users and password for every users
+- sensible data hidden with .env file
+
 #### Daniela Gjorgjieva
 03/12
 -created repository
