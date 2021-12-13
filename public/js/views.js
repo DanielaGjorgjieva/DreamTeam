@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Mon Dec 13 2021 16:56:14 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Mon Dec 13 2021 21:42:59 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -173,65 +173,65 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n            if(event.owner._id !== user.username){\n                 if(event.members.includes(user)){%>\n                    <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                <%}else{\n                    if(event.max_members === event.members.length){%>\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                    <%}else{%>\n                         <form>\n                         <button type=\"submit\" name=\"submit\"> Join </button>\n                         </form>\n                    <%}%>\n                <%}\n            }else{%>\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            <%}\n        }else{%>\n            If you want to join the event please <a href=\"/login\">Login</a>!\n        <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length +\"/\"+event.max_members%>\" </p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\" name=\"\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n\n  </main>"
+  , __lines = "<!--\n    Web Atelier 2021\n    Ejs\n    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)\n-->\n<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n            if(event.owner._id !== user.username){\n                 if(event.members.includes(user)){%>\n                    <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                <%}else{\n                    if(event.max_members === event.members.length){%>\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                    <%}else{%>\n                         <form>\n                         <button type=\"submit\" name=\"submit\"> Join </button>\n                         </form>\n                    <%}%>\n                <%}\n            }else{%>\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            <%}\n        }else{%>\n            If you want to join the event please <a href=\"/login\">Login</a>!\n        <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length +\"/\"+event.max_members%></p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\" name=\"\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n\n  </main>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1>")
-    ; __line = 5
+    ; __append("<!--\n    Web Atelier 2021\n    Ejs\n    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)\n-->\n<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1>")
+    ; __line = 10
     ; __append(escapeFn(event.sport))
     ; __append("</h1>\n        <p>An event from ")
-    ; __line = 6
+    ; __line = 11
     ; __append(escapeFn(event.owner))
     ; __append(" </p>\n      </section>\n\n      <section>\n        ")
-    ; __line = 10
+    ; __line = 15
     ; if(user){
             if(event.owner._id !== user.username){
                  if(event.members.includes(user)){
-    ; __line = 12
+    ; __line = 17
     ; __append("\n                    <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                ")
-    ; __line = 16
+    ; __line = 21
     ; }else{
                     if(event.max_members === event.members.length){
-    ; __line = 17
+    ; __line = 22
     ; __append("\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                    ")
-    ; __line = 19
+    ; __line = 24
     ; }else{
     ; __append("\n                         <form>\n                         <button type=\"submit\" name=\"submit\"> Join </button>\n                         </form>\n                    ")
-    ; __line = 23
-    ; }
-    ; __append("\n                ")
-    ; __line = 24
-    ; }
-            }else{
-    ; __line = 25
-    ; __append("\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            ")
     ; __line = 28
     ; }
-        }else{
+    ; __append("\n                ")
     ; __line = 29
+    ; }
+            }else{
+    ; __line = 30
+    ; __append("\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            ")
+    ; __line = 33
+    ; }
+        }else{
+    ; __line = 34
     ; __append("\n            If you want to join the event please <a href=\"/login\">Login</a>!\n        ")
-    ; __line = 31
+    ; __line = 36
     ; }
     ; __append("\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       ")
-    ; __line = 40
+    ; __line = 45
     ; __append(escapeFn( event.description ))
     ; __append("\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : ")
-    ; __line = 47
+    ; __line = 52
     ; __append(escapeFn( event.place ))
     ; __append("</p>\n      <p>Starting Date : ")
-    ; __line = 48
+    ; __line = 53
     ; __append(escapeFn( event.date ))
     ; __append(" </p>\n      <p>Members : ")
-    ; __line = 49
+    ; __line = 54
     ; __append(escapeFn( event.members.length +"/"+event.max_members))
-    ; __append("\" </p>\n      <p>Frequency: ")
-    ; __line = 50
+    ; __append("</p>\n      <p>Frequency: ")
+    ; __line = 55
     ; __append(escapeFn( event.frequency ))
     ; __append("</p>\n    </section>\n\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\" name=\"\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n\n  </main>")
-    ; __line = 71
+    ; __line = 76
   }
   return __output;
 } catch (e) {
