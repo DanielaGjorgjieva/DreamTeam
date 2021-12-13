@@ -121,6 +121,8 @@ router.put('/:id', function (req, res) {
     }
 })
 
+
+
 // delete user
 // be careful about that: how can a user be deleted?
 // user delete should take o a "guest" state the page:
@@ -145,3 +147,5 @@ router.delete('/:id', function (req, res) {
        notFound();
     }
 })
+
+

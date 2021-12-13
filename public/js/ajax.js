@@ -1,8 +1,17 @@
+/*
+    Web Atelier 2021
+    Fetch
+
+
+    Author: Samuel Corecco & Andrea prato
+*/
+
 // const model = require('../../models/index.js').model;
 // const ObjectId = require('mongodb').ObjectId;
 
 // your user
-let you;
+let you = {username:"IlPiuPazzO69", password:"", created:[], joined:[], _id:6969402};
+
 
 //Fetch for the navbar//
 
@@ -41,8 +50,6 @@ function linkClickHandler(event) {
     if(url.pathname.includes("sports")) {
         if(url.pathname.endsWith("edit")){
             editSport(event.parentNode.id);
-        } else {
-            visitEvent();
         }
     }
 }
@@ -89,8 +96,17 @@ function activityUpload() {
         setHash("#upload");
         html = ejs.views_upload({user: you});
         document.querySelector("main").innerHTML = html;
+        let form_sub = document.getElementsByClassName("upload-section")[0];
+        form_sub.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let body = new FormData(form_sub);
+            fetch("/sports/"+you.username, {method: "POST", body}).then(res=>{
+                listSports();
+            })
+         })
     })
 }
+
 
 function listSports() {
     fetch("/sports").then(res=>res.json()).then(obj=>{
@@ -136,6 +152,7 @@ function logUser() {
         form.addEventListener("submit", (event)=> {
             let password = document.getElementById("password").value;
             let username = document.getElementById("username").value;
+            //QUI USER COSAAAAAAAA
             model.user.findOne({username: username}).then(result => {
                 if (result) {
                     if (password === result.password) {
@@ -156,11 +173,12 @@ function logUser() {
     });
 }
 
-function visitEvent() {
-    //check if the user corresponds to the owner:
-    //if yes load edit/deletedelete pattern
-    //if no load the join/leave pattern
-    
+function visitEvent(id) {
+    fetch("sports/" + id).then(res=>res.json()).then(obj=> {
+        setHash("#event/" + id);
+        html = ejs.views_events({user:you, event:obj});
+        document.querySelector("main").innerHTML = html;
+    })
 }
 
 function SetButtonUser(){

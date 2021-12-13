@@ -63,6 +63,11 @@ worked on DB
 -created sign in page, along with javascript.
 
 #### Andrea Prato
+_______
+ Since me and Samuel worked together on all the assignments, we decided to work together on the project as well.
+_______
+
+
 10/12
 -Started working on the fetch and the socket with Samuel
 -Deleted all the useless parte related to the player and the playlist
@@ -81,9 +86,22 @@ worked on DB
 -Debugged fetch code
 -Added four event handlers
 
+13/12
+-Fixed old fetches
+-Wrote the specific event ejs on the base of Francesco's html
+-Updated the sport POST fetch, now working
+-Created fetch for the rendering of the specific event page
+-Made specific event page working
+
 
 
 #### Samuel Corecco
+
+_______
+Andrea and I, since we had fetch and socket together, always worked together to speed up the work and do it better <3
+_______
+
+
 10/12
 -Started working on the fetch/socket with Andrea
 -Read reade all documentation to understand the structure (nem, id, functionality, ...) of the program
@@ -98,3 +116,9 @@ worked on DB
 -correct one thing for editing ejs updated (ids added)
 -start with socket (done the possible things to do)
 -debugging and uploading fetch 
+
+13/12
+-debugging on old fetch;
+-update upload
+-done ejs events with Andre (based on the html of Francesco)
+-change little features in the server 

@@ -1,3 +1,10 @@
+/*
+    Web Atelier 2021
+    socket
+
+
+    Author: Samuel Corecco & Andrea prato
+*/
 const io = require('socket.io')();
 const EventEmitter = require('events');
 const eventBus = new EventEmitter();

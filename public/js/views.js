@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Sun Dec 12 2021 23:58:40 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Mon Dec 13 2021 16:56:14 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -121,6 +121,117 @@ try {
     ; __append(escapeFn( id))
     ; __append("?_method=PUT\" encType=\"multipart/form-data\" class=\"upload-section\">\n\n        <label for=\"sport\"> Sport </label>\n        <input type=\"text\" id=\"sport\" name=\"sport\" placeholder=\"Soccer...\" required>\n\n        <label for=\"description\"> Description</label>\n        <textarea id=\"description\" name=\"description\" rows=\"5\" cols=\"45\"\n            placeholder=\"Write here your sport's description...\"></textarea>\n\n        <label for=\"place\"> Place </label>\n        <input type=\"text\" id=\"place\" name=\"place\" placeholder=\"Lugano...\" required>\n\n        <label for=\"date\">Starting date</label>\n        <input type=\"date\" id=\"date\" name=\"date\" value=\"\" min=\"\" max=\"2025-12-31\" required>\n\n        <label for=\"frequency\">Frequency</label>\n        <select name=\"frequency\" id=\"frequency\" required>\n            <option value=\"Daily\">Daily</option>\n            <option value=\"Weekly\">Weekly</option>\n            <option value=\"Monthly\">Monthly</option>\n            <option value=\"Undefined\">Undefined</option>\n        </select>\n\n        <label for=\"max_members\">Members</label>\n        <input type=\"number\" id=\"max_members\" name=\"max_members\" value=\"1\" min=\"1\" max=\"30\" required><br><br>\n\n        <button type=\"submit\" name=\"submit\"> Submit </button>\n\n    </form>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Popular Activities: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n    </section>\n    <br>\n</main>")
     ; __line = 111
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_events = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n            if(event.owner._id !== user.username){\n                 if(event.members.includes(user)){%>\n                    <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                <%}else{\n                    if(event.max_members === event.members.length){%>\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                    <%}else{%>\n                         <form>\n                         <button type=\"submit\" name=\"submit\"> Join </button>\n                         </form>\n                    <%}%>\n                <%}\n            }else{%>\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            <%}\n        }else{%>\n            If you want to join the event please <a href=\"/login\">Login</a>!\n        <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length +\"/\"+event.max_members%>\" </p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\" name=\"\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n\n  </main>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1>")
+    ; __line = 5
+    ; __append(escapeFn(event.sport))
+    ; __append("</h1>\n        <p>An event from ")
+    ; __line = 6
+    ; __append(escapeFn(event.owner))
+    ; __append(" </p>\n      </section>\n\n      <section>\n        ")
+    ; __line = 10
+    ; if(user){
+            if(event.owner._id !== user.username){
+                 if(event.members.includes(user)){
+    ; __line = 12
+    ; __append("\n                    <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                ")
+    ; __line = 16
+    ; }else{
+                    if(event.max_members === event.members.length){
+    ; __line = 17
+    ; __append("\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                    ")
+    ; __line = 19
+    ; }else{
+    ; __append("\n                         <form>\n                         <button type=\"submit\" name=\"submit\"> Join </button>\n                         </form>\n                    ")
+    ; __line = 23
+    ; }
+    ; __append("\n                ")
+    ; __line = 24
+    ; }
+            }else{
+    ; __line = 25
+    ; __append("\n                <a rel=\"edit\" href=\"\">Edit</a>\n                <a rel=\"delete\" href=\"\">Delete</a>\n            ")
+    ; __line = 28
+    ; }
+        }else{
+    ; __line = 29
+    ; __append("\n            If you want to join the event please <a href=\"/login\">Login</a>!\n        ")
+    ; __line = 31
+    ; }
+    ; __append("\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       ")
+    ; __line = 40
+    ; __append(escapeFn( event.description ))
+    ; __append("\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : ")
+    ; __line = 47
+    ; __append(escapeFn( event.place ))
+    ; __append("</p>\n      <p>Starting Date : ")
+    ; __line = 48
+    ; __append(escapeFn( event.date ))
+    ; __append(" </p>\n      <p>Members : ")
+    ; __line = 49
+    ; __append(escapeFn( event.members.length +"/"+event.max_members))
+    ; __append("\" </p>\n      <p>Frequency: ")
+    ; __line = 50
+    ; __append(escapeFn( event.frequency ))
+    ; __append("</p>\n    </section>\n\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\" name=\"\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n\n  </main>")
+    ; __line = 71
   }
   return __output;
 } catch (e) {
@@ -667,7 +778,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!-- \nthis ejs should take the list of event object from the database\n -->\n<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    <%if(sports.lenght === 0){%>\n        There are no events\n    <%} else {%>\n    <header>\n        <span></span>\n        <a href=\"sport.html?sort=sport\">Sport</a>\n        <a href=\"sport.html?sort=sport\">Owner</a>\n        <a href=\"sport.html?sort=desc\">Description</a>\n        <a href=\"sport.html?sort=place\">Place</a>\n        <a href=\"sport.html?sort=date\">Starting Date</a>\n        <a href=\"sport.html?sort=max_number\">Frequency</a>\n        <a href=\"sport.html?sort=max_number\">Members</a>\n        <span></span>\n    </header>\n    <%}%>\n\n    <% for(let index = 0; index < sports.length; index++){ \n        let event = sports[index] %>\n\n    <article class=\"sport\">\n        <a rel=\"link\" href=\"/sports/<%= event._id%>\">Link</a>\n        <span class=\"sport\"><%=event.sport%></span>\n        <span class=\"owner\"><%=event.owner%></span>\n        <span class=\"description\"><%=event.description%></span>\n        <span class=\"place\"><%=event.place%></span>\n        <span class=\"starting_date\"><%=event.date%></span>\n        <span class=\"date\"><%=event.frequency%></span>\n        <span class=\"Number of Members\"><%=event.members.lenght%>/<%=event.max_members%></span>\n        <section></section>\n    </article>\n    \n    <%}%>\n</main>"
+  , __lines = "<!-- \nthis ejs should take the list of event object from the database\n -->\n<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    <%if(sports.lenght === 0){%>\n        There are no events\n    <%} else {%>\n    <header>\n        <span></span>\n        <a href=\"sport.html?sort=sport\">Sport</a>\n        <a href=\"sport.html?sort=sport\">Owner</a>\n        <a href=\"sport.html?sort=desc\">Description</a>\n        <a href=\"sport.html?sort=place\">Place</a>\n        <a href=\"sport.html?sort=date\">Starting Date</a>\n        <a href=\"sport.html?sort=max_number\">Frequency</a>\n        <a href=\"sport.html?sort=max_number\">Members</a>\n        <span></span>\n    </header>\n    <%}%>\n\n    <% for(let index = 0; index < sports.length; index++){ \n        let event = sports[index] %>\n\n    <article class=\"sport\">\n        <a id=\"<%=event._id%>\" rel=\"link\" onclick=\"visitEvent(this.id)\">Link</a>\n        <span class=\"sport\"><%=event.sport%></span>\n        <span class=\"owner\"><%=event.owner%></span>\n        <span class=\"description\"><%=event.description%></span>\n        <span class=\"place\"><%=event.place%></span>\n        <span class=\"starting_date\"><%=event.date%></span>\n        <span class=\"date\"><%=event.frequency%></span>\n        <span class=\"Number of Members\"><%=event.members.lenght||\"0\"%>/<%=event.max_members%></span>\n        <section></section>\n    </article>\n    \n    <%}%>\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -687,10 +798,10 @@ try {
     ;  for(let index = 0; index < sports.length; index++){ 
         let event = sports[index] 
     ; __line = 27
-    ; __append("\n\n    <article class=\"sport\">\n        <a rel=\"link\" href=\"/sports/")
+    ; __append("\n\n    <article class=\"sport\">\n        <a id=\"")
     ; __line = 30
-    ; __append(escapeFn( event._id))
-    ; __append("\">Link</a>\n        <span class=\"sport\">")
+    ; __append(escapeFn(event._id))
+    ; __append("\" rel=\"link\" onclick=\"visitEvent(this.id)\">Link</a>\n        <span class=\"sport\">")
     ; __line = 31
     ; __append(escapeFn(event.sport))
     ; __append("</span>\n        <span class=\"owner\">")
@@ -710,7 +821,7 @@ try {
     ; __append(escapeFn(event.frequency))
     ; __append("</span>\n        <span class=\"Number of Members\">")
     ; __line = 37
-    ; __append(escapeFn(event.members.lenght))
+    ; __append(escapeFn(event.members.lenght||"0"))
     ; __append("/")
     ; __append(escapeFn(event.max_members))
     ; __append("</span>\n        <section></section>\n    </article>\n    \n    ")

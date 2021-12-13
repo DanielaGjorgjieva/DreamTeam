@@ -1,0 +1,76 @@
+<!--
+    Web Atelier 2021
+    Ejs
+    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)
+-->
+<main id="event description">
+
+    <section class="head">
+      <section class="title">
+        <h1><%=event.sport%></h1>
+        <p>An event from <%=event.owner%> </p>
+      </section>
+
+      <section>
+        <%if(user){
+            if(event.owner._id !== user.username){
+                 if(event.members.includes(user)){%>
+                    <form>
+                    <button type="submit" name="submit"> Leave </button>
+                    </form>
+                <%}else{
+                    if(event.max_members === event.members.length){%>
+                        Sorry, this event reached the maximum capacity chosen from the owner.
+                    <%}else{%>
+                         <form>
+                         <button type="submit" name="submit"> Join </button>
+                         </form>
+                    <%}%>
+                <%}
+            }else{%>
+                <a rel="edit" href="">Edit</a>
+                <a rel="delete" href="">Delete</a>
+            <%}
+        }else{%>
+            If you want to join the event please <a href="/login">Login</a>!
+        <%}%>
+            </section>
+        </section>
+
+
+
+    <section class="title">
+      <h1>Description</h1>
+      <p class="about">
+       <%= event.description %>
+      </p>
+    </section>
+
+
+    <section class="title">
+      <h2>Details</h2>
+      <p>Place : <%= event.place %></p>
+      <p>Starting Date : <%= event.date %> </p>
+      <p>Members : <%= event.members.length +"/"+event.max_members%></p>
+      <p>Frequency: <%= event.frequency %></p>
+    </section>
+
+    <div class="container_chat">
+      <div class="header">
+        <h1>Group Chat</h1>
+      </div>
+
+      <div id="chat" class="body">
+
+      </div>
+
+      <div class="footer">
+        <form class="chat">
+          <input type="text_chat" name="">
+          <button>SEND</button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
