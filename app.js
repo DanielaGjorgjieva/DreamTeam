@@ -10,7 +10,6 @@
 
 
 //require framework and middleware dependencies
-require('dotenv').config('./pass.env');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
