@@ -67,6 +67,13 @@ worked on DB
 10/12
 -created sign in page, along with javascript.
 
+11/12 
+-created events.html and events.css
+12/12
+-created the Group chat for the users in the events.html page along with css, and started events.ejs
+13/12
+-working on the css for the homepage and the rest of the html
+
 #### Andrea Prato
 _______
  Since me and Samuel worked together on all the assignments, we decided to work together on the project as well.
