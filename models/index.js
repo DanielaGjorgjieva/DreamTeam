@@ -8,6 +8,7 @@
  */
 
 const mongodb = require('mongodb');
+require('dotenv').config('../.env');
 const ObjectId = mongodb.ObjectId;
 const MongoClient = mongodb.MongoClient;
 
@@ -26,10 +27,8 @@ const model = {};
 // now using ATLAS to deploy the MONGOdb database
 
 // env file? -> useful?
-const url = 'mongodb+srv://alessandro_cravioglio:12345@teamproject.ol3il.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = process.env.ATLAS_URI;
 
-// console.log(process.env);
-process.env.ATLAS_URI = 'foo';
 
 // connection parameters
 

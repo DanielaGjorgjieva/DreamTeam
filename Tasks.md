@@ -47,6 +47,11 @@ worked on DB
 - now using ATLAS to deploy db 
 - scurity issues solved
 
+13/12
+worked on DB
+- now using users and password for every users
+- sensible data hidden with .env file
+
 #### Daniela Gjorgjieva
 03/12
 -created repository
@@ -61,6 +66,13 @@ worked on DB
 
 10/12
 -created sign in page, along with javascript.
+
+11/12 
+-created events.html and events.css
+12/12
+-created the Group chat for the users in the events.html page along with css, and started events.ejs
+13/12
+-working on the css for the homepage and the rest of the html
 
 #### Andrea Prato
 _______
