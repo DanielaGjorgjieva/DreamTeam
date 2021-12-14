@@ -8,7 +8,7 @@
  */
 
 const mongodb = require('mongodb');
-require('dotenv').config('../.env');
+require('dotenv').config('../pass.env');
 const ObjectId = mongodb.ObjectId;
 const MongoClient = mongodb.MongoClient;
 
