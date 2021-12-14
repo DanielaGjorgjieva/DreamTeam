@@ -1,11 +1,5 @@
 /*
-    Web Atelier 2021
-    Exercise 1
-    HTML and CSS
-
-    Stylesheet
-
-    Author: Francesco Casarella
+   Created and modified by: Daniela Gjorgjieva and Francesco Casarella
 */
 @media screen /*desktop*/
   and (min-device-width: 768px){
@@ -165,6 +159,118 @@
     }
     /* PROMO SECTION */
 
+
+   
+    /*IMages */
+
+    .row1, .row2, .row3, .row4 {
+      width:100%;
+      height:600px;
+      padding: 1px;
+      display: flex;
+    }
+    
+    /* Clear floats after image containers */
+    /* .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    } */
+
+
+    .middle1 {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top:80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    
+    .row1:hover .image {
+      opacity: 0.5;
+    }
+    
+    .row1:hover .middle1 {
+      opacity: 1;
+    }
+    
+    .text {
+      background-color: none;
+      color: white;
+      font-size: 120px;
+      padding: 100px 100px;
+    }
+
+
+
+    .middle2 {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top:140%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    
+    .row2:hover .image {
+      opacity: 0.5;
+    }
+    
+    .row2:hover .middle2 {
+      opacity: 1;
+    }
+
+
+
+
+    .middle3 {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top:205%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    
+    .row3:hover .image {
+      opacity: 0.5;
+    }
+    
+    .row3:hover .middle3 {
+      opacity: 1;
+    }
+
+
+    .middle4 {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top:267%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    
+    .row4:hover .image {
+      opacity: 0.5;
+    }
+    
+    .row4:hover .middle4 {
+      opacity: 1;
+    }
+    
 
 }
 
