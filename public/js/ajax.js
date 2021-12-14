@@ -6,7 +6,6 @@
 
     Author: Samuel Corecco & Andrea prato
 */
-
 // const model = require('../../models/index.js').model;
 // const ObjectId = require('mongodb').ObjectId;
 
@@ -113,7 +112,6 @@ function activityUpload() {
 function listSports() {
     fetch("/sports").then(res => res.json()).then(obj => {
         setHash("#sports");
-        console.log(obj);
         html = ejs.views_sports({ sports: obj });
         console.log(html);
         document.querySelector("main").innerHTML = html;
@@ -145,34 +143,35 @@ function addUser() {
 
 }
 
+let cacca;
 function logUser() {
-    fetch("/users/login")
-    .then(res => {
-        console.log('entered');
-        res.text()
-    })
-    .then(obj => {
-        setHash('#login');
-        html = ejs.views_login();
-        document.querySelector("main").innerHTML = html;
-        let form = document.getElementById("login_form");
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            let body = new FormData(form);
-            fetch("/login/" + form.password + "/" + form.username).then(res => res.json()).then(obj => {
-                if (obj) {
-                    fetch("/user/" + obj._id).then(res => {
-                        you = res;
-                        let html = ejs.views_user(res);
-                        document.querySelector("main").outerHTML = html;
-                        renderHeader();
-                        SetButtonUser()
-                    });
-                } else {
-                    alert("Wrong password or user inserted! XD LOL");
-                }
-            });
-        });
+    setHash('#login');
+    html = ejs.views_login();
+    document.querySelector("main").innerHTML = html;
+    let form = document.getElementById("login_form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        fetch("/users/login/" + password + "/" + username)
+        .then(res => 
+            res.json()
+        )
+        .then(obj => {
+            console.log(obj);
+            if (obj) {
+                    you = obj;
+                    let html = ejs.views_user({user:you});
+                    document.querySelector("main").outerHTML = html;
+                    renderHeader();
+                    SetButtonUser()
+            } else {
+                alert("Wrong password or user inserted! XD LOL");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        })
     });
 }
 

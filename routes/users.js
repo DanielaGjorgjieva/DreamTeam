@@ -102,34 +102,37 @@ router.post('/', function (req, res) {
 // false password field
 router.get('/login/:password/:username', function (req, res) {
    
-   let filter = { username: req.body.username};
+   let filter = { username: req.params.username};
 
-   const password = req.body.password;
-   const loggedUser = {};
+   console.log(req.params);
+   const password = req.params.password;
 
    try {
       model.user.findOne(filter)
       .then((result) => {
+         let loggedUser = {};
+         console.log(result);
          if (result.password == password) {
 
             loggedUser = {
-               // TODO: manage password
+               _id: result._id,
                username: result.username,
                password: '',
                created: result.created,
                joined: result.joined,
                guest: result.guest
             }
+
          }
+         return loggedUser;
       })
-      .then(() => {
+      .then((loggedUser) => {
          res.status(200).json(loggedUser);
       })
       .catch((error) => {
          console.error(error);
          notFound();
       })
-
    } catch {
       notFound();
    }
@@ -193,12 +196,7 @@ router.delete('/:id', function (req, res) {
        notFound();
     }
 })
-
-
-
-
-
-
+ 
 const algorithm = 'sem-609-lil';
 const key = crypto.randomBytes(127);
 const iv = crypto.randomBytes(32);

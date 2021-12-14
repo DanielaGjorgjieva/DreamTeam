@@ -57,6 +57,12 @@ worked on DB
 - now using users and password for every users
 - sensible data hidden with .env file
 
+14/12
+worked on ROUTES/ajax.json
+- worked on crypto
+- implemented (almost secure) signin 
+- implemented login
+
 #### Daniela Gjorgjieva
 03/12
 -created repository
@@ -145,3 +151,4 @@ _______
 14/12
 -started working on the client side of sockets
 -work with password with crypto
+-work on login/signin
