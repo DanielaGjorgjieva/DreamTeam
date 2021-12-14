@@ -5,6 +5,7 @@
 
 
     Author: Samuel Corecco & Andrea prato
+    Collaborators: Alessandro Cravioglio & Francesco Casarella
 */
 // const model = require('../../models/index.js').model;
 // const ObjectId = require('mongodb').ObjectId;
@@ -20,9 +21,7 @@ function init() {
     document.getElementById("navigation-bar").querySelectorAll("a").forEach(a => {
         a.addEventListener("click", linkClickHandler);
     });
-    document.getElementById("page-header").querySelectorAll("a").forEach(a => {
-        a.addEventListener("click", linkClickHandler);
-    });
+    buttonsHeader();
 }
 
 function linkClickHandler(event) {
@@ -85,6 +84,7 @@ function deleteSport(clicked_id) {
 
 function goHome() {
     fetch("/").then(res => res.text()).then(obj => {
+        renderHeader();
         setHash("#home");
         html = ejs.views_home(obj);
         document.querySelector("main").innerHTML = html;
@@ -143,7 +143,7 @@ function addUser() {
 
 }
 
-let cacca;
+
 function logUser() {
     setHash('#login');
     html = ejs.views_login();
@@ -154,41 +154,76 @@ function logUser() {
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         fetch("/users/login/" + password + "/" + username)
-        .then(res => 
-            res.json()
-        )
-        .then(obj => {
-            console.log(obj);
-            if (obj) {
+            .then(res => res.json())
+            .then(obj => {
+                console.log(obj);
+                if (obj) {
                     you = obj;
-                    let html = ejs.views_user({user:you});
+                    let html = ejs.views_user({ user: you });
                     document.querySelector("main").outerHTML = html;
                     renderHeader();
-                    if(you.created.length > 0){
+                    if (you.created.length > 0) {
                         SetButtonUser(you.created.length)
                     }
-                    
-            } else {
-                alert("Wrong password or user inserted! XD LOL");
-            }
+
+                } else {
+                    alert("Wrong password or user inserted! XD LOL");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    });
+}
+
+
+function join_activity(event_id) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: you.username })
+    };
+
+    fetch("/sports/" + event_id + "/join/", requestOptions)
+        .then(res => res.json())
+        .then(obj => {
+            you.joined.push(obj);
+            fetch("sports/" + id).then(res => res.json()).then(obj => {
+                setHash("#event/" + id);
+                html = ejs.views_events({ user: you, event: obj });
+                document.querySelector("main").outerHTML = html;
+            });
         })
         .catch(err => {
             console.error(err);
         })
-    });
 }
 
+
 //working Francesco
-function renderHeader(){
-    html = ejs.views_includes_header({user : you});
+function renderHeader() {
+    html = ejs.views_includes_header({ user: you });
     document.querySelector("header").outerHTML = html;
+    buttonsHeader();
+}
+
+function buttonsHeader() {
+    document.getElementById("page-header").querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", linkClickHandler);
+    });
 }
 
 function visitEvent(id) {
     fetch("sports/" + id).then(res => res.json()).then(obj => {
         setHash("#event/" + id);
         html = ejs.views_events({ user: you, event: obj });
-        document.querySelector("main").innerHTML = html;
+        document.querySelector("main").outerHTML = html;
+        let button_join = document.getElementsByName("submit_join")[0];
+        console.log("button_join: " + button_join);
+        button_join.addEventListener("click", (event) => {
+            event.preventDefault();
+            join_activity(id);
+        })
     })
 }
 

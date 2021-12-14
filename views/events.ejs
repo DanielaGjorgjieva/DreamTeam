@@ -3,6 +3,19 @@
     Ejs
     Author: Samuel Corecco & Andrea prato (based on the html of Francesco)
 -->
+<%
+  function isInside(name){
+    let inside = false;
+
+    event.members.forEach((element)=>{
+      if (element.username == name){
+        inside = true
+      }
+    });
+
+    return inside;
+  }
+%>
 <main id="event description">
 
     <section class="head">
@@ -13,18 +26,20 @@
 
       <section>
         <%if(user){
-            if(event.owner._id !== user.username){
+            if(event.owner !== user.username){
                  if(event.members.includes(user)){%>
                     <form>
-                    <button type="submit" name="submit"> Leave </button>
+                      <button type="submit" name="submit"> Leave </button>
                     </form>
-                <%}else{
+                <%} else {
                     if(event.max_members === event.members.length){%>
+                      <section>
                         Sorry, this event reached the maximum capacity chosen from the owner.
-                    <%}else{%>
-                         <form>
-                         <button type="submit" name="submit"> Join </button>
-                         </form>
+                      </section>
+                    <%} else {%>
+                        <form>
+                          <button name="submit_join" id="<%=event._id%>"> Join </button>
+                        </form>
                     <%}%>
                 <%}
             }else{%>
@@ -32,7 +47,7 @@
                 <a rel="delete" href="">Delete</a>
             <%}
         }else{%>
-            If you want to join the event please <a href="/login">Login</a>!
+            If you want to access the event informations please <a href="/login">Login</a>!
         <%}%>
             </section>
         </section>
@@ -55,6 +70,7 @@
       <p>Frequency: <%= event.frequency %></p>
     </section>
 
+    <%if(user && (isInside(user.username) || (user.username == event.owner))){%>
     <div class="container_chat">
       <div class="header">
         <h1>Group Chat</h1>
@@ -72,5 +88,6 @@
       </div>
 
     </div>
+    <%}%>
 
   </main>

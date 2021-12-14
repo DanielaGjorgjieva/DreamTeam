@@ -32,6 +32,12 @@
 - improved header.ejs
 - improved header.ejs
 
+15/12
+- improved edit.ejs
+- imprved events.ejs
+
+- implemented edit fetch and started join fetch (with Alessandro Cravioglio and Samuel Corecco)
+
 #### Alessandro Cravioglio
 
 09/12
@@ -59,9 +65,10 @@ worked on DB
 
 14/12
 worked on ROUTES/ajax.json
-- worked on crypto
+- worked on crypto - now abandoned
 - implemented (almost secure) signin 
 - implemented login
+- worked on sport join (server side, ajax) - worked with Samuel and Francesco
 
 #### Daniela Gjorgjieva
 03/12
@@ -152,3 +159,4 @@ _______
 -started working on the client side of sockets
 -work with password with crypto
 -work on login/signin
+-fetch and a part of server join to activity with Alessandro e Francesco

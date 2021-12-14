@@ -47,6 +47,7 @@ Event:
     frequency : "",
     max_members : 10,
     members : [],
+    chat : "";
 }
 
 User:
@@ -57,22 +58,24 @@ User:
     joined: [],
 }
 
-
-
-
-Se non sei loggato:
--fai vedere la scritta login o sign in
-
-Se sei l'owner:
--fai vedere il tasto modifica (+ delete) + la chat
-
-Se sei un user:
-- fai vedere il tasto join
-o
-- fai vedere il tasto leave + la chat
-
-
-
+Idea:
 we can add in the aside bar a list of people that is online right now
 and in the aside bar of the specific event, a list of online and offline users
+
+
+TODO
+
+
+render header again
+
+Crea sport-> manda owner
+
+Join edit ->user && event
+    creare routes per updatare l'evento e l'user
+
+click sul tuo nome in alto a destra
+
+login da evento
+
+sidebar with online users names -> in sport activity: online enlisted users
 
