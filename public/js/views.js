@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Tue Dec 14 2021 14:32:24 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Tue Dec 14 2021 15:01:37 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -524,28 +524,28 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    <% if(user != undefined ){ %>\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    <% } else {%>\n        <section class=\"login\">\n            Hi, <a href=\"/user/<%=user._id%>\"><%= user.username%></a>!\n        </section>\n\n    <%}%>\n</header>"
+  , __lines = "<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    <% if(user == undefined ){ %>\n        <section class=\"login\">\n            <a href=\"login\">Login</a> <br>\n            or <br>\n            <a href=\"signin\">Sign in!</a>\n        </section>\n    <% } else {%>\n        <section class=\"login\">\n            Hi, <a href=\"/user/<%=user._id%>\"><%= user.username%></a>!\n        </section>\n\n    <%}%>\n</header>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    //here we check if the user already logged in\n    ")
-    ; __line = 10
-    ;  if(user != undefined ){ 
-    ; __append("\n        <section class=\"login\">\n            <a href=\"/login\">Login</a> <br>\n            or <br>\n            <a href=\"/signin\">Sign in!</a>\n        </section>\n    ")
-    ; __line = 16
+    ; __append("<header class=\"page-header\" id=\"page-header\">\n\n    <a href=\"/\">\n        <img src=\"/images/logo-placeholder-png.png\" alt=\"logo\">\n    </a>\n\n    <h1>DreamTeam</h1>\n\n    ")
+    ; __line = 9
+    ;  if(user == undefined ){ 
+    ; __append("\n        <section class=\"login\">\n            <a href=\"login\">Login</a> <br>\n            or <br>\n            <a href=\"signin\">Sign in!</a>\n        </section>\n    ")
+    ; __line = 15
     ;  } else {
     ; __append("\n        <section class=\"login\">\n            Hi, <a href=\"/user/")
-    ; __line = 18
+    ; __line = 17
     ; __append(escapeFn(user._id))
     ; __append("\">")
     ; __append(escapeFn( user.username))
     ; __append("</a>!\n        </section>\n\n    ")
-    ; __line = 21
+    ; __line = 20
     ; }
     ; __append("\n</header>")
-    ; __line = 22
+    ; __line = 21
   }
   return __output;
 } catch (e) {

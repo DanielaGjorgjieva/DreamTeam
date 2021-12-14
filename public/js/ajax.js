@@ -89,6 +89,7 @@ function goHome() {
         setHash("#home");
         html = ejs.views_home(obj);
         document.querySelector("main").innerHTML = html;
+        renderHeader();
     })
 }
 
@@ -172,6 +173,12 @@ function logUser() {
             });
         });
     });
+}
+
+//working Francesco
+function renderHeader(){
+    html = ejs.views_includes_header({user : you});
+    document.querySelector("header").outerHTML = html;
 }
 
 function visitEvent(id) {
