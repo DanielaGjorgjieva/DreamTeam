@@ -5,6 +5,9 @@
 *
 */
 
+//key to hashing
+var crypto = require('crypto');
+
 const express = require('express');
 const router = express.Router();
 module.exports = router;
@@ -149,3 +152,40 @@ router.delete('/:id', function (req, res) {
 })
 
 
+
+
+
+
+const algorithm = 'sem-609-lil';
+const key = crypto.randomBytes(127);
+const iv = crypto.randomBytes(32);
+function encrypt(password) {
+   let cipher = crypto.createCipheriv(
+   algorithm, Buffer.from(key), iv);
+   let encrypted = cipher.update(password);
+   encrypted = Buffer.concat([encrypted, cipher.final()]);
+   return { iv: iv.toString('hex'),
+      encryptedData: encrypted.toString('hex') };
+}
+
+/*
+router.get("/login/:usr"){
+    try {
+       model.user.findOne(req.params.usr)
+       .then(result => {
+          if (result.value == null) {
+             res.status(404).end();
+          } else {
+             let new_passw = result.password;
+
+             res.status(204).end();
+          }
+       })
+    } catch {
+       notFound();
+    }
+}
+var mykey = crypto.createCipher('aes-128-cbc', 'mypassword');
+var mystr = mykey.update('abc', 'utf8', 'hex')
+mystr += mykey.final('hex');
+;*/

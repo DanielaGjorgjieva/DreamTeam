@@ -65,7 +65,7 @@ worked on DB
 #### Andrea Prato
 _______
  Since me and Samuel worked together on all the assignments, we decided to work together on the project as well.
-_______
+ ______
 
 
 10/12
@@ -93,7 +93,9 @@ _______
 -Created fetch for the rendering of the specific event page
 -Made specific event page working
 
-
+14/12
+-Started creating the client side socket skeleton
+-Started working on a system to pass the password to check the user login, without exposing it on the client
 
 #### Samuel Corecco
 
@@ -122,3 +124,7 @@ _______
 -update upload
 -done ejs events with Andre (based on the html of Francesco)
 -change little features in the server 
+
+14/12
+-started working on the client side of sockets
+-work with password with crypto

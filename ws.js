@@ -12,7 +12,7 @@ const eventBus = new EventEmitter();
 function init(server) {
     io.attach(server);
 
-    io.on('connection', function (socket) {
+    io.on('connect', function (socket) {
         console.log("A new client has connected!");
 
         socket.on('disconnect', function() {
