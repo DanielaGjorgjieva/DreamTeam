@@ -5,6 +5,7 @@
 
     Author: Samuel Corecco & Andrea prato
 */
+/*
 let socket = io();
 
 socket.on('connect', () => {
@@ -20,4 +21,4 @@ socket.on('sport.edited', (event) => {
     parse_path();
 });
 
-socket.on('sport.uploaded', )
+socket.on('sport.uploaded', )*/

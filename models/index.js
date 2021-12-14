@@ -11,9 +11,10 @@ const mongodb = require('mongodb');
 require('dotenv').config('../.env');
 const ObjectId = mongodb.ObjectId;
 const MongoClient = mongodb.MongoClient;
-c
 
-// .env file
+//
+const mongoose = require('mongoose');
+const crypto = require('crypto');
 
 const db_name = 'web-atelier-project';
 // first collection:s sports

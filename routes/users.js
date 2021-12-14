@@ -62,8 +62,10 @@ router.get('/login', function (req, res) {
 
 // post user
 router.post('/', function (req, res) {
+   console.log('we are in post/user');
 
     try {
+       console.log(req.body);
         const newUser = {
             // TODO: manage password
             username: req.body.username,
@@ -72,9 +74,11 @@ router.post('/', function (req, res) {
             joined: [],
             guest: false
         }
+
+        console.log(newUser);
     
        // TODO: complete
-       model.user.insertOne(newActivity)
+       model.user.insertOne(newUser)
        .then(result => {
           console.log(result);
           
@@ -90,6 +94,45 @@ router.post('/', function (req, res) {
     } catch {
        notFound();
     }
+})
+
+// password check
+// get password from client and check on the db if this is
+// the right one; if true send new user object with
+// false password field
+router.get('/login/:password/:username', function (req, res) {
+   
+   let filter = { username: req.body.username};
+
+   const password = req.body.password;
+   const loggedUser = {};
+
+   try {
+      model.user.findOne(filter)
+      .then((result) => {
+         if (result.password == password) {
+
+            loggedUser = {
+               // TODO: manage password
+               username: result.username,
+               password: '',
+               created: result.created,
+               joined: result.joined,
+               guest: result.guest
+            }
+         }
+      })
+      .then(() => {
+         res.status(200).json(loggedUser);
+      })
+      .catch((error) => {
+         console.error(error);
+         notFound();
+      })
+
+   } catch {
+      notFound();
+   }
 })
 
 // edit user
