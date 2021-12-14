@@ -164,7 +164,10 @@ function logUser() {
                     let html = ejs.views_user({user:you});
                     document.querySelector("main").outerHTML = html;
                     renderHeader();
-                    SetButtonUser()
+                    if(you.created.length > 0){
+                        SetButtonUser(you.created.length)
+                    }
+                    
             } else {
                 alert("Wrong password or user inserted! XD LOL");
             }
@@ -189,9 +192,9 @@ function visitEvent(id) {
     })
 }
 
-function SetButtonUser() {
+function SetButtonUser(num) {
     let delete_buttons = document.querySelectorAll('[rel="delete"]');
-    for (let i = 0; i < edit_buttons.length; ++i) {
+    for (let i = 0; i < num; ++i) {
         delete_buttons[i].setAttribute("onclick", "deleteSport(this.id)");
     }
 }
