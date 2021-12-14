@@ -176,6 +176,11 @@ function logUser() {
     });
 }
 
+//working Francesco
+function renderHeader(){
+    html = ejs.views_includes_header({user : you});
+    document.querySelector("header").outerHTML = html;
+}
 
 function visitEvent(id) {
     fetch("sports/" + id).then(res => res.json()).then(obj => {

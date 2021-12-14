@@ -27,6 +27,11 @@
 -created events.ejs
 -improved events.css
 
+14/12
+- added renderHeader in ajax.js
+- improved header.ejs
+- improved header.ejs
+
 #### Alessandro Cravioglio
 
 09/12
