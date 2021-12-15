@@ -2,7 +2,7 @@ Routes:
 
 GET /		                        #homepage
 
-GET /sports	                        #song table	
+GET /sports	                        #sport table	
 
 GET /upload	                        #upload page, upload form to create a sport event
 
@@ -79,3 +79,10 @@ login da evento
 
 sidebar with online users names -> in sport activity: online enlisted users
 
+
+
+DA CORREGGERE:
+TO CORRECT:
+
+Se si sbaglia password nel login il sito crasha
+if you put the wrong password in login the website crashes

@@ -6,7 +6,7 @@
 */
 
 //key to hashing
-var crypto = require('crypto');
+// var crypto = require('crypto');
 
 const express = require('express');
 const router = express.Router();
@@ -195,17 +195,17 @@ router.delete('/:id', function (req, res) {
     }
 })
  
-const algorithm = 'sem-609-lil';
-const key = crypto.randomBytes(127);
-const iv = crypto.randomBytes(32);
-function encrypt(password) {
-   let cipher = crypto.createCipheriv(
-   algorithm, Buffer.from(key), iv);
-   let encrypted = cipher.update(password);
-   encrypted = Buffer.concat([encrypted, cipher.final()]);
-   return { iv: iv.toString('hex'),
-      encryptedData: encrypted.toString('hex') };
-}
+// const algorithm = 'sem-609-lil';
+// const key = crypto.randomBytes(127);
+// const iv = crypto.randomBytes(32);
+// function encrypt(password) {
+//    let cipher = crypto.createCipheriv(
+//    algorithm, Buffer.from(key), iv);
+//    let encrypted = cipher.update(password);
+//    encrypted = Buffer.concat([encrypted, cipher.final()]);
+//    return { iv: iv.toString('hex'),
+//       encryptedData: encrypted.toString('hex') };
+// }
 
 /*
 router.get("/login/:usr"){

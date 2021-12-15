@@ -10,10 +10,12 @@ this file should check if the user is logged or not
     <%if (!user) {%>
 
     <section class="formdesc">
-        If you want to create an event please <a onclick="logUser()">Login</a>!
+        If you want to create an event please <a href="login">Login</a>!
+        <!-- onclick="logUser()" -->
       </section>
       <section class="formdesc">
-        You don't have an account? <a onclick="addUser()">Sign in!</a>
+        You don't have an account? <a href="signin">Sign in!</a>
+        <!-- onclick="addUser()" -->
       </section>
 
     <% } else {%>
