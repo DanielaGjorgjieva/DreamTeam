@@ -68,14 +68,14 @@ TODO
 
 render header again
 
-Crea sport-> manda owner
+Crea sport-> manda owner //FATTO IN TEORIA IERI ??? CREDO
 
 Join edit ->user && event
-    creare routes per updatare l'evento e l'user
+    creare routes per updatare l'evento e l'user //PARTE SERVER
 
-click sul tuo nome in alto a destra
+click sul tuo nome in alto a destra //FATTO
 
-login da evento
+login da evento //FATTO
 
 sidebar with online users names -> in sport activity: online enlisted users
 

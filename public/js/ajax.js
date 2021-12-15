@@ -46,6 +46,11 @@ function linkClickHandler(event) {
     if (url.pathname.endsWith("/login")) {
         logUser();
     }
+    if(you){
+        if (url.pathname.endsWith(you._id)) {
+            logUser();
+        }
+    }
     if (url.pathname.includes("sports")) {
         if (url.pathname.endsWith("edit")) {
             editSport(event.parentNode.id);
@@ -56,6 +61,12 @@ function linkClickHandler(event) {
 function LogOutUser() {
     you = undefined;
     goHome();
+}
+
+function openYourPage(){
+    let html = ejs.views_user({ user: you });
+    document.querySelector("main").outerHTML = html;
+    renderHeader();
 }
 
 function editSport(id) {
@@ -220,10 +231,15 @@ function visitEvent(id) {
         document.querySelector("main").outerHTML = html;
         let button_join = document.getElementsByName("submit_join")[0];
         console.log("button_join: " + button_join);
-        button_join.addEventListener("click", (event) => {
-            event.preventDefault();
-            join_activity(id);
-        })
+        if(button_join){
+            button_join.addEventListener("click", (event) => {
+                event.preventDefault();
+                join_activity(id);
+            })
+        }
+        let log_ev = document.getElementById("login_from_event");
+        console.log(log_ev);
+        log_ev.addEventListener("click", linkClickHandler);
     })
 }
 
