@@ -105,21 +105,6 @@ function deleteSport(clicked_id) {
 
 function goHome() {
     fetch("/")
-<<<<<<< HEAD
-    .then(res => res.text())
-    .then(obj => {
-        renderHeader();
-        setHash("#home");
-        html = ejs.views_home(obj);
-        document.querySelector("main").innerHTML = html;
-    });
-}
-
-function activityUpload() {
-    fetch("/upload")
-    .then(res => res.text())
-    .then(obj => {
-=======
         .then(res => {
             // res.json()
             console.log("res");
@@ -140,7 +125,6 @@ function activityUpload() {
 function activityUpload() {
     fetch("/upload").then(res => res.text()).then(obj => {
         renderHeader();
->>>>>>> 83b7b63bf5c774d6183f9e9ae9527918f91f18a0
         setHash("#upload");
         html = ejs.views_upload({ user: you });
         document.querySelector("main").outerHTML = html;
@@ -165,14 +149,8 @@ function activityUpload() {
 
 
 function listSports() {
-<<<<<<< HEAD
-    fetch("/sports")
-    .then(res => res.json())
-    .then(obj => {
-=======
     fetch("/sports").then(res => res.json()).then(obj => {
         renderHeader();
->>>>>>> 83b7b63bf5c774d6183f9e9ae9527918f91f18a0
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
         // console.log(html);
@@ -206,6 +184,7 @@ function addUser() {
             setHash("#home");
         })
     })
+    document.getElementById('login').addEventListener('click',linkClickHandler);
 }
 
 
@@ -300,7 +279,10 @@ function visitEvent(id) {
         }
         let log_ev = document.getElementById("login_from_event");
         console.log(log_ev);
-        log_ev.addEventListener("click", linkClickHandler);
+        if(log_ev){
+            log_ev.addEventListener("click", linkClickHandler);
+        }
+        
     })
 }
 
@@ -362,6 +344,3 @@ function parse_path() {
         goHome();
     }
 }
-
-
-

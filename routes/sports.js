@@ -232,7 +232,6 @@ router.delete('/:id', function (req, res) {
       res.status(404).end();
    }
 });
-<<<<<<< HEAD
 
 
 router.get('/about', function (req, res) {
@@ -249,5 +248,3 @@ router.get('/upload', function (req, res) {
       res.status(404).end();
    }
 })
-=======
->>>>>>> 83b7b63bf5c774d6183f9e9ae9527918f91f18a0

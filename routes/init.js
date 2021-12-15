@@ -18,12 +18,6 @@ const model = require('../models/index.js').model;
 
 router.get('/', function(req, res) {
  
-<<<<<<< HEAD
-    model.sport.find({}).toArray()
-    .then(result => {
-        res.status(200).json(result);
-    })
-=======
     try {
         model.sport.find({}).toArray().then(result => {
             res.status(200).type("application/json").json(result);
@@ -34,7 +28,6 @@ router.get('/', function(req, res) {
         console.log(error);
         res.status(404).end();
     }
->>>>>>> 83b7b63bf5c774d6183f9e9ae9527918f91f18a0
 });
 
 router.get('/upload', function (req, res) {

@@ -194,20 +194,6 @@ router.delete('/:id', function (req, res) {
       res.status(404).end();;
    }
 })
-<<<<<<< HEAD
-
-const algorithm = 'sem-609-lil';
-const key = crypto.randomBytes(127);
-const iv = crypto.randomBytes(32);
-function encrypt(password) {
-   let cipher = crypto.createCipheriv(
-   algorithm, Buffer.from(key), iv);
-   let encrypted = cipher.update(password);
-   encrypted = Buffer.concat([encrypted, cipher.final()]);
-   return { iv: iv.toString('hex'),
-      encryptedData: encrypted.toString('hex') };
-}
-=======
  
 // const algorithm = 'sem-609-lil';
 // const key = crypto.randomBytes(127);
@@ -220,7 +206,6 @@ function encrypt(password) {
 //    return { iv: iv.toString('hex'),
 //       encryptedData: encrypted.toString('hex') };
 // }
->>>>>>> 83b7b63bf5c774d6183f9e9ae9527918f91f18a0
 
 /*
 router.get("/login/:usr"){
