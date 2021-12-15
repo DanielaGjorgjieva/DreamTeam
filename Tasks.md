@@ -44,6 +44,8 @@
 - fixed sign in button in login
 - improved ajax.js, made some correction
 
+- implement chat in event.js
+
 #### Alessandro Cravioglio
 
 09/12
