@@ -32,11 +32,17 @@
 - improved header.ejs
 - improved header.ejs
 
+
 15/12
 - improved edit.ejs
 - imprved events.ejs
 
 - implemented edit fetch and started join fetch (with Alessandro Cravioglio and Samuel Corecco)
+
+- fixed some links and href
+- improved some fetches and routes
+- fixed sign in button in login
+- improved ajax.js, made some correction
 
 #### Alessandro Cravioglio
 
@@ -164,3 +170,7 @@ _______
 -work with password with crypto
 -work on login/signin
 -fetch and a part of server join to activity with Alessandro e Francesco
+
+15/12
+-fetch to your page if you click your username 
+-login from event if you have not an account or you ar not logged
