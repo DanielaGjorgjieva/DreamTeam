@@ -16,21 +16,26 @@ function today() {
 }
 
 
-            // Function to check Whether both passwords
-            // is same or not.
+// Function to check Whether both passwords
+// is same or not.
 function checkPassword(form) {
-        password = form.password.value;
-        password_check = form.password_check.value;
+    password = form.password.value;
+    password_check = form.password_check.value;
 
-        // If Not same return False.    
-        if (password != password_check) {
-            alert ("\nPassword did not match: Please try again...")
-            return false;
-        }
-
-        // If same return True.
-        else{
-            alert("Password Match: Welcome to Sport-Activities")
-            return true;
-        }
+    // If Not same return False.    
+    if (password != password_check) {
+        alert("\nPassword did not match: Please try again...")
+        return false;
     }
+
+    // If same return True.
+    else {
+        alert("Password Match: Welcome to Sport-Activities")
+        return true;
+    }
+}
+
+function setScroolChat() {
+    var objDiv = document.getElementById("chat");
+    objDiv.scrollTop = objDiv.scrollHeight;
+}
