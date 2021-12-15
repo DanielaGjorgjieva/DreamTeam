@@ -190,18 +190,18 @@
     }
 
     
-    .row1:hover .image {
+    .row1:hover .image,   .row2:hover .image ,  .row3:hover .image, .row4:hover .image  {
       opacity: 0.5;
     }
     
-    .row1:hover .middle1 {
+    .row1:hover .middle1, .row2:hover .middle2 , .row3:hover .middle3 , .row4:hover .middle4  {
       opacity: 1;
     }
     
     .text {
       background-color: none;
-      color: white;
-      font-size: 120px;
+      color: black;
+      font-size: 80px;
       padding: 100px 100px;
     }
 
@@ -219,15 +219,6 @@
     }
 
     
-    .row2:hover .image {
-      opacity: 0.5;
-    }
-    
-    .row2:hover .middle2 {
-      opacity: 1;
-    }
-
-
 
 
     .middle3 {
@@ -242,14 +233,7 @@
     }
 
     
-    .row3:hover .image {
-      opacity: 0.5;
-    }
-    
-    .row3:hover .middle3 {
-      opacity: 1;
-    }
-
+ 
 
     .middle4 {
       transition: .5s ease;
@@ -262,14 +246,40 @@
       text-align: center;
     }
 
-    
-    .row4:hover .image {
-      opacity: 0.5;
+ 
+    .container1 {
+      display: flex;
+      align-items: center;
+      justify-content: center
     }
     
-    .row4:hover .middle4 {
-      opacity: 1;
+    img {
+      max-width: 100%
     }
+    
+    .image1 {
+      flex-basis: 190%
+    }
+    
+    .text1 {
+      font-size: 20px;
+      padding-left: 20px;
+      align-items: flex-start;
+    }
+
+    .zoom {
+      padding: 10px;
+    
+      transition: transform .2s; /* Animation */
+      width: 150%;
+      height: 150%;
+      margin: 0 auto;
+    }
+    
+    .zoom:hover {
+      transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+   
     
 
 }
