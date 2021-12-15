@@ -18,7 +18,8 @@ const model = require('../models/index.js').model;
 
 router.get('/', function(req, res) {
  
-    model.sport.find({}).toArray().then(result => {
+    model.sport.find({}).toArray()
+    .then(result => {
         res.status(200).json(result);
     })
 });

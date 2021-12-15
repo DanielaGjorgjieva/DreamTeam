@@ -59,7 +59,9 @@ function LogOutUser() {
 }
 
 function editSport(id) {
-    fetch("/edit/" + id).then(res => res.json()).then(obj => {
+    fetch("/edit/" + id)
+    .then(res => res.json())
+    .then(obj => {
         setHash('#edit/' + id);
         html = ejs.views_edit(obj);
         document.querySelector("main").innerHTML = html;
@@ -67,7 +69,8 @@ function editSport(id) {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             let body = new FormData(form);
-            fetch("/sports/" + id, { method: "PUT", body }).then(res => {
+            fetch("/sports/" + id, { method: "PUT", body })
+            .then(res => {
                 ejs.views_user(you);
             })
         })
@@ -77,13 +80,16 @@ function editSport(id) {
 function deleteSport(clicked_id) {
     let id = clicked_id.split("_")[0];
     let toDelete = document.getElementById(id);
-    fetch("/sports/" + id, { method: "DELETE", headers: { "Accept": "application/json" } }).then(res => {
+    fetch("/sports/" + id, { method: "DELETE", headers: { "Accept": "application/json" } })
+    .then(res => {
         toDelete.remove();
     })
 }
 
 function goHome() {
-    fetch("/").then(res => res.text()).then(obj => {
+    fetch("/")
+    .then(res => res.text())
+    .then(obj => {
         renderHeader();
         setHash("#home");
         html = ejs.views_home(obj);
@@ -92,7 +98,9 @@ function goHome() {
 }
 
 function activityUpload() {
-    fetch("/upload").then(res => res.text()).then(obj => {
+    fetch("/upload")
+    .then(res => res.text())
+    .then(obj => {
         setHash("#upload");
         html = ejs.views_upload({ user: you });
         document.querySelector("main").innerHTML = html;
@@ -110,7 +118,9 @@ function activityUpload() {
 
 
 function listSports() {
-    fetch("/sports").then(res => res.json()).then(obj => {
+    fetch("/sports")
+    .then(res => res.json())
+    .then(obj => {
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
         console.log(html);
@@ -119,7 +129,9 @@ function listSports() {
 }
 
 function goAbout() {
-    fetch("/about").then(res => res.text()).then(obj => {
+    fetch("/about")
+    .then(res => res.text())
+    .then(obj => {
         setHash("#about");
         html = ejs.views_about(obj);
         document.querySelector("main").innerHTML = html;
@@ -135,7 +147,8 @@ function addUser() {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         let body = new FormData(form);
-        fetch("/users", { method: "POST", body }).then(res => {
+        fetch("/users", { method: "POST", body })
+        .then(res => {
             goHome();
             setHash("#home");
         })
@@ -154,25 +167,25 @@ function logUser() {
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         fetch("/users/login/" + password + "/" + username)
-            .then(res => res.json())
-            .then(obj => {
-                console.log(obj);
-                if (obj) {
-                    you = obj;
-                    let html = ejs.views_user({ user: you });
-                    document.querySelector("main").outerHTML = html;
-                    renderHeader();
-                    if (you.created.length > 0) {
-                        SetButtonUser(you.created.length)
-                    }
-
-                } else {
-                    alert("Wrong password or user inserted! XD LOL");
+        .then(res => res.json())
+        .then(obj => {
+            console.log(obj);
+            if (obj) {
+                you = obj;
+                let html = ejs.views_user({ user: you });
+                document.querySelector("main").outerHTML = html;
+                renderHeader();
+                if (you.created.length > 0) {
+                    SetButtonUser(you.created.length)
                 }
-            })
-            .catch(err => {
-                console.error(err);
-            })
+
+            } else {
+                alert("Wrong password or user inserted! XD LOL");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        })
     });
 }
 
@@ -214,7 +227,9 @@ function buttonsHeader() {
 }
 
 function visitEvent(id) {
-    fetch("sports/" + id).then(res => res.json()).then(obj => {
+    fetch("sports/" + id)
+    .then(res => res.json())
+    .then(obj => {
         setHash("#event/" + id);
         html = ejs.views_events({ user: you, event: obj });
         document.querySelector("main").outerHTML = html;

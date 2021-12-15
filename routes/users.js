@@ -22,78 +22,78 @@ const ObjectId = require('mongodb').ObjectId;
 
 router.get('/:id', function(req, res) {
 
-    let filter = { _id: new ObjectId(req.params.id)};
- 
-    try {
-       model.user.findOne(filter)
-       .then(result => {
-          if (result === null) {
-             res.status(404).end();
-          } else {
-             res.status(200).json(result);
-          }
-       })
-       .catch(error => {
-          console.error(error);
-          notFound();
-       })
-    } catch {
-       notFound();
-    }
+   let filter = { _id: new ObjectId(req.params.id)};
+
+   try {
+      model.user.findOne(filter)
+      .then(result => {
+         if (result === null) {
+         res.status(404).end();
+         } else {
+            res.status(200).json(result);
+         }
+      })
+      .catch(error => {
+         console.error(error);
+         res.status(404).end();;
+      })
+   } catch {
+      res.status(404).end();;
+   }
 })
 
 // create user
 router.get('/singin', function(req, res) {
-    try {
-       res.status(200);
-    } catch {
-       notFound();
-    }
+   try {
+      res.status(200);
+   } catch {
+      res.status(404).end();;
+   }
 })
 
 // get login
 router.get('/login', function (req, res) {
-    try {
-       res.status(200);
-    } catch {
-       notFound();
-    }
+   try {
+      res.status(200);
+   } catch {
+      res.status(404).end();;
+   }
 })
 
 // post user
 router.post('/', function (req, res) {
    console.log('we are in post/user');
 
-    try {
-       console.log(req.body);
-        const newUser = {
-            // TODO: manage password
-            username: req.body.username,
-            password: req.body.password,
-            created: [],
-            joined: [],
-            guest: false
-        }
+   try {
+      console.log(req.body);
+      const newUser = {
+         // TODO: manage password
+         username: req.body.username,
+         password: req.body.password,
+         created: [],
+         joined: [],
+         guest: false
+      }
 
-        console.log(newUser);
-    
-       // TODO: complete
-       model.user.insertOne(newUser)
-       .then(result => {
-          console.log(result);
-          
-          // INSERT SOCKET EVENT HERE
-       
-          // sent new object as json response
-          res.status(201).json(newUser);
-       })
-       .catch(error => {
-          console.error(error);
-          notFound();
-       })
-    } catch {
-       notFound();
-    }
+      console.log(newUser);
+   
+      // TODO: complete
+      model.user.insertOne(newUser)
+      .then(result => {
+         console.log(result);
+         
+         // INSERT SOCKET EVENT HERE
+      
+         // sent new object as json response
+         res.status(201).json(newUser);
+      })
+      .catch(error => {
+         console.error(error);
+         res.status(404).end();;
+      })
+   } catch {
+      res.status(404).end();;
+   }
 })
 
 // password check
@@ -131,43 +131,43 @@ router.get('/login/:password/:username', function (req, res) {
       })
       .catch((error) => {
          console.error(error);
-         notFound();
+         res.status(404).end();;
       })
    } catch {
-      notFound();
+      res.status(404).end();;
    }
 })
 
 // edit user
 router.put('/:id', function (req, res) {
 
-    try {
-        const newUser = {
-            // TODO: manage password
-            username: req.body.username,
-            password: req.body.password,
-            created: [],
-            joined: [],
-            guest: false
-        }
-    
-       // TODO: complete
-       model.user.replaceOne(newActivity)
-       .then(result => {
-          console.log(result);
-          
-          // INSERT SOCKET EVENT HERE
-       
-          // sent new object as json response
-          res.status(201).json(newUser);
-       })
-       .catch(error => {
-          console.error(error);
-          notFound();
-       })
-    } catch {
-       notFound();
-    }
+   try {
+      const newUser = {
+         // TODO: manage password
+         username: req.body.username,
+         password: req.body.password,
+         created: [],
+         joined: [],
+         guest: false
+      }
+   
+      // TODO: complete
+      model.user.replaceOne(newActivity)
+      .then(result => {
+         console.log(result);
+         
+         // INSERT SOCKET EVENT HERE
+      
+         // sent new object as json response
+         res.status(201).json(newUser);
+      })
+      .catch(error => {
+         console.error(error);
+         res.status(404).end();;
+      })
+   } catch {
+      res.status(404).end();;
+   }
 })
 
 // delete user
@@ -179,22 +179,22 @@ router.put('/:id', function (req, res) {
 
 router.delete('/:id', function (req, res) {
 
-    let filter = { _id: new ObjectId(req.params.id)};
- 
-    try {
-       model.user.findOneAndDelete(filter)
-       .then(result => {
-          if (result.value == null) {
-             res.status(404).end();
-          } else {
-             res.status(204).end();
-          }
-       })
-    } catch {
-       notFound();
-    }
+   let filter = { _id: new ObjectId(req.params.id)};
+
+   try {
+      model.user.findOneAndDelete(filter)
+      .then(result => {
+         if (result.value == null) {
+            res.status(404).end();
+         } else {
+            res.status(204).end();
+         }
+      })
+   } catch {
+      res.status(404).end();;
+   }
 })
- 
+
 const algorithm = 'sem-609-lil';
 const key = crypto.randomBytes(127);
 const iv = crypto.randomBytes(32);
@@ -221,7 +221,7 @@ router.get("/login/:usr"){
           }
        })
     } catch {
-       notFound();
+       res.status(404).end();;
     }
 }
 var mykey = crypto.createCipher('aes-128-cbc', 'mypassword');

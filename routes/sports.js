@@ -19,9 +19,6 @@ const ObjectId = require('mongodb').ObjectId;
 //SOCKET
 const { eventBus } = require("../ws.js");
 
-// DEFAULT NOT FOUND
-function notFound() {res.status(404).end()};
-
 // ROUTES
 router.get("/", function (req, res) {
 
@@ -31,10 +28,10 @@ router.get("/", function (req, res) {
             res.status(200).json(result);
          }).catch(error => {
             console.error(error);
-            notFound();
+            res.status(404).end();
          })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 })
 
@@ -42,23 +39,23 @@ router.get("/", function (req, res) {
 
 router.get('/:id', function (req, res) {
 
-   let filter = { _id: new ObjectId(req.params.id) };
+let filter = { _id: new ObjectId(req.params.id) };
 
    try {
       model.sport.findOne(filter)
-         .then(result => {
-            if (result === null) {
-               res.status(404).end();
-            } else {
-               res.status(200).json(result);
-            }
-         })
-         .catch(error => {
-            console.error(error);
-            notFound();
-         })
+      .then(result => {
+         if (result === null) {
+            res.status(404).end();
+         } else {
+            res.status(200).json(result);
+         }
+      })
+      .catch(error => {
+         console.error(error);
+         res.status(404).end();
+      })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 });
 
@@ -68,19 +65,19 @@ router.get('/:id/edit', function (req, res) {
 
    try {
       model.sport.findOne(filter)
-         .then(result => {
-            if (result === null) {
-               res.status(404).end();
-            } else {
-               res.status(200).json(result);
-            }
-         })
-         .catch(error => {
-            console.error(error);
-            notFound();
-         })
+      .then(result => {
+         if (result === null) {
+            res.status(404).end();
+         } else {
+            res.status(200).json(result);
+         }
+      })
+      .catch(error => {
+         console.error(error);
+         res.status(404).end();
+      })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 })
 
@@ -104,20 +101,21 @@ router.post('/:owner', function (req, res) {
 
       // TODO: complete
       model.sport.insertOne(newActivity)
-         .then(result => {
-            console.log(result);
+      .then(result => {
+         console.log(result);
 
-            eventBus.emit('sport.uploaded', newActivity);
+         eventBus.emit('sport.uploaded', newActivity);
 
-            // sent new object as json response
-            res.status(201).json(newActivity);
-         })
-         .catch(error => {
-            console.error(error);
-            notFound();
-         })
+         // sent new object as json response
+         res.status(201).json(newActivity);
+      })
+      .catch(error => {
+         console.error(error);
+         
+         res.status(404).end();
+      })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 });
 
@@ -136,7 +134,7 @@ router.put('/:id/join', function (req, res) {
          joinUser = result;
       });
    } catch {
-      notFound();
+      res.status(404).end();
    }
 
    try {
@@ -166,10 +164,10 @@ router.put('/:id/join', function (req, res) {
       })
       .catch(error => {
          console.error(error);
-         notFound();
+         res.status(404).end();
       })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 })
 
@@ -208,10 +206,10 @@ router.put('/:id', function (req, res) {
       })
       .catch(error => {
          console.error(error);
-         notFound();
+         res.status(404).end();
       })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 });
 
@@ -222,16 +220,16 @@ router.delete('/:id', function (req, res) {
 
    try {
       model.sport.findOneAndDelete(filter)
-         .then(result => {
-            if (result.value == null) {
-               res.status(404).end();
-            } else {
-               eventBus.emit('sport.deleted', result);
-               res.status(204).end();
-            }
-         })
+      .then(result => {
+         if (result.value == null) {
+            res.status(404).end();
+         } else {
+            eventBus.emit('sport.deleted', result);
+            res.status(204).end();
+         }
+      })
    } catch {
-      notFound();
+      res.status(404).end();
    }
 });
 
@@ -240,13 +238,13 @@ router.get('/about', function (req, res) {
    try {
       res.status(200);
    } catch {
-      notFound();
+      res.status(404).end();
    }
 })
 router.get('/upload', function (req, res) {
    try {
       res.status(200);
    } catch {
-      notFound();
+      res.status(404).end();
    }
 })
