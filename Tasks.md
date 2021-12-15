@@ -1,4 +1,4 @@
-## This file is intended to keep track of the work of every single member
+﻿## This file is intended to keep track of the work of every single member
 ### Should updated by each team member for his/her work
 
 #### Francesco Casarella
@@ -91,6 +91,10 @@ worked on ROUTES/ajax.json
 -created the Group chat for the users in the events.html page along with css, and started events.ejs
 13/12
 -working on the css for the homepage and the rest of the html
+
+14/12
+-created css animation for the homepage
+-worked on the homepage.html
 
 #### Andrea Prato
 _______
