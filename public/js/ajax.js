@@ -10,11 +10,15 @@
 // const model = require('../../models/index.js').model;
 // const ObjectId = require('mongodb').ObjectId;
 
+// const { json } = require("express");
+
 // your user
 // let you = {username:"IlPiuPazzO69", password:"", created:[], joined:[], _id:6969402};
 let you = undefined;
 
-//Fetch for the navbar//
+let events = undefined;
+
+//Fetch for the navbar and header//
 
 function init() {
     parse_path();
@@ -26,6 +30,8 @@ function init() {
 
 function linkClickHandler(event) {
     event.preventDefault();
+
+    console.log("a href: " + event.target.href);
     let url = new URL(event.target.href);
 
     if (url.pathname === "/") {
@@ -73,7 +79,7 @@ function editSport(id) {
     fetch("/edit/" + id).then(res => res.json()).then(obj => {
         setHash('#edit/' + id);
         html = ejs.views_edit(obj);
-        document.querySelector("main").innerHTML = html;
+        document.querySelector("main").outerHTML = html;
         let form = document.querySelector("form.upload-section");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -94,54 +100,79 @@ function deleteSport(clicked_id) {
 }
 
 function goHome() {
-    fetch("/").then(res => res.text()).then(obj => {
-        renderHeader();
-        setHash("#home");
-        html = ejs.views_home(obj);
-        document.querySelector("main").innerHTML = html;
-    });
+    fetch("/")
+        .then(res => {
+            // res.json()
+            console.log("res");
+            console.log(res);
+        })
+        .then((json) => {
+            events = json;
+            console.log('Events: ');
+            console.log(events);
+            renderHeader();
+
+            setHash("#home");
+            html = ejs.views_home(); //obj in parenthesis removed
+            document.querySelector("main").outerHTML = html;
+        });
 }
 
 function activityUpload() {
     fetch("/upload").then(res => res.text()).then(obj => {
+        renderHeader();
         setHash("#upload");
         html = ejs.views_upload({ user: you });
-        document.querySelector("main").innerHTML = html;
-        today();
-        let form_sub = document.getElementsByClassName("upload-section")[0];
-        form_sub.addEventListener("submit", (event) => {
-            event.preventDefault();
-            let body = new FormData(form_sub);
-            fetch("/sports/" + you.username, { method: "POST", body }).then(res => {
-                listSports();
+        document.querySelector("main").outerHTML = html;
+
+        if (you) {
+            today();
+            let form_sub = document.getElementsByClassName("upload-section")[0];
+            form_sub.addEventListener("submit", (event) => {
+                event.preventDefault();
+                let body = new FormData(form_sub);
+                fetch("/sports/" + you.username, { method: "POST", body }).then(res => {
+                    listSports();
+                })
             })
-        })
+        } else {
+            document.querySelectorAll("main a").forEach(a => {
+                a.addEventListener("click", linkClickHandler);
+            })
+        }
     })
 }
 
 
 function listSports() {
     fetch("/sports").then(res => res.json()).then(obj => {
+        renderHeader();
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
-        console.log(html);
-        document.querySelector("main").innerHTML = html;
+        // console.log(html);
+        document.querySelector("main").outerHTML = html;
     })
 }
 
 function goAbout() {
-    fetch("/about").then(res => res.text()).then(obj => {
-        setHash("#about");
-        html = ejs.views_about(obj);
-        document.querySelector("main").innerHTML = html;
-    })
+    console.log('madonna');
+    fetch("/about")
+        .then(res => console.log(res))
+        .then(() => {
+            renderHeader();
+            console.log('madonna');
+            setHash("#about");
+            html = ejs.views_about(); //removed obj from parenthesis
+            document.querySelector("main").outerHTML = html;
+        })
 }
 
 
 function addUser() {
+    renderHeader();
     setHash('#signin');
     html = ejs.views_signin();
-    document.querySelector("main").innerHTML = html;
+    document.querySelector("main").outerHTML = html;
     let form = document.getElementById("submit_user");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -151,15 +182,19 @@ function addUser() {
             setHash("#home");
         })
     })
-
 }
 
 
 function logUser() {
+    renderHeader();
     setHash('#login');
     html = ejs.views_login();
-    document.querySelector("main").innerHTML = html;
+    document.querySelector("main").outerHTML = html;
     let form = document.getElementById("login_form");
+
+    document.getElementById('signin')
+        .addEventListener("click", linkClickHandler);
+
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         let username = document.getElementById("username").value;

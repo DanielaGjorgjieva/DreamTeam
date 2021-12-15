@@ -32,11 +32,17 @@
 - improved header.ejs
 - improved header.ejs
 
+
 15/12
 - improved edit.ejs
 - imprved events.ejs
 
 - implemented edit fetch and started join fetch (with Alessandro Cravioglio and Samuel Corecco)
+
+- fixed some links and href
+- improved some fetches and routes
+- fixed sign in button in login
+- improved ajax.js, made some correction
 
 #### Alessandro Cravioglio
 
