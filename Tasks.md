@@ -104,6 +104,10 @@ worked on ROUTES/ajax.json
 -created css animation for the homepage
 -worked on the homepage.html
 
+15/12
+-some improvements were made in the homepage
+-started working on the Trailer video for the project
+
 #### Andrea Prato
 _______
  Since me and Samuel worked together on all the assignments, we decided to work together on the project as well.
