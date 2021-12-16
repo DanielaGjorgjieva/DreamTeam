@@ -120,7 +120,7 @@ router.post('/:owner', function (req, res) {
 });
 
 // JOIN SPORT
-router.put('/:id/join', function (req, res) {
+router.put('/:id/join/', function (req, res) {
 
    let sportFilter = { _id: new ObjectId(req.params.id)};
    let userFilter = {username: req.body.user};
@@ -132,40 +132,35 @@ router.put('/:id/join', function (req, res) {
       model.user.findOne(userFilter)
       .then((result) => {
          joinUser = result;
-      });
+         // sport _id is added to user.joined
+         joinUser.joined.push(sportFilter);
+         console.log("joinUser");
+         console.log(joinUser);
+      })
+      .then(() => {
+         model.user.replaceOne(userFilter, joinUser, {upser: true});
+      })
    } catch {
       res.status(404).end();
    }
 
    try {
+
+      // add user joinUser to sport
       model.sport.findOne(sportFilter)
       .then((result) => {
-         // add user to events members
          result.members.push(joinUser);
          event = result;
-         console.log(event);
-
+         console.log("result", result);
+         return result;
       })
-      .then(() => {
-         model.sport.updateOne(sportFilter, event);
-      })
-      .then(() => {
-         // add event to user joined events
-         model.user.findOne(userFilter)
-         .then((result) => {
-            result.joined.push(event);
-         })
-         .then(() => {
-            model.sport.updateOne(userFilter, result);
-         })
+      .then((result) => {
+         model.sport.replaceOne(sportFilter, result, {upsert: true});
       })
       .then(() => {
          res.status(201).json(event);
       })
-      .catch(error => {
-         console.error(error);
-         res.status(404).end();
-      })
+
    } catch {
       res.status(404).end();
    }
@@ -241,6 +236,7 @@ router.get('/about', function (req, res) {
       res.status(404).end();
    }
 })
+
 router.get('/upload', function (req, res) {
    try {
       res.status(200);
