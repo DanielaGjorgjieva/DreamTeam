@@ -87,6 +87,11 @@ server.on('listening', function() {
   console.log('Express server listening on port ' + server.address().port);
 });
 
-server.listen(app.get('port'));
-let ws = require("./ws.js");
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+let ws = require("./webServer.js");
 ws.init(server);
+
+
+server.listen(app.get('port'));

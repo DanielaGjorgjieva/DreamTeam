@@ -166,6 +166,7 @@ _______
 -Fixed the fetch for edit from the specific event page
 -Added new paths in parsePath and fixed all remaining non-hashed paths
 -Fixed the delete fetch
+-Started working on sockets
 
 #### Samuel Corecco
 
@@ -211,3 +212,4 @@ _______
 -Fixed the fetch for edit from the specific event page 
 -Fixed deleted
 -update parspad and some hash for link
+-start socket working :)

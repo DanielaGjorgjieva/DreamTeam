@@ -5,19 +5,19 @@
 
     Author: Samuel Corecco & Andrea prato
 */
-// let socket = io();
+let socket = io();
 
-// socket.on('connect', () => {
-//     console.log("Your client has connected succesfully!");
-// });
+socket.on('connect', () => {
+    console.log("Your client has connected succesfully!");
+});
 
-// socket.on('disconnect', () => {
-//     console.log("Your client has disconnected!");
-// });
+socket.on('disconnect', () => {
+    console.log("Your client has disconnected!");
+});
 
-// socket.on('sport.edited', (event) => {
-//     console.log("Event edited!");
-//     parse_path();
-// });
-
-// socket.on('sport.uploaded', )
+socket.on('sport.edited', (event) => {
+    console.log("Event edited!");
+    parse_path();
+});
+/*
+socket.on('sport.uploaded', )*/

@@ -17,7 +17,7 @@ const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
 //SOCKET
-const { eventBus } = require("../ws.js");
+const { eventBus } = require("../webServer.js");
 
 // ROUTES
 router.get("/", function (req, res) {
