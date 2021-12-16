@@ -20,30 +20,30 @@ const ObjectId = require('mongodb').ObjectId;
 
 // GET user
 
-router.get('/:id', function(req, res) {
+router.get('/:id', function (req, res) {
 
-   let filter = { _id: new ObjectId(req.params.id)};
+   let filter = { _id: new ObjectId(req.params.id) };
 
    try {
       model.user.findOne(filter)
-      .then(result => {
-         if (result === null) {
-         res.status(404).end();
-         } else {
-            res.status(200).json(result);
-         }
-      })
-      .catch(error => {
-         console.error(error);
-         res.status(404).end();
-      })
+         .then(result => {
+            if (result === null) {
+               res.status(404).end();
+            } else {
+               res.status(200).json(result);
+            }
+         })
+         .catch(error => {
+            console.error(error);
+            res.status(404).end();
+         })
    } catch {
       res.status(404).end();
    }
 })
 
 // create user
-router.get('/signin', function(req, res) {
+router.get('/signin', function (req, res) {
    try {
       res.status(200);
    } catch {
@@ -75,21 +75,22 @@ router.post('/', function (req, res) {
       }
 
       console.log(newUser);
-   
+
       // TODO: complete
       model.user.insertOne(newUser)
-      .then(result => {
-         console.log(result);
+         .then(result => {
+            console.log(result);
+
+            // INSERT SOCKET EVENT HERE
+
+            // sent new object as json response
+            res.status(201).json(newUser);
+         })
+         .catch(error => {
+            console.error(error);
+            res.status(404).end();
+         })
          
-         // INSERT SOCKET EVENT HERE
-      
-         // sent new object as json response
-         res.status(201).json(newUser);
-      })
-      .catch(error => {
-         console.error(error);
-         res.status(404).end();
-      })
    } catch {
       res.status(404).end();
    }
@@ -100,39 +101,42 @@ router.post('/', function (req, res) {
 // the right one; if true send new user object with
 // false password field
 router.get('/login/:password/:username', function (req, res) {
-   
-   let filter = { username: req.params.username};
+
+   let filter = { username: req.params.username };
 
    console.log(req.params);
    const password = req.params.password;
+   let loggedUser = {_id: 'fail'};
 
    try {
       model.user.findOne(filter)
-      .then((result) => {
-         let loggedUser = {};
-         console.log(result);
-         if (result.password == password) {
-
-            loggedUser = {
-               _id: result._id,
-               username: result.username,
-               password: '',
-               created: result.created,
-               joined: result.joined,
+         .then((result) => {
+            if (result == {}) {
+               return loggedUser;
             }
 
-         }
-         return loggedUser;
-      })
-      .then((loggedUser) => {
-         res.status(200).json(loggedUser);
-      })
-      .catch((error) => {
-         console.error(error);
-         res.status(404).end();
-      })
+            console.log(result);
+            if (result.password == password) {
+
+               loggedUser = {
+                  _id: result._id,
+                  username: result.username,
+                  password: '',
+                  created: result.created,
+                  joined: result.joined,
+               }
+
+            }
+            return loggedUser;
+         })
+         .then((loggedUser) => {
+            res.status(200).json(loggedUser);
+         })
+         .catch(() => {
+            res.status(200).json(loggedUser);
+         })
    } catch {
-      res.status(404).end();
+      res.status(204).end();
    }
 })
 
@@ -140,73 +144,23 @@ router.get('/login/:password/:username', function (req, res) {
 // take all id of sports created and joined and return
 // joined/created activities
 // create 2 arrays of objects, estracts objects from db
-router.get('/:id/activities', function (req, res) {
 
-   let filter = { _id: new ObjectId(req.params.id)};
-   let joinedSports = [];
-   let createdSports = [];
-   let twoArrays = {joined:[], created:[]};
+// router.get('/:id/activities', function (req, res) {
 
-   try {
-      model.user.findOne(filter)
-      .then(result => {
-         // joined sports
-         console.log('findOneJoined');
-         console.log(result);
-         result.joined.forEach((el) => {
-            // console.log(el);
-            // console.log("sport filter", el);
+//    let filter = { _id: new ObjectId(req.params.id)};
+//    let currentUser = {};
+//    let joinedSports = [];
+//    let createdSports = [];
+//    let sportfilter;
+//    let ejs = { user: {}, joined: [], created: [] };
 
-            model.sport.findOne(el)
-            .then(result => {
-               console.log("result of filter", result);
-               joinedSports.push(result);
-               console.log("joinedSports", joinedSports);
-            }) 
-         })
-         console.log("joinedSports:");
-         console.log(joinedSports);
-         return joinedSports;
-      })
-      .then((result) => {
-         twoArrays.joined = result; 
-      })
-      .catch((error) => {
-         console.error(error);
-         res.status(404).end();
-      })
-   } catch {
-      res.status(404).end();
-   }
+//    // try {
 
-   try {
-      model.user.findOne(filter)
-      .then(result => {
-         // created sports
-         result.created.forEach((el) => {
+//    model.user.findOne(filter)
+//    .then(json=>currentUser = json)
+//    .then(console.log(currentUser));
+// })
 
-            model.sport.findOne(el)
-            .then(result => {
-               
-               createdSports.push(result);
-            })
-         })
-         console.log("createdSports:");
-         console.log(createdSports);
-         return createdSports;
-      })
-      .then((result) => {
-         twoArrays.created = result;
-         res.status(200).json(twoArrays);
-      })
-      .catch((error) => {
-         console.error(error);
-         res.status(404).end();
-      })
-   } catch {
-      res.status(404).end();
-   }
-})
 
 // edit user
 router.put('/:id', function (req, res) {
@@ -219,21 +173,21 @@ router.put('/:id', function (req, res) {
          created: [],
          joined: [],
       }
-   
+
       // TODO: complete
       model.user.replaceOne(newActivity)
-      .then(result => {
-         console.log(result);
-         
-         // INSERT SOCKET EVENT HERE
-      
-         // sent new object as json response
-         res.status(201).json(newUser);
-      })
-      .catch(error => {
-         console.error(error);
-         res.status(404).end();
-      })
+         .then(result => {
+            console.log(result);
+
+            // INSERT SOCKET EVENT HERE
+
+            // sent new object as json response
+            res.status(201).json(newUser);
+         })
+         .catch(error => {
+            console.error(error);
+            res.status(404).end();
+         })
    } catch {
       res.status(404).end();
    }
@@ -248,22 +202,22 @@ router.put('/:id', function (req, res) {
 
 router.delete('/:id', function (req, res) {
 
-   let filter = { _id: new ObjectId(req.params.id)};
+   let filter = { _id: new ObjectId(req.params.id) };
 
    try {
       model.user.findOneAndDelete(filter)
-      .then(result => {
-         if (result.value == null) {
-            res.status(404).end();
-         } else {
-            res.status(204).end();
-         }
-      })
+         .then(result => {
+            if (result.value == null) {
+               res.status(404).end();
+            } else {
+               res.status(204).end();
+            }
+         })
    } catch {
       res.status(404).end();
    }
 })
- 
+
 // const algorithm = 'sem-609-lil';
 // const key = crypto.randomBytes(127);
 // const iv = crypto.randomBytes(32);

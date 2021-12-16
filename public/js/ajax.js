@@ -54,7 +54,7 @@ function linkClickHandler(event) {
     }
     if (you) {
         if (url.pathname.endsWith(you._id)) {
-            openYourPage();
+            openYourPage(you._id);
             // logUser();
         }
     }
@@ -71,27 +71,60 @@ function LogOutUser() {
     goHome();
 }
 
-function openYourPage() {
-    fetch("/users/" + you._id + "/activities")
+function openYourPage(id) {
+
+    let userJoined = [];
+    let userCreated = [];
+
+
+    fetch("/users/" + id)
         .then(res => res.json())
         .then(json => {
-            console.log("AAAAAAAAAAAA:");
-            console.log(json);
-            let html = ejs.views_user({ user: you, created: json.created, joined: json.joined });
-            document.querySelector("main").outerHTML = html;
-            renderHeader();
-            if (json.created.length > 0) {
-                SetButtonUser(you.created.length)
-            }
+            you = json;
+
+            fetch("/sports/")
+                .then(res => res.json())
+                .then(obj => {
+                    sports = obj;
+                    you.joined.forEach((el) => {
+                        console.log('J');
+                        console.log(el);
+                        for (let index = 0; index < sports.length; index++) {
+                            if (sports[index]._id == el) {
+                                userJoined.push(sports[index]);
+                            }
+                        }
+                    })
+                    you.created.forEach((el) => {
+                        console.log('C');
+                        console.log(el);
+                        for (let index = 0; index < sports.length; index++) {
+                            if (sports[index]._id == el) {
+                                userCreated.push(sports[index]);
+                            }
+                        }
+                    })
+
+                    html = ejs.views_user({
+                        user: you,
+                        created: userCreated,
+                        joined: userJoined
+                    })
+                    document.querySelector('main').outerHTML = html;
+                })
         })
+
+
+
+
 }
 
 function editSport(id) {
-    fetch("sports/"+id+"/edit")
+    fetch("sports/" + id + "/edit")
         .then(res => res.json())
         .then(obj => {
             setHash('#edit/' + id);
-            html = ejs.views_edit({event:obj});
+            html = ejs.views_edit({ event: obj });
             document.querySelector("main").outerHTML = html;
             let form = document.getElementsByClassName("upload-section")[0];
             console.log(form);
@@ -179,7 +212,7 @@ function goAbout() {
         .then(res => res.text())
         .then(obj => {
             setHash("#about");
-            html = ejs.views_about(obj);
+            html = ejs.views_about();
             document.querySelector("main").innerHTML = html;
         })
 }
@@ -209,6 +242,7 @@ function logUser() {
     setHash('#login');
     html = ejs.views_login();
     document.querySelector("main").outerHTML = html;
+
     let form = document.getElementById("login_form");
 
     document.getElementById('signin')
@@ -216,28 +250,21 @@ function logUser() {
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
+
         fetch("/users/login/" + password + "/" + username)
-            .then(res => res.json())
+            .then(res =>
+                res.json()
+            )
             .then(obj => {
                 console.log(obj);
-                if (obj) {
+                if (obj._id !== 'fail') {
                     you = obj;
-                    fetch("/users/" + you._id + "/activities")
-                        .then(res => res.json())
-                        .then(json => {
-                            console.log("AAAAAAAAAAAA:");
-                            console.log(json);
-                            let html = ejs.views_user({ user: you, created: json.created, joined: json.joined });
-                            document.querySelector("main").outerHTML = html;
-                            renderHeader();
-                            if (json.created.length > 0) {
-                                SetButtonUser(you.created.length)
-                            }
-                        })
+                    goHome();
                 } else {
-                    alert("Wrong password or user inserted! XD LOL");
+                    alert("Wrong username or password inserted!");
                 }
             })
             .catch(err => {
@@ -257,7 +284,9 @@ function join_activity(event_id) {
     fetch("/sports/" + event_id + "/join/", requestOptions)
         .then(res => res.json())
         .then(obj => {
-            you.joined.push(obj);
+            console.log('ID:');
+            console.log(obj._id);
+            you.joined.push(obj._id);
             fetch("sports/" + id).then(res => res.json()).then(obj => {
                 setHash("#event/" + id);
                 html = ejs.views_events({ user: you, event: obj });
@@ -270,7 +299,6 @@ function join_activity(event_id) {
 }
 
 
-//working Francesco
 function renderHeader() {
     html = ejs.views_includes_header({ user: you });
     document.querySelector("header").outerHTML = html;

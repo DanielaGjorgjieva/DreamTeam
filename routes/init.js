@@ -34,7 +34,7 @@ router.get('/upload', function (req, res) {
     try {
        res.status(200).json({});
     } catch {
-       notFound();
+       res.status(404).end();
     }
  })
 

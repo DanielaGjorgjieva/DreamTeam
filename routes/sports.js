@@ -21,11 +21,10 @@ const { eventBus } = require("../ws.js");
 
 // ROUTES
 router.get("/", function (req, res) {
-
    try {
       model.sport.find({}).toArray()
          .then(result => {
-            res.status(200).json(result);
+            res.status(200).json(result); //returns the sport array
          }).catch(error => {
             console.error(error);
             res.status(404).end();
@@ -102,18 +101,21 @@ router.post('/:owner', function (req, res) {
       // TODO: complete
       model.sport.insertOne(newActivity)
       .then(result => {
+         console.log('insertONE:');
          console.log(result);
 
-         eventBus.emit('sport.uploaded', newActivity);
+         // eventBus.emit('sport.uploaded', newActivity);
+
          let userFilter = {username: req.params.owner};
          model.user.findOne(userFilter)
          .then((user) => {
+            // console.log('PORCOPIO');
+            console.log(newActivity._id);
             user.created.push(newActivity._id);
-            model.user.replaceOne(userFilter, user, {upsert: true});
-         })
-         // sent new object as json response
+            model.user.replaceOne(userFilter, user, {upsert: true})
+            .then(()=>res.status(201).json(newActivity));
+         })       
          
-         res.status(201).json(newActivity);
       })
       .catch(error => {
          console.error(error);
@@ -249,4 +251,8 @@ router.get('/upload', function (req, res) {
    } catch {
       res.status(404).end();
    }
+})
+
+router.get('/:id/activities', function(req,res) {
+   res.status(200).json({a:req.params.id});
 })
