@@ -17,7 +17,7 @@ User:
 
         <h3>Your Activities:</h3>
 
-        <% if(user.created.length == 0){ %>
+        <% if(created.length == 0){ %>
 
         You haven't created any events yet
 
@@ -37,8 +37,8 @@ User:
                 <span></span>
             </header>
 
-            <% for(let index = 0; index < user.created.length; index++){ 
-                let event = user.created[index]%>
+            <% for(let index = 0; index < created.length; index++){ 
+                let event = created[index]%>
 
             <article class="sport" id="<%= event._id%>">
                 <a rel="link" href="/sports/<%= event._id%>">Link</a>
@@ -48,9 +48,9 @@ User:
                 <span class="place"><%=event.place%></span>
                 <span class="starting_date"><%=event.date%></span>
                 <span class="date"><%=event.frequency%></span>
-                <span class="Number of Members"><%=event.members.lenght%>/<%=event.max_members%></span>
+                <span class="Number of Members"><%=event.members.length%>/<%=event.max_members%></span>
                 <a rel="edit" href="/sports/<%= event._id%>/edit">Edit</a>
-                <a rel="delete" id="<%=event._id.toString()%>_del"href="">Delete</a>
+                <a rel="delete" id="<%=event._id.toString()%>_del" href="">Delete</a>
             </article>
 
             <%}%>
@@ -59,7 +59,7 @@ User:
 
         <h3>Events you joined:</h3>
 
-        <% if(user.joined.length == 0){ %>
+        <% if(joined.length == 0){ %>
 
             You haven't joined any events yet
     
@@ -79,8 +79,8 @@ User:
                     <span></span>
                 </header>
     
-                <% for(let index = 0; index < user.joined.length; index++){ 
-                    let event = user.joined[index]%>
+                <% for(let index = 0; index < joined.length; index++){ 
+                    let event = joined[index]%>
     
                 <article class="sport">
                     <a rel="link" href="/sports/<%= event._id%>">Link</a>
@@ -90,7 +90,7 @@ User:
                     <span class="place"><%=event.place%></span>
                     <span class="starting_date"><%=event.date%></span>
                     <span class="date"><%=event.frequency%></span>
-                    <span class="Number of Members"><%=event.members.lenght%>/<%=event.max_members%></span>
+                    <span class="Number of Members">  <%=event.members.length%> /  <%=event.max_members%></span>
                     <section></section>
                     <section></section>
                 </article>

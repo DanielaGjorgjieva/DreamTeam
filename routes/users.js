@@ -35,10 +35,10 @@ router.get('/:id', function(req, res) {
       })
       .catch(error => {
          console.error(error);
-         res.status(404).end();;
+         res.status(404).end();
       })
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
 
@@ -47,7 +47,7 @@ router.get('/signin', function(req, res) {
    try {
       res.status(200);
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
 
@@ -56,7 +56,7 @@ router.get('/login', function (req, res) {
    try {
       res.status(200);
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
 
@@ -88,10 +88,10 @@ router.post('/', function (req, res) {
       })
       .catch(error => {
          console.error(error);
-         res.status(404).end();;
+         res.status(404).end();
       })
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
 
@@ -129,10 +129,82 @@ router.get('/login/:password/:username', function (req, res) {
       })
       .catch((error) => {
          console.error(error);
-         res.status(404).end();;
+         res.status(404).end();
       })
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
+   }
+})
+
+// take all users sports
+// take all id of sports created and joined and return
+// joined/created activities
+// create 2 arrays of objects, estracts objects from db
+router.get('/:id/activities', function (req, res) {
+
+   let filter = { _id: new ObjectId(req.params.id)};
+   let joinedSports = [];
+   let createdSports = [];
+   let twoArrays = {joined:[], created:[]};
+
+   try {
+      model.user.findOne(filter)
+      .then(result => {
+         // joined sports
+         console.log('findOneJoined');
+         console.log(result);
+         result.joined.forEach((el) => {
+            // console.log(el);
+            // console.log("sport filter", el);
+
+            model.sport.findOne(el)
+            .then(result => {
+               console.log("result of filter", result);
+               joinedSports.push(result);
+               console.log("joinedSports", joinedSports);
+            }) 
+         })
+         console.log("joinedSports:");
+         console.log(joinedSports);
+         return joinedSports;
+      })
+      .then((result) => {
+         twoArrays.joined = result; 
+      })
+      .catch((error) => {
+         console.error(error);
+         res.status(404).end();
+      })
+   } catch {
+      res.status(404).end();
+   }
+
+   try {
+      model.user.findOne(filter)
+      .then(result => {
+         // created sports
+         result.created.forEach((el) => {
+
+            model.sport.findOne(el)
+            .then(result => {
+               
+               createdSports.push(result);
+            })
+         })
+         console.log("createdSports:");
+         console.log(createdSports);
+         return createdSports;
+      })
+      .then((result) => {
+         twoArrays.created = result;
+         res.status(200).json(twoArrays);
+      })
+      .catch((error) => {
+         console.error(error);
+         res.status(404).end();
+      })
+   } catch {
+      res.status(404).end();
    }
 })
 
@@ -160,10 +232,10 @@ router.put('/:id', function (req, res) {
       })
       .catch(error => {
          console.error(error);
-         res.status(404).end();;
+         res.status(404).end();
       })
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
 
@@ -188,7 +260,7 @@ router.delete('/:id', function (req, res) {
          }
       })
    } catch {
-      res.status(404).end();;
+      res.status(404).end();
    }
 })
  

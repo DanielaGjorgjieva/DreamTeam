@@ -65,17 +65,7 @@ and in the aside bar of the specific event, a list of online and offline users
 
 TODO
 
-
-render header again
-
-Crea sport-> manda owner //FATTO IN TEORIA IERI ??? CREDO
-
-Join edit ->user && event
-    creare routes per updatare l'evento e l'user //PARTE SERVER
-
-click sul tuo nome in alto a destra //FATTO
-
-login da evento //FATTO
+Crea sport -> manda owner
 
 sidebar with online users names -> in sport activity: online enlisted users
 

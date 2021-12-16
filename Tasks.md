@@ -46,6 +46,11 @@
 
 - implement chat in event.js
 
+16/12
+- improvements in css
+- improvements in ejs
+- debug
+
 #### Alessandro Cravioglio
 
 09/12
@@ -77,6 +82,14 @@ worked on ROUTES/ajax.json
 - implemented (almost secure) signin 
 - implemented login
 - worked on sport join (server side, ajax) - worked with Samuel and Francesco
+
+15/12
+code refractoring
+
+16/12
+- worked on login/update song/ join song
+- both server side/client
+- debug
 
 #### Daniela Gjorgjieva
 03/12
@@ -143,6 +156,13 @@ _______
 -Started creating the client side socket skeleton
 -Started working on a system to pass the password to check the user login, without exposing it on the client
 
+15/12
+-Started debugging some broken features
+
+16/12
+-Working on debugging of features
+-Completing edit fetch and delete fetch for all the pages
+
 #### Samuel Corecco
 
 _______
@@ -180,3 +200,6 @@ _______
 15/12
 -fetch to your page if you click your username 
 -login from event if you have not an account or you ar not logged
+
+16/12
+-debugging and debuggin for join,userpage,edit and delete

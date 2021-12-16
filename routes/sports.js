@@ -60,7 +60,7 @@ let filter = { _id: new ObjectId(req.params.id) };
 });
 
 router.get('/:id/edit', function (req, res) {
-
+   console.log("DENTRO EDIT");
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
@@ -105,8 +105,14 @@ router.post('/:owner', function (req, res) {
          console.log(result);
 
          eventBus.emit('sport.uploaded', newActivity);
-
+         let userFilter = {username: req.params.owner};
+         model.user.findOne(userFilter)
+         .then((user) => {
+            user.created.push(newActivity._id);
+            model.user.replaceOne(userFilter, user, {upsert: true});
+         })
          // sent new object as json response
+         
          res.status(201).json(newActivity);
       })
       .catch(error => {
@@ -127,7 +133,7 @@ router.put('/:id/join/', function (req, res) {
    console.log(userFilter);
    let event = undefined;
    let joinUser = undefined;
-
+  
    try {
       model.user.findOne(userFilter)
       .then((result) => {
@@ -149,7 +155,7 @@ router.put('/:id/join/', function (req, res) {
       // add user joinUser to sport
       model.sport.findOne(sportFilter)
       .then((result) => {
-         result.members.push(joinUser);
+         result.members.push(joinUser._id);
          event = result;
          console.log("result", result);
          return result;

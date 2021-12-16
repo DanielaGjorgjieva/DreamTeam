@@ -7,8 +7,10 @@ this ejs should take the list of event object from the database
         <h1>Group Activities</h1>
     </section>
 
-    <%if(sports.lenght === 0){%>
-        There are no events
+    <%if(sports.length === 0){%>
+        <section class="title">
+            There are no events
+        </section>
     <%} else {%>
     <header>
         <span></span>
@@ -34,7 +36,7 @@ this ejs should take the list of event object from the database
         <span class="place"><%=event.place%></span>
         <span class="starting_date"><%=event.date%></span>
         <span class="date"><%=event.frequency%></span>
-        <span class="Number of Members"><%=event.members.lenght||"0"%>/<%=event.max_members%></span>
+        <span class="Number of Members"><%=event.members.length%>/<%=event.max_members%></span>
         <section></section>
     </article>
     

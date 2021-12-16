@@ -89,6 +89,7 @@ and (min-device-width: 768px) {
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
 
   #sports_table a[rel="edit"] {

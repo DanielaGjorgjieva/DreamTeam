@@ -60,7 +60,8 @@ function linkClickHandler(event) {
     }
     if (url.pathname.includes("sports")) {
         if (url.pathname.endsWith("edit")) {
-            editSport(event.parentNode.id);
+            let id = url.pathname.replace("/sports/", "").replace("/edit", "");
+            editSport(id);
         }
     }
 }
@@ -71,25 +72,35 @@ function LogOutUser() {
 }
 
 function openYourPage() {
-    let html = ejs.views_user({ user: you });
-    document.querySelector("main").outerHTML = html;
-    renderHeader();
+    fetch("/users/" + you._id + "/activities")
+        .then(res => res.json())
+        .then(json => {
+            console.log("AAAAAAAAAAAA:");
+            console.log(json);
+            let html = ejs.views_user({ user: you, created: json.created, joined: json.joined });
+            document.querySelector("main").outerHTML = html;
+            renderHeader();
+            if (json.created.length > 0) {
+                SetButtonUser(you.created.length)
+            }
+        })
 }
 
 function editSport(id) {
-    fetch("/edit/" + id)
+    fetch("sports/"+id+"/edit")
         .then(res => res.json())
         .then(obj => {
             setHash('#edit/' + id);
-            html = ejs.views_edit(obj);
+            html = ejs.views_edit({event:obj});
             document.querySelector("main").outerHTML = html;
-            let form = document.querySelector("form.upload-section");
+            let form = document.getElementsByClassName("upload-section")[0];
+            console.log(form);
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
                 let body = new FormData(form);
-                fetch("/sports/" + id, { method: "PUT", body })
+                fetch("sports/" + id, { method: "PUT", body })
                     .then(res => {
-                        ejs.views_user(you);
+                        ejs.views_user({ user: you, created: you.created, joined: you.joined });
                     })
             })
         })
@@ -138,9 +149,11 @@ function activityUpload() {
                 form_sub.addEventListener("submit", (event) => {
                     event.preventDefault();
                     let body = new FormData(form_sub);
-                    fetch("/sports/" + you.username, { method: "POST", body }).then(res => {
-                        listSports();
-                    })
+                    fetch("/sports/" + you.username, { method: "POST", body })
+                        .then(res => {
+                            listSports();
+                            you.created.push(res._id);
+                        })
                 })
             } else {
                 document.querySelectorAll("main a").forEach(a => {
@@ -211,13 +224,18 @@ function logUser() {
                 console.log(obj);
                 if (obj) {
                     you = obj;
-                    let html = ejs.views_user({ user: you });
-                    document.querySelector("main").outerHTML = html;
-                    renderHeader();
-                    if (you.created.length > 0) {
-                        SetButtonUser(you.created.length)
-                    }
-
+                    fetch("/users/" + you._id + "/activities")
+                        .then(res => res.json())
+                        .then(json => {
+                            console.log("AAAAAAAAAAAA:");
+                            console.log(json);
+                            let html = ejs.views_user({ user: you, created: json.created, joined: json.joined });
+                            document.querySelector("main").outerHTML = html;
+                            renderHeader();
+                            if (json.created.length > 0) {
+                                SetButtonUser(you.created.length)
+                            }
+                        })
                 } else {
                     alert("Wrong password or user inserted! XD LOL");
                 }
@@ -284,6 +302,14 @@ function visitEvent(id) {
             console.log(log_ev);
             if (log_ev) {
                 log_ev.addEventListener("click", linkClickHandler);
+            }
+            let edit_button = document.getElementById("edit_sport");
+            if (edit_button) {
+                edit_button.addEventListener("click", linkClickHandler);
+            }
+            let delete_button = document.getElementById("delete_sport");
+            if (delete_button) {
+                delete_button.addEventListener("click", linkClickHandler);
             }
 
         })

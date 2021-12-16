@@ -4,16 +4,14 @@
     Author: Samuel Corecco & Andrea prato (based on the html of Francesco)
 -->
 <%
-  function isInside(name){
-    let inside = false;
-
+  function isInside(Arr_Joint, name){
     event.members.forEach((element)=>{
       if (element.username == name){
-        inside = true
+        return true
       }
     });
 
-    return inside;
+    return false;
   }
 %>
 <main id="event description">
@@ -27,7 +25,7 @@
       <section>
         <%if(user){
             if(event.owner !== user.username){
-                 if(event.members.includes(user)){%>
+                 if(isInside(event.members, user.username)){%>
                     <form>
                       <button type="submit" name="submit"> Leave </button>
                     </form>
@@ -43,8 +41,8 @@
                     <%}%>
                 <%}
             }else{%>
-                <a rel="edit" href="">Edit</a>
-                <a rel="delete" href="">Delete</a>
+                <a rel="edit" id="edit_sport" href="/sports/<%= event._id%>/edit">Edit</a>
+                <a rel="delete" id="delete_sport" href="">Delete</a>
             <%}
         }else{%>
             If you want to access the event informations please <a id="login_from_event" href="/login">Login</a>!
@@ -70,7 +68,7 @@
       <p>Frequency: <%= event.frequency %></p>
     </section>
 
-    <%if(user && (isInside(user.username) || (user.username == event.owner))){%>
+    <%if(user && (isInside(event.members, user.username) || (user.username == event.owner))){%>
     <div class="container_chat">
       <div class="header">
         <h1>Group Chat</h1>
