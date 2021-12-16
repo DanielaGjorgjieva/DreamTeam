@@ -52,9 +52,10 @@ function linkClickHandler(event) {
     if (url.pathname.endsWith("/login")) {
         logUser();
     }
-    if(you){
+    if (you) {
         if (url.pathname.endsWith(you._id)) {
-            logUser();
+            openYourPage();
+            // logUser();
         }
     }
     if (url.pathname.includes("sports")) {
@@ -69,7 +70,7 @@ function LogOutUser() {
     goHome();
 }
 
-function openYourPage(){
+function openYourPage() {
     let html = ejs.views_user({ user: you });
     document.querySelector("main").outerHTML = html;
     renderHeader();
@@ -77,30 +78,30 @@ function openYourPage(){
 
 function editSport(id) {
     fetch("/edit/" + id)
-    .then(res => res.json())
-    .then(obj => {
-        setHash('#edit/' + id);
-        html = ejs.views_edit(obj);
-        document.querySelector("main").outerHTML = html;
-        let form = document.querySelector("form.upload-section");
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            let body = new FormData(form);
-            fetch("/sports/" + id, { method: "PUT", body })
-            .then(res => {
-                ejs.views_user(you);
+        .then(res => res.json())
+        .then(obj => {
+            setHash('#edit/' + id);
+            html = ejs.views_edit(obj);
+            document.querySelector("main").outerHTML = html;
+            let form = document.querySelector("form.upload-section");
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                let body = new FormData(form);
+                fetch("/sports/" + id, { method: "PUT", body })
+                    .then(res => {
+                        ejs.views_user(you);
+                    })
             })
         })
-    })
 }
 
 function deleteSport(clicked_id) {
     let id = clicked_id.split("_")[0];
     let toDelete = document.getElementById(id);
     fetch("/sports/" + id, { method: "DELETE", headers: { "Accept": "application/json" } })
-    .then(res => {
-        toDelete.remove();
-    })
+        .then(res => {
+            toDelete.remove();
+        })
 }
 
 function goHome() {
@@ -124,29 +125,29 @@ function goHome() {
 
 function activityUpload() {
     fetch("/upload")
-    .then(res => res.text())
-    .then(obj => {
-        renderHeader();
-        setHash("#upload");
-        html = ejs.views_upload({ user: you });
-        document.querySelector("main").outerHTML = html;
+        .then(res => res.text())
+        .then(obj => {
+            renderHeader();
+            setHash("#upload");
+            html = ejs.views_upload({ user: you });
+            document.querySelector("main").outerHTML = html;
 
-        if (you) {
-            today();
-            let form_sub = document.getElementsByClassName("upload-section")[0];
-            form_sub.addEventListener("submit", (event) => {
-                event.preventDefault();
-                let body = new FormData(form_sub);
-                fetch("/sports/" + you.username, { method: "POST", body }).then(res => {
-                    listSports();
+            if (you) {
+                today();
+                let form_sub = document.getElementsByClassName("upload-section")[0];
+                form_sub.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    let body = new FormData(form_sub);
+                    fetch("/sports/" + you.username, { method: "POST", body }).then(res => {
+                        listSports();
+                    })
                 })
-            })
-        } else {
-            document.querySelectorAll("main a").forEach(a => {
-                a.addEventListener("click", linkClickHandler);
-            })
-        }
-    })
+            } else {
+                document.querySelectorAll("main a").forEach(a => {
+                    a.addEventListener("click", linkClickHandler);
+                })
+            }
+        })
 }
 
 
@@ -162,12 +163,12 @@ function listSports() {
 
 function goAbout() {
     fetch("/about")
-    .then(res => res.text())
-    .then(obj => {
-        setHash("#about");
-        html = ejs.views_about(obj);
-        document.querySelector("main").innerHTML = html;
-    })
+        .then(res => res.text())
+        .then(obj => {
+            setHash("#about");
+            html = ejs.views_about(obj);
+            document.querySelector("main").innerHTML = html;
+        })
 }
 
 
@@ -181,12 +182,12 @@ function addUser() {
         event.preventDefault();
         let body = new FormData(form);
         fetch("/users", { method: "POST", body })
-        .then(res => {
-            goHome();
-            setHash("#home");
-        })
+            .then(res => {
+                goHome();
+                setHash("#home");
+            })
     })
-    document.getElementById('login').addEventListener('click',linkClickHandler);
+    document.getElementById('login').addEventListener('click', linkClickHandler);
 }
 
 
@@ -205,25 +206,25 @@ function logUser() {
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         fetch("/users/login/" + password + "/" + username)
-        .then(res => res.json())
-        .then(obj => {
-            console.log(obj);
-            if (obj) {
-                you = obj;
-                let html = ejs.views_user({ user: you });
-                document.querySelector("main").outerHTML = html;
-                renderHeader();
-                if (you.created.length > 0) {
-                    SetButtonUser(you.created.length)
-                }
+            .then(res => res.json())
+            .then(obj => {
+                console.log(obj);
+                if (obj) {
+                    you = obj;
+                    let html = ejs.views_user({ user: you });
+                    document.querySelector("main").outerHTML = html;
+                    renderHeader();
+                    if (you.created.length > 0) {
+                        SetButtonUser(you.created.length)
+                    }
 
-            } else {
-                alert("Wrong password or user inserted! XD LOL");
-            }
-        })
-        .catch(err => {
-            console.error(err);
-        })
+                } else {
+                    alert("Wrong password or user inserted! XD LOL");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
     });
 }
 
@@ -266,26 +267,26 @@ function buttonsHeader() {
 
 function visitEvent(id) {
     fetch("sports/" + id)
-    .then(res => res.json())
-    .then(obj => {
-        setHash("#event/" + id);
-        html = ejs.views_events({ user: you, event: obj });
-        document.querySelector("main").outerHTML = html;
-        let button_join = document.getElementsByName("submit_join")[0];
-        console.log("button_join: " + button_join);
-        if(button_join){
-            button_join.addEventListener("click", (event) => {
-                event.preventDefault();
-                join_activity(id);
-            })
-        }
-        let log_ev = document.getElementById("login_from_event");
-        console.log(log_ev);
-        if(log_ev){
-            log_ev.addEventListener("click", linkClickHandler);
-        }
-        
-    })
+        .then(res => res.json())
+        .then(obj => {
+            setHash("#event/" + id);
+            html = ejs.views_events({ user: you, event: obj });
+            document.querySelector("main").outerHTML = html;
+            let button_join = document.getElementsByName("submit_join")[0];
+            console.log("button_join: " + button_join);
+            if (button_join) {
+                button_join.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    join_activity(id);
+                })
+            }
+            let log_ev = document.getElementById("login_from_event");
+            console.log(log_ev);
+            if (log_ev) {
+                log_ev.addEventListener("click", linkClickHandler);
+            }
+
+        })
 }
 
 function SetButtonUser(num) {
@@ -323,6 +324,8 @@ function parse_path() {
             addUser();
         } else if (hash == "#login") {
             logUser();
+        } else {
+            goHome();
         }
         /*else if (hash.startsWith('#songs')) {
            let query = hash.replace('#songs/','');
