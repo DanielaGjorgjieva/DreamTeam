@@ -17,7 +17,7 @@ const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
 //SOCKET
-const { eventBus } = require("../ws.js");
+const { eventBus } = require("../webServer.js");
 
 // ROUTES
 router.get("/", function (req, res) {
@@ -176,17 +176,19 @@ router.put('/:id/join/', function (req, res) {
 
 // EDIT THE SPORT ACTIVITY
 router.put('/:id', function (req, res) {
-
+   console.log("MA SEI STRONZO");
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
       // find old activity
       model.sport.findOne(filter)
       .then((result) => {
+         console.log(result);
+         console.log("MA SEI PAZZO");
 
          const newActivity = {
             sport: req.body.sport,
-            // owner: req.body.owner,
+            owner: result.owner,
             description: req.body.description || result.description,
             place: req.body.place || result.place,
             frequency: req.body.frequency || result.frequency,
@@ -195,17 +197,16 @@ router.put('/:id', function (req, res) {
             chat: result.chat,
             max_members: req.body.max_members || result.max_members
          };
+         model.sport.replaceOne(filter, newActivity)
+         return newActivity;
       })
-      .then(() => 
-      model.sport.updateOne(filter, newActivity)
-      )
       .then(result => {
          console.log(result);
 
          eventBus.emit('sport.edited', result);
 
          // sent new object as json response
-         res.status(200).json(newActivity);
+         res.status(200).json(result);
       })
       .catch(error => {
          console.error(error);

@@ -14,9 +14,14 @@
 
 // your user
 // let you = {username:"IlPiuPazzO69", password:"", created:[], joined:[], _id:6969402};
+//let you = undefined;
+/*
+you = {_id:"61bb66610c44c93d9198c4af", username: "PAZZoInCUL0",password: "",joined: [], created: ["61bb6764f12f7ae96a68ced5"
+, "61bb6aa4800a28fe58f1dbc2"]}
+*/
 let you = undefined;
-
 let events = undefined;
+
 
 //Fetch for the navbar and header//
 
@@ -81,7 +86,7 @@ function openYourPage(id) {
         .then(res => res.json())
         .then(json => {
             you = json;
-
+            
             fetch("/sports/")
                 .then(res => res.json())
                 .then(obj => {
@@ -110,6 +115,7 @@ function openYourPage(id) {
                         created: userCreated,
                         joined: userJoined
                     })
+                    setHash("#user/" + you._id);
                     document.querySelector('main').outerHTML = html;
                 })
         })
@@ -126,14 +132,14 @@ function editSport(id) {
             setHash('#edit/' + id);
             html = ejs.views_edit({ event: obj });
             document.querySelector("main").outerHTML = html;
-            let form = document.getElementsByClassName("upload-section")[0];
+            let form = document.getElementById("upload-section");
             console.log(form);
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
                 let body = new FormData(form);
-                fetch("sports/" + id, { method: "PUT", body })
+                fetch("/sports/" + id, { method: "PUT", body })
                     .then(res => {
-                        ejs.views_user({ user: you, created: you.created, joined: you.joined });
+                        listSports();
                     })
             })
         })
@@ -144,7 +150,7 @@ function deleteSport(clicked_id) {
     let toDelete = document.getElementById(id);
     fetch("/sports/" + id, { method: "DELETE", headers: { "Accept": "application/json" } })
         .then(res => {
-            toDelete.remove();
+            listSports();
         })
 }
 
@@ -337,7 +343,10 @@ function visitEvent(id) {
             }
             let delete_button = document.getElementById("delete_sport");
             if (delete_button) {
-                delete_button.addEventListener("click", linkClickHandler);
+                delete_button.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    deleteSport(id);
+                });
             }
 
         })
@@ -378,6 +387,11 @@ function parse_path() {
             addUser();
         } else if (hash == "#login") {
             logUser();
+        } else if (hash.startsWith("#user")) {
+            openYourPage();
+        } else if (hash.startsWith("#event")) {
+            let id = hash.replace('#event/', '');
+            visitEvent(id);
         } else {
             goHome();
         }
