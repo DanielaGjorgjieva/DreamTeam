@@ -162,6 +162,10 @@ _______
 16/12
 -Working on debugging of features
 -Completing edit fetch and delete fetch for all the pages
+-Fixed the edit route
+-Fixed the fetch for edit from the specific event page
+-Added new paths in parsePath and fixed all remaining non-hashed paths
+-Fixed the delete fetch
 
 #### Samuel Corecco
 
@@ -203,3 +207,7 @@ _______
 
 16/12
 -debugging and debuggin for join,userpage,edit and delete
+-Fixed the edit route
+-Fixed the fetch for edit from the specific event page 
+-Fixed deleted
+-update parspad and some hash for link

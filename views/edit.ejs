@@ -21,7 +21,7 @@ Event:
         <h1>Edit your sport activity!</h1>
     </section>
 
-    <form method="POST" name="file" action="/sports/<%= event._id%>?_method=PUT" encType="multipart/form-data" class="upload-section">
+    <form method="POST" name="file" action="/sports/<%= event._id%>?_method=PUT" encType="multipart/form-data" class="upload-section" id="upload-section">
 
         <label for="sport"> Sport </label>
         <input type="text" id="sport" name="sport" value="<%= event.sport%>" placeholder="Soccer..." required>

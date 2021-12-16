@@ -76,3 +76,7 @@ TO CORRECT:
 
 Se si sbaglia password nel login il sito crasha
 if you put the wrong password in login the website crashes
+
+
+PER SERVER
+-far si che il delete elimini a tutti i membri joinati l'evento <3
