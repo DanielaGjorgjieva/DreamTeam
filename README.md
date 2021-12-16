@@ -12,10 +12,18 @@ Andrea Prato
 
 Samuel Corecco
 
-## Basic Web App Features
-
-Work in Progress
-
-
+## Basic Features
 
 ## Features implemented
+
+- Create and manage account
+- Create sport activities:
+    - decide starting date and place
+    - decide maximum number of people
+    - decide frequency
+    - modify and delete your activities
+- Join sport activities
+
+## Features to be implemented
+
+- Chat between members of the activity

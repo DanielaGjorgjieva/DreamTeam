@@ -99,15 +99,21 @@
       text-align: center;
     }
 
-    aside.sidebar a {
+     aside.sidebar a {
       text-decoration: none;
       color: 	rgb(0, 0, 0);
     }
-    section.title {
+    aside section.title {
       text-align: center;
       padding: 15px;
     }
-    section.section-left {
+
+    aside section.section {
+      text-align: center;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    /*section.section-left {
       padding: 10px;
       display: grid;
       grid-column-gap: 10px;
@@ -148,7 +154,7 @@
     }
     aside.sidebar a:hover cite {
       color: black;
-    }
+    } */
     /* SIDEBAR SECTION */
 
     footer {

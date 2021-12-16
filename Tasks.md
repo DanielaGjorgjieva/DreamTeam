@@ -51,6 +51,14 @@
 - improvements in ejs
 - debug
 
+- fixed login
+- fixed user.ejs 
+- improvements in ajax.js
+  (with Alessandro Cravioglio)
+
+-corrected some edit functions
+-improved edit.ejs
+
 #### Alessandro Cravioglio
 
 09/12
@@ -84,7 +92,12 @@ worked on ROUTES/ajax.json
 - worked on sport join (server side, ajax) - worked with Samuel and Francesco
 
 15/12
-code refractoring
+- code refractoring
+
+- fixed login
+- fixed user.ejs 
+- improvements in ajax.js
+  (with Francesco Casarella)
 
 16/12
 - worked on login/update song/ join song
@@ -120,6 +133,10 @@ code refractoring
 15/12
 -some improvements were made in the homepage
 -started working on the Trailer video for the project
+
+16/12
+-worked on the video, did some interviews on friends, and recorded them
+-Helped Francesco and Alessando to debug buttons and links and to fix users.ejs
 
 #### Andrea Prato
 _______

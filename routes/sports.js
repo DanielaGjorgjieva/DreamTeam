@@ -141,7 +141,7 @@ router.put('/:id/join/', function (req, res) {
       .then((result) => {
          joinUser = result;
          // sport _id is added to user.joined
-         joinUser.joined.push(sportFilter);
+         joinUser.joined.push(sportFilter._id);
          console.log("joinUser");
          console.log(joinUser);
       })
@@ -176,7 +176,6 @@ router.put('/:id/join/', function (req, res) {
 
 // EDIT THE SPORT ACTIVITY
 router.put('/:id', function (req, res) {
-   console.log("MA SEI STRONZO");
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
@@ -184,7 +183,6 @@ router.put('/:id', function (req, res) {
       model.sport.findOne(filter)
       .then((result) => {
          console.log(result);
-         console.log("MA SEI PAZZO");
 
          const newActivity = {
             sport: req.body.sport,

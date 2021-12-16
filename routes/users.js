@@ -5,9 +5,6 @@
 *
 */
 
-//key to hashing
-// var crypto = require('crypto');
-
 const express = require('express');
 const router = express.Router();
 module.exports = router;
@@ -17,6 +14,22 @@ module.exports = router;
 // DB
 const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
+
+// GET ALL USERS
+router.get('/', function (req, res) {
+
+   try {
+      model.user.find({}).toArray()
+         .then(result => {
+            res.status(200).json(result); //returns the sport array
+         }).catch(error => {
+            console.error(error);
+            res.status(404).end();
+         })
+   } catch {
+      res.status(404).end();  
+   }
+})
 
 // GET user
 
@@ -139,28 +152,6 @@ router.get('/login/:password/:username', function (req, res) {
       res.status(204).end();
    }
 })
-
-// take all users sports
-// take all id of sports created and joined and return
-// joined/created activities
-// create 2 arrays of objects, estracts objects from db
-
-// router.get('/:id/activities', function (req, res) {
-
-//    let filter = { _id: new ObjectId(req.params.id)};
-//    let currentUser = {};
-//    let joinedSports = [];
-//    let createdSports = [];
-//    let sportfilter;
-//    let ejs = { user: {}, joined: [], created: [] };
-
-//    // try {
-
-//    model.user.findOne(filter)
-//    .then(json=>currentUser = json)
-//    .then(console.log(currentUser));
-// })
-
 
 // edit user
 router.put('/:id', function (req, res) {

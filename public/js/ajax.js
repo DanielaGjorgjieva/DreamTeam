@@ -31,6 +31,7 @@ function init() {
         a.addEventListener("click", linkClickHandler);
     });
     buttonsHeader();
+    renderLeftSidebar();
 }
 
 function linkClickHandler(event) {
@@ -65,7 +66,9 @@ function linkClickHandler(event) {
     }
     if (url.pathname.includes("sports")) {
         if (url.pathname.endsWith("edit")) {
-            let id = url.pathname.replace("/sports/", "").replace("/edit", "");
+            let id = url.pathname.replace("/sports/", " ").replace("/edit", "");
+            console.log('PATH:');
+            console.log(url.pathname);
             editSport(id);
         }
     }
@@ -86,7 +89,7 @@ function openYourPage(id) {
         .then(res => res.json())
         .then(json => {
             you = json;
-            
+
             fetch("/sports/")
                 .then(res => res.json())
                 .then(obj => {
@@ -117,6 +120,22 @@ function openYourPage(id) {
                     })
                     setHash("#user/" + you._id);
                     document.querySelector('main').outerHTML = html;
+
+                    let edit_button = document.querySelectorAll('a[rel="edit"]');
+                    if (edit_button) {
+                        edit_button.forEach((button)=>{
+                            button.addEventListener("click", linkClickHandler);
+                        })
+                    }
+                    let delete_button = document.querySelectorAll('a[rel="delete"]');
+                    if (delete_button) {
+                        delete_button.forEach((button)=>{
+                            button.addEventListener("click", (event) => {
+                                event.preventDefault();
+                                deleteSport(id);
+                            });
+                        }) 
+                    }
                 })
         })
 
@@ -166,6 +185,7 @@ function goHome() {
             console.log('Events: ');
             console.log(events);
             renderHeader();
+            renderLeftSidebar();
 
             setHash("#home");
             html = ejs.views_home(); //obj in parenthesis removed
@@ -178,6 +198,7 @@ function activityUpload() {
         .then(res => res.text())
         .then(obj => {
             renderHeader();
+            renderLeftSidebar();
             setHash("#upload");
             html = ejs.views_upload({ user: you });
             document.querySelector("main").outerHTML = html;
@@ -202,15 +223,26 @@ function activityUpload() {
         })
 }
 
-
 function listSports() {
     fetch("/sports").then(res => res.json()).then(obj => {
         renderHeader();
+        renderLeftSidebar();
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
         // console.log(html);
         document.querySelector("main").outerHTML = html;
     })
+}
+
+function listSportsArg(obj) {
+
+    renderHeader();
+    renderLeftSidebar();
+    setHash("#sports");
+    html = ejs.views_sports({ sports: obj });
+    // console.log(html);
+    document.querySelector("main").outerHTML = html;
+
 }
 
 function goAbout() {
@@ -223,9 +255,61 @@ function goAbout() {
         })
 }
 
+function filter_table(filter) {
+
+    fetch('/sports')
+        .then(res => res.json())
+        .then(obj => {
+
+            let sportList = { sports: obj };
+
+            let filteredPlace = [];
+            let filteredSport = [];
+            let filteredOwner = [];
+
+            // filter by place, sport, owner
+            if (filter === "") {
+                sportList = obj;
+            }
+            // place
+            obj.forEach(sport => {
+                sport.location.includes(filter) ? filteredPlace.push(sport) : obj = obj;
+            })
+            // sport
+            obj.forEach(sport => {
+                sport.sport.includes(filter) ? filteredSport.push(sport) : obj = obj;
+            })
+            // owner
+            obj.forEach(sport => {
+                sport.owner.includes(filter) ? filteredOwner.push(sport) : obj = obj;
+            })
+
+            sportList = { sports: Array.from(new Set(filteredPlace.concat(filteredSport, filteredOwner))) };
+
+            html = ejs.views_sports(sportList);
+            // console.log(html);
+            document.querySelector("main").outerHTML = html;
+        })
+}
+
+function search_table() {
+    let search = document.querySelector(".search");
+    search.addEventListener("input", (e) => {
+        e.preventDefault();
+
+        let input = document.getElementById("filterSports");
+        console.log(input.value);
+
+        let searchKey = input.value;
+
+        // now fetch the elements that contains the search query
+        filtered_table(searchKey);
+    });
+}
 
 function addUser() {
     renderHeader();
+    renderLeftSidebar();
     setHash('#signin');
     html = ejs.views_signin();
     document.querySelector("main").outerHTML = html;
@@ -245,6 +329,7 @@ function addUser() {
 
 function logUser() {
     renderHeader();
+    renderLeftSidebar();
     setHash('#login');
     html = ejs.views_login();
     document.querySelector("main").outerHTML = html;
@@ -293,7 +378,8 @@ function join_activity(event_id) {
             console.log('ID:');
             console.log(obj._id);
             you.joined.push(obj._id);
-            fetch("sports/" + id).then(res => res.json()).then(obj => {
+
+            fetch("sports/" + event_id).then(res => res.json()).then(obj => {
                 setHash("#event/" + id);
                 html = ejs.views_events({ user: you, event: obj });
                 document.querySelector("main").outerHTML = html;
@@ -315,6 +401,15 @@ function buttonsHeader() {
     document.getElementById("page-header").querySelectorAll("a").forEach(a => {
         a.addEventListener("click", linkClickHandler);
     });
+}
+
+function renderLeftSidebar() {
+    fetch("/users/")
+        .then(res => res.json())
+        .then(obj => {
+            html = ejs.views_includes_aside({ users: obj });
+            document.querySelector('aside').outerHTML = html;
+        })
 }
 
 function visitEvent(id) {
@@ -377,8 +472,8 @@ function parse_path() {
             activityUpload();
         } else if (hash.startsWith('#edit')) {
             let id = hash.replace('#edit/', '');
-            let new_url = new URL('http://localhost:8888/sports/' + id + '/edit');
-            editSport(new_url);
+            // let new_url = new URL('http://localhost:8888/sports/' + id + '/edit');
+            editSport(id);
         } else if (hash == "#home") {
             goHome();
         } else if (hash == "#about") {

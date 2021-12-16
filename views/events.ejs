@@ -30,7 +30,7 @@
                       <button type="submit" name="submit"> Leave </button>
                     </form>
                 <%} else {
-                    if(event.max_members === event.members.length){%>
+                    if(event.members.length >= event.max_members){%>
                       <section>
                         Sorry, this event reached the maximum capacity chosen from the owner.
                       </section>

@@ -1,58 +1,23 @@
-<aside class="sidebar">
-    <form action="" method="GET" class="search">
+<aside class="sidebar" id="leftSidebar">
+    <form action="" method="GET" class="search" id="filterSports">
         <input type="text" name="search" placeholder="Search for an event...">
     </form>
 
     <section class="title">
-        Instructors
+        <h1>Members:</h1>
     </section>
 
-    <a href="">
-        <section class="section-left">
-            <img src="images/img_avatar.png" alt="first musician">
-            <p class="Artist-Name">
-                Placeholder <br>
-                <cite> "...something something something..."</cite>
-            </p>
-        </section>
-    </a>
+    <% if (users.length === 0) { %>
+    <section class="section">
+        There are not user.
+    </section>
+    <% }  else {
+       users.forEach((user) => { %>
+    
+    <section class="section">
+            <br><%= user.username %></br> 
+    </section>
 
-    <a href="">
-        <section class="section-right">
-            <p class="Artist-Name">
-                Placeholder <br>
-                <cite> "...something something something..."</cite>
-            </p>
-            <img src="images/img_avatar.png" alt="second musician">
-        </section>
-    </a>
+    <% })} %>
 
-    <a href="">
-        <section class="section-left">
-            <img src="images/img_avatar.png" alt="first musician">
-            <p class="Artist-Name">
-                Placeholder <br>
-                <cite> "...something something something..."</cite>
-            </p>
-        </section>
-
-        <a href="">
-            <section class="section-right">
-                <p class="Artist-Name">
-                    Placeholder<br>
-                    <cite> "...something something something..."</cite>
-                </p>
-                <img src="images/img_avatar.png" alt="second musician">
-            </section>
-        </a>
-
-        <a href="">
-            <section class="section-left">
-                <img src="images/img_avatar.png" alt="first musician">
-                <p class="Artist-Name">
-                    Placeholder <br>
-                    <cite> "...something something something..."</cite>
-                </p>
-            </section>
-        </a>
 </aside>
