@@ -123,7 +123,9 @@ function goHome() {
 }
 
 function activityUpload() {
-    fetch("/upload").then(res => res.text()).then(obj => {
+    fetch("/upload")
+    .then(res => res.text())
+    .then(obj => {
         renderHeader();
         setHash("#upload");
         html = ejs.views_upload({ user: you });
