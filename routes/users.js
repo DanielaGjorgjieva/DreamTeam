@@ -43,7 +43,7 @@ router.get('/:id', function(req, res) {
 })
 
 // create user
-router.get('/singin', function(req, res) {
+router.get('/signin', function(req, res) {
    try {
       res.status(200);
    } catch {
@@ -71,8 +71,7 @@ router.post('/', function (req, res) {
          username: req.body.username,
          password: req.body.password,
          created: [],
-         joined: [],
-         guest: false
+         joined: []
       }
 
       console.log(newUser);
@@ -120,7 +119,6 @@ router.get('/login/:password/:username', function (req, res) {
                password: '',
                created: result.created,
                joined: result.joined,
-               guest: result.guest
             }
 
          }
@@ -148,7 +146,6 @@ router.put('/:id', function (req, res) {
          password: req.body.password,
          created: [],
          joined: [],
-         guest: false
       }
    
       // TODO: complete
