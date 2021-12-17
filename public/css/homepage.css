@@ -18,14 +18,28 @@ and (min-device-width: 768px) {
     /* background-position:50%; */
     text-align: center;
     padding-top: 2em;
+    font-size: 150%;
+    padding-bottom: 2em;
     /* padding-bottom: 10em; */
     /* border: 2em; */
   }
 
+
+
+  main section.homepage_title a:hover {
+    background: #FFDA5F;
+    color: black;
+  }
+
+
+
   /* TOP TEN SONG SECTION */
   main section.title {
     text-align: left;
+    padding-bottom: 2em;
+    padding-left: 1ch;
     /* padding: 2em; */
+    font-size: larger;
 
   }
 
@@ -205,7 +219,7 @@ and (min-device-width: 768px) {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 80%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -234,7 +248,7 @@ and (min-device-width: 768px) {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 140%;
+    top: 152%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -248,7 +262,7 @@ and (min-device-width: 768px) {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 205%;
+    top: 213%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -262,7 +276,7 @@ and (min-device-width: 768px) {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 267%;
+    top: 275%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -318,6 +332,8 @@ and (min-device-width: 768px) {
     transition: 250ms;
     flex-basis: 190%
   }
+
+
 
 
 
