@@ -185,6 +185,18 @@ _______
 -Fixed the delete fetch
 -Started working on sockets
 
+17/12
+-Fixed some bugs
+-Implemented leave feature
+-Implemented route for the leave feature
+-Completed sockets
+-Created events handler for the server in webServer.js
+-Created events handler for the client in client.js
+-Created event emission from the routes
+-Completed specific events page-delete/edit event communication channels
+-Completed sport list-edit/delete/upload communication channels
+-Completed sport list and specific event page-/join/leave communication channels
+
 #### Samuel Corecco
 
 _______
@@ -230,3 +242,14 @@ _______
 -Fixed deleted
 -update parspad and some hash for link
 -start socket working :)
+
+17/12
+-fixed some bugs
+-implemented new routs for leave
+-added a leave function in fetch
+-completed socket in client && routs && webServer:
+  .connect/disconnect
+  .edited
+  .deleted
+  .joined
+  .left

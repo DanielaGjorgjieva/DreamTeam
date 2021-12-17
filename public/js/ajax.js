@@ -37,7 +37,6 @@ function init() {
 function linkClickHandler(event) {
     event.preventDefault();
 
-    console.log("a href: " + event.target.href);
     let url = new URL(event.target.href);
 
     if (url.pathname === "/") {
@@ -67,8 +66,6 @@ function linkClickHandler(event) {
     if (url.pathname.includes("sports")) {
         if (url.pathname.endsWith("edit")) {
             let id = url.pathname.replace("/sports/", "").replace("/edit", "");
-            console.log('PATH:');
-            console.log(id);
             editSport(id);
         }
     }
@@ -96,8 +93,6 @@ function openYourPage(id) {
                     sports = obj;
                     if(you){
                     you.joined.forEach((el) => {
-                        console.log('J');
-                        console.log(el);
                         for (let index = 0; index < sports.length; index++) {
                             if (sports[index]._id == el) {
                                 userJoined.push(sports[index]);
@@ -105,8 +100,6 @@ function openYourPage(id) {
                         }
                     })
                     you.created.forEach((el) => {
-                        console.log('C');
-                        console.log(el);
                         for (let index = 0; index < sports.length; index++) {
                             if (sports[index]._id == el) {
                                 userCreated.push(sports[index]);
@@ -125,10 +118,12 @@ function openYourPage(id) {
                     let edit_button = document.querySelectorAll('a[rel="edit"]');
                     if (edit_button) {
                         edit_button.forEach((button)=>{
-                            button.addEventListener("click", linkClickHandler);
+                            button.addEventListener("click", (event) => {
+                                event.preventDefault();
+                                editSport(button.parentNode.id);
+                            });
                         })
                     }
-
                     let delete_button = document.querySelectorAll('a[rel="delete"]');
                     if (delete_button) {
                         delete_button.forEach((button)=>{
@@ -154,7 +149,6 @@ function editSport(id) {
             html = ejs.views_edit({ event: obj });
             document.querySelector("main").outerHTML = html;
             let form = document.getElementById("upload-section");
-            console.log(form);
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
                 let body = new FormData(form);
@@ -178,17 +172,11 @@ function deleteSport(clicked_id) {
 function goHome() {
     fetch("/")
         .then(res => {
-            // res.json()
-            console.log("res");
-            console.log(res);
         })
         .then((json) => {
             events = json;
-            console.log('Events: ');
-            console.log(events);
             renderHeader();
             renderLeftSidebar();
-
             setHash("#home");
             html = ejs.views_home(); //obj in parenthesis removed
             document.querySelector("main").outerHTML = html;
@@ -226,13 +214,15 @@ function activityUpload() {
 }
 
 function listSports() {
+    let tmp = you;
     fetch("/sports").then(res => res.json()).then(obj => {
+        you = tmp;
         renderHeader();
         renderLeftSidebar();
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
-        // console.log(html);
         document.querySelector("main").outerHTML = html;
+        you = tmp;
     })
 }
 
@@ -242,7 +232,6 @@ function listSportsArg(obj) {
     renderLeftSidebar();
     setHash("#sports");
     html = ejs.views_sports({ sports: obj });
-    // console.log(html);
     document.querySelector("main").outerHTML = html;
 
 }
@@ -289,7 +278,6 @@ function filter_table(filter) {
             sportList = { sports: Array.from(new Set(filteredPlace.concat(filteredSport, filteredOwner))) };
 
             html = ejs.views_sports(sportList);
-            // console.log(html);
             document.querySelector("main").outerHTML = html;
         })
 }
@@ -300,7 +288,6 @@ function search_table() {
         e.preventDefault();
 
         let input = document.getElementById("filterSports");
-        console.log(input.value);
 
         let searchKey = input.value;
 
@@ -352,7 +339,6 @@ function logUser() {
                 res.json()
             )
             .then(obj => {
-                console.log(obj);
                 if (obj._id !== 'fail') {
                     you = obj;
                     goHome();
@@ -377,21 +363,26 @@ function join_activity(event_id) {
     fetch("/sports/" + event_id + "/join/", requestOptions)
         .then(res => res.json())
         .then(obj => {
-            console.log('ID:');
-            console.log(obj._id);
             you.joined.push(obj._id);
 
-            fetch("sports/" + event_id).then(res => res.json()).then(obj => {
-                setHash("#event/" + id);
-                html = ejs.views_events({ user: you, event: obj });
-                document.querySelector("main").outerHTML = html;
-            });
+            // fetch("sports/" + event_id).then(res => res.json()).then(obj => {
+            //     setHash("#event/" + event_id);
+            //     html = ejs.views_events({ user: you, event: obj });
+            //     document.querySelector("main").outerHTML = html;
+            // });
+            visitEvent(event_id);
         })
         .catch(err => {
             console.error(err);
         })
 }
 
+function leaveEvent(id) {
+    fetch("/sports/"+id+"/leave/"+you._id).then(res => res.json()).then(obj => {
+        you = obj;
+        listSports();
+    })
+}
 
 function renderHeader() {
     html = ejs.views_includes_header({ user: you });
@@ -422,15 +413,20 @@ function visitEvent(id) {
             html = ejs.views_events({ user: you, event: obj });
             document.querySelector("main").outerHTML = html;
             let button_join = document.getElementsByName("submit_join")[0];
-            console.log("button_join: " + button_join);
             if (button_join) {
                 button_join.addEventListener("click", (event) => {
                     event.preventDefault();
                     join_activity(id);
                 })
             }
+            let button_leave = document.getElementsByName("submit_leave")[0];
+            if (button_leave) {
+                button_leave.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    leaveEvent(id);
+                })
+            }
             let log_ev = document.getElementById("login_from_event");
-            console.log(log_ev);
             if (log_ev) {
                 log_ev.addEventListener("click", linkClickHandler);
             }
@@ -474,9 +470,6 @@ function parse_path() {
             activityUpload();
         } else if (hash.startsWith('#edit')) {
             let id = hash.replace('/sports/ ', '').replace('/edit','');
-            console.log('HASH:');
-            console.log(id);
-            // let new_url = new URL('http://localhost:8888/sports/' + id + '/edit');
             editSport(id);
         } else if (hash == "#home") {
             goHome();
@@ -494,24 +487,6 @@ function parse_path() {
         } else {
             goHome();
         }
-        /*else if (hash.startsWith('#songs')) {
-           let query = hash.replace('#songs/','');
-           if (query.startsWith('artist')) {
-              let artist = query.replace('artist/','');
-              let param = 'artist_'+artist;
-              filter(param);
-           } else if (query.startsWith('album')) {
-              let album = query.replace('album/','');
-              let param = 'album_'+album;
-              filter(param);
-           } else if (query.startsWith('genre')) {
-              let genre = query.replace('genre/','');
-              let param = 'genre_'+genre;
-              filter(genre);
-           } else if (query.startsWith('search')) {
-              let text = query.replace('search/','');
-              search(text);
-           }*/
     } else {
         goHome();
     }

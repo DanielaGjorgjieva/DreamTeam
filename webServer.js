@@ -9,7 +9,7 @@ const io = require('socket.io')();
 const EventEmitter = require('events');
 const eventBus = new EventEmitter();
 
-let map_user_socket = {}
+// let map_user_socket = {}
 
 function init(server) {
     io.attach(server);
@@ -46,17 +46,17 @@ eventBus.on('sport.uploaded', (event) => {
 });
 
 
-eventBus.on('message',msg=>{
-    console.log(msg);
+// eventBus.on('message',msg=>{
+//     console.log(msg);
 
    
-    map_user_socket[msg.user] = socket.id;
+//     map_user_socket[msg.user] = socket.id;
 
     
 
-    //send to ALL browsers
-    io.emit('message', msg);
-})
+//     //send to ALL browsers
+//     io.emit('message', msg);
+// })
 
 //NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
 

@@ -41,7 +41,7 @@ User:
                 let event = created[index]%>
 
             <article class="sport" id="<%= event._id%>">
-                <a rel="link" href="/sports/<%= event._id%>">Link</a>
+                <a id="<%=event._id%>" rel="link" onclick="visitEvent(this.id)">Link</a>
                 <span class="sport"><%=event.sport%></span>
                 <span class="owner"><%=event.owner%></span>
                 <span class="description"><%=event.description%></span>
@@ -83,7 +83,7 @@ User:
                     let event = joined[index]%>
     
                 <article class="sport">
-                    <a rel="link" href="/sports/<%= event._id%>">Link</a>
+                    <a id="<%=event._id%>" rel="link" onclick="visitEvent(this.id)">Link</a>
                     <span class="sport"><%=event.sport%></span>
                     <span class="owner"><%=event.owner%></span>
                     <span class="description"><%=event.description%></span>

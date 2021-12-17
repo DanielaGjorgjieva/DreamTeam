@@ -18,6 +18,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 //SOCKET
 const { eventBus } = require("../webServer.js");
+// const PersistentFile = require('formidable/PersistentFile');
 
 // ROUTES
 router.get("/", function (req, res) {
@@ -59,7 +60,6 @@ let filter = { _id: new ObjectId(req.params.id) };
 });
 
 router.get('/:id/edit', function (req, res) {
-   console.log("DENTRO EDIT");
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
@@ -112,6 +112,10 @@ router.post('/:owner', function (req, res) {
             // console.log('PORCOPIO');
             console.log(newActivity._id);
             user.created.push(newActivity._id);
+            
+            let msg={sport: newActivity};
+            eventBus.emit('sport.upload', msg);
+
             model.user.replaceOne(userFilter, user, {upsert: true})
             .then(()=>res.status(201).json(newActivity));
          })       
@@ -129,7 +133,7 @@ router.post('/:owner', function (req, res) {
 
 // JOIN SPORT
 router.put('/:id/join/', function (req, res) {
-
+   let msg;
    let sportFilter = { _id: new ObjectId(req.params.id)};
    let userFilter = {username: req.body.user};
    console.log(userFilter);
@@ -166,6 +170,7 @@ router.put('/:id/join/', function (req, res) {
          model.sport.replaceOne(sportFilter, result, {upsert: true});
       })
       .then(() => {
+         eventBus.emit('sport.joined', msg);
          res.status(201).json(event);
       })
 
@@ -217,7 +222,7 @@ router.put('/:id', function (req, res) {
 
 // DELETE
 router.delete('/:id', function (req, res) {
-
+   let msg = {id: req.params.id};
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
@@ -226,7 +231,7 @@ router.delete('/:id', function (req, res) {
          if (result.value == null) {
             res.status(404).end();
          } else {
-            eventBus.emit('sport.deleted', result);
+            eventBus.emit('sport.deleted', msg);
             res.status(204).end();
          }
       })
@@ -255,3 +260,41 @@ router.get('/upload', function (req, res) {
 router.get('/:id/activities', function(req,res) {
    res.status(200).json({a:req.params.id});
 })
+
+router.get('/:id/leave/:userid', function (req, res) {
+   let msg = {user: ""};
+   let filter = { _id: new ObjectId(req.params.id) };
+   let userFilter = { _id: new ObjectId(req.params.userid) };
+   try {
+      model.sport.findOne(filter)
+         .then((result) => {
+            let newmembers = [];
+            for(let i = 0; i < result.members.length ; ++i){
+               if(result.members[i].toString() !== req.params.userid){
+                  newmembers.push(result.members[i]);
+               }
+            }
+            result.members = newmembers;
+            model.sport.replaceOne(filter, result);
+            model.user.findOne(userFilter)
+               .then((res_user) => {
+                  msg.user = res_user.username;
+                  let newjoined = [];
+                  for(let i = 0; i < res_user.joined.length ; ++i){
+                     if(res_user.joined[i].toString() !== req.params.id){
+                        newjoined.push(res_user.joined[i]);
+                     }
+                  }
+                  res_user.joined = newjoined;
+                  console.log(res_user);
+                  model.user.replaceOne(userFilter, res_user);
+                  eventBus.emit('sport.left', msg);
+                  res.status(200).json(res_user);
+               })
+         })
+   }
+   catch {
+      res.status(404).end();
+   }
+})
+

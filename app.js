@@ -88,7 +88,7 @@ server.on('listening', function() {
 });
 
 var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+//var io = require('socket.io')(server);
 
 let ws = require("./webServer.js");
 ws.init(server);
