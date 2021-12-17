@@ -391,17 +391,24 @@ function join_activity(event_id) {
             console.log(obj._id);
             you.joined.push(obj._id);
 
-            fetch("sports/" + event_id).then(res => res.json()).then(obj => {
-                setHash("#event/" + event_id);
-                html = ejs.views_events({ user: you, event: obj });
-                document.querySelector("main").outerHTML = html;
-            });
+            // fetch("sports/" + event_id).then(res => res.json()).then(obj => {
+            //     setHash("#event/" + event_id);
+            //     html = ejs.views_events({ user: you, event: obj });
+            //     document.querySelector("main").outerHTML = html;
+            // });
+            visitEvent(event_id);
         })
         .catch(err => {
             console.error(err);
         })
 }
 
+function leaveEvent(id) {
+    fetch("/sports/"+id+"/leave/"+you._id).then(res => res.json()).then(obj => {
+        you = obj;
+        listSports();
+    })
+}
 
 function renderHeader() {
     html = ejs.views_includes_header({ user: you });
@@ -437,6 +444,13 @@ function visitEvent(id) {
                 button_join.addEventListener("click", (event) => {
                     event.preventDefault();
                     join_activity(id);
+                })
+            }
+            let button_leave = document.getElementsByName("submit_leave")[0];
+            if (button_leave) {
+                button_leave.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    leaveEvent(id);
                 })
             }
             let log_ev = document.getElementById("login_from_event");

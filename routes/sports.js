@@ -18,6 +18,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 //SOCKET
 const { eventBus } = require("../webServer.js");
+// const PersistentFile = require('formidable/PersistentFile');
 
 // ROUTES
 router.get("/", function (req, res) {
@@ -59,7 +60,6 @@ let filter = { _id: new ObjectId(req.params.id) };
 });
 
 router.get('/:id/edit', function (req, res) {
-   console.log("DENTRO EDIT");
    let filter = { _id: new ObjectId(req.params.id) };
 
    try {
@@ -255,3 +255,38 @@ router.get('/upload', function (req, res) {
 router.get('/:id/activities', function(req,res) {
    res.status(200).json({a:req.params.id});
 })
+
+router.get('/:id/leave/:userid', function (req, res) {
+   let filter = { _id: new ObjectId(req.params.id) };
+   let userFilter = { _id: new ObjectId(req.params.userid) };
+   try {
+      model.sport.findOne(filter)
+         .then((result) => {
+            let newmembers = [];
+            for(let i = 0; i < result.members.length ; ++i){
+               if(result.members[i].toString() !== req.params.userid){
+                  newmembers.push(result.members[i]);
+               }
+            }
+            result.members = newmembers;
+            model.sport.replaceOne(filter, result);
+            model.user.findOne(userFilter)
+               .then((res_user) => {
+                  let newjoined = [];
+                  for(let i = 0; i < res_user.joined.length ; ++i){
+                     if(res_user.joined[i].toString() !== req.params.id){
+                        newjoined.push(res_user.joined[i]);
+                     }
+                  }
+                  res_user.joined = newjoined;
+                  console.log(res_user);
+                  model.user.replaceOne(userFilter, res_user);
+                  res.status(200).json(res_user);
+               })
+         })
+   }
+   catch {
+      res.status(404).end();
+   }
+})
+

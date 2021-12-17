@@ -185,6 +185,11 @@ _______
 -Fixed the delete fetch
 -Started working on sockets
 
+17/12
+-Fixed some bugs
+-Implemented leave feature
+-Implemented route for the leave feature
+
 #### Samuel Corecco
 
 _______
@@ -230,3 +235,8 @@ _______
 -Fixed deleted
 -update parspad and some hash for link
 -start socket working :)
+
+17/12
+-fixed some bugs
+-implemented new routs for leave
+-added a leave function in fetch
