@@ -132,7 +132,10 @@ function openYourPage(id) {
                     let edit_button = document.querySelectorAll('a[rel="edit"]');
                     if (edit_button) {
                         edit_button.forEach((button)=>{
-                            button.addEventListener("click", linkClickHandler);
+                            button.addEventListener("click", (event) => {
+                                event.preventDefault();
+                                editSport(button.parentNode.id);
+                            });
                         })
                     }
 
