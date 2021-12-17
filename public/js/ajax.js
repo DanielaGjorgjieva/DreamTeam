@@ -122,6 +122,13 @@ function openYourPage(id) {
                     setHash("#user/" + you._id);
                     document.querySelector('main').outerHTML = html;
 
+                    // let linkButton = document.querySelectorAll('a[rel="link"]');
+                    // if (linkButton) {
+                    //     linkButton.forEach((button)=>{
+                    //         button.addEventListener("click", linkClickHandler);
+                    //     })
+                    // }
+
                     let edit_button = document.querySelectorAll('a[rel="edit"]');
                     if (edit_button) {
                         edit_button.forEach((button)=>{
