@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Fri Dec 17 2021 01:38:15 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Fri Dec 17 2021 11:17:52 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -50,13 +50,13 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!-- this ejs doesn't need any input -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>About Us</h1>\n        <p class=\"about\">\n            DreamTeam is the result of a university project by <b>Francesco Casarella</b>, <b>Alessandro Cravioglio</b>,\n            <b>Daniela Gjorjieva</b>, <b>Andrea Prato</b> and <b>Samuel Corecco</b>.<br>\n            The project consist in develop a sport event organizer web-app, using all the resources that\n            we learned in Software Atelier 3. <br>\n            This web-app consents you to create and edit your sport event. People can join and talk in the chat.\n        </p>\n    </section>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Out Team: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Team Leader <br>\n                HTML/CSS/EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Francesco Casarella Photo\">\n            <section>\n                Francesco <br>\n                Casarella\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                HTML/CSS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Daniela Gjorgjieva Photo\">\n            <section>\n                Daniela <br>\n                Gjorgjieva\n            </section>\n        </a>\n\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Repo admin <br>\n                ROUTES/DB\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Alessandro Cravioglio Photo\">\n            <section>\n                Alessandro <br>\n                Cravioglio\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Andrea Prato Photo\">\n            <section>\n                Andrea <br>\n                Prato\n            </section>\n        </a>\n\n        <a class=\"odd\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Samuel Corecco Photo\">\n            <section>\n                Samuel <br>\n                Corecco\n            </section>\n        </a>\n    </section>\n</main>"
+  , __lines = "<!-- this ejs doesn't need any input -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>About Us</h1>\n        <p class=\"about\">\n            DreamTeam is the result of a university project by <b>Francesco Casarella</b>, <b>Alessandro Cravioglio</b>,\n            <b>Daniela Gjorjieva</b>, <b>Andrea Prato</b> and <b>Samuel Corecco</b>.<br>\n            The project consist in develop a sport event organizer web-app, using all the resources that\n            we learned in Software Atelier 3. <br>\n            This web-app consents you to create and edit your sport event. People can join and talk in the chat.\n        </p>\n    </section>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Our Team: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Team Leader <br>\n                HTML/CSS/EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Francesco Casarella Photo\">\n            <section>\n                Francesco <br>\n                Casarella\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                HTML/CSS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Daniela Gjorgjieva Photo\">\n            <section>\n                Daniela <br>\n                Gjorgjieva\n            </section>\n        </a>\n\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Repo admin <br>\n                ROUTES/DB\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Alessandro Cravioglio Photo\">\n            <section>\n                Alessandro <br>\n                Cravioglio\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Andrea Prato Photo\">\n            <section>\n                Andrea <br>\n                Prato\n            </section>\n        </a>\n\n        <a class=\"odd\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Samuel Corecco Photo\">\n            <section>\n                Samuel <br>\n                Corecco\n            </section>\n        </a>\n    </section>\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!-- this ejs doesn't need any input -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>About Us</h1>\n        <p class=\"about\">\n            DreamTeam is the result of a university project by <b>Francesco Casarella</b>, <b>Alessandro Cravioglio</b>,\n            <b>Daniela Gjorjieva</b>, <b>Andrea Prato</b> and <b>Samuel Corecco</b>.<br>\n            The project consist in develop a sport event organizer web-app, using all the resources that\n            we learned in Software Atelier 3. <br>\n            This web-app consents you to create and edit your sport event. People can join and talk in the chat.\n        </p>\n    </section>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Out Team: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Team Leader <br>\n                HTML/CSS/EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Francesco Casarella Photo\">\n            <section>\n                Francesco <br>\n                Casarella\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                HTML/CSS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Daniela Gjorgjieva Photo\">\n            <section>\n                Daniela <br>\n                Gjorgjieva\n            </section>\n        </a>\n\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Repo admin <br>\n                ROUTES/DB\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Alessandro Cravioglio Photo\">\n            <section>\n                Alessandro <br>\n                Cravioglio\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Andrea Prato Photo\">\n            <section>\n                Andrea <br>\n                Prato\n            </section>\n        </a>\n\n        <a class=\"odd\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Samuel Corecco Photo\">\n            <section>\n                Samuel <br>\n                Corecco\n            </section>\n        </a>\n    </section>\n</main>")
+    ; __append("<!-- this ejs doesn't need any input -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>About Us</h1>\n        <p class=\"about\">\n            DreamTeam is the result of a university project by <b>Francesco Casarella</b>, <b>Alessandro Cravioglio</b>,\n            <b>Daniela Gjorjieva</b>, <b>Andrea Prato</b> and <b>Samuel Corecco</b>.<br>\n            The project consist in develop a sport event organizer web-app, using all the resources that\n            we learned in Software Atelier 3. <br>\n            This web-app consents you to create and edit your sport event. People can join and talk in the chat.\n        </p>\n    </section>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Our Team: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Team Leader <br>\n                HTML/CSS/EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Francesco Casarella Photo\">\n            <section>\n                Francesco <br>\n                Casarella\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                HTML/CSS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Daniela Gjorgjieva Photo\">\n            <section>\n                Daniela <br>\n                Gjorgjieva\n            </section>\n        </a>\n\n        <a class=\"odd\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                Repo admin <br>\n                ROUTES/DB\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Alessandro Cravioglio Photo\">\n            <section>\n                Alessandro <br>\n                Cravioglio\n            </section>\n        </a>\n\n        <a class=\"even\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"blank\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Andrea Prato Photo\">\n            <section>\n                Andrea <br>\n                Prato\n            </section>\n        </a>\n\n        <a class=\"odd\">\n            <section>\n                SOCKET/FETCH/ <br> EJS\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Samuel Corecco Photo\">\n            <section>\n                Samuel <br>\n                Corecco\n            </section>\n        </a>\n    </section>\n</main>")
     ; __line = 78
   }
   return __output;
@@ -110,39 +110,39 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!-- \nthis ejs should take an event object as input\n\nit should autocomplete with the information of the event\n\nEvent:\n{\n    sport : \"\",\n    owner : \"\",\n    description : \"\",\n    place : \"\",\n    date : \"\",\n    frequency : \"\",\n    max_members : 10,\n    members : [],\n}\n-->\n\n<main id=\"upload\">\n    <section class=\"title\">\n        <h1>Edit your sport activity!</h1>\n    </section>\n\n    <form method=\"POST\" name=\"file\" action=\"/sports/<%= event._id%>?_method=PUT\" encType=\"multipart/form-data\" class=\"upload-section\" id=\"upload-section\">\n\n        <label for=\"sport\"> Sport </label>\n        <input type=\"text\" id=\"sport\" name=\"sport\" value=\"<%= event.sport%>\" placeholder=\"Soccer...\" required>\n\n        <label for=\"description\"> Description</label>\n        <textarea id=\"description\" name=\"description\" rows=\"5\" cols=\"45\" \n            placeholder=\"<%event.description%>\"><%= event.description%></textarea>\n\n        <label for=\"place\"> Place </label>\n        <input type=\"text\" id=\"place\" name=\"place\" value=\"<%= event.place %>\" placeholder=\"Lugano...\" required>\n\n        <label for=\"date\">Starting date</label>\n        <input type=\"date\" id=\"date\" name=\"date\" value=\"<%= event.date %>\" min=\"\" max=\"2025-12-31\" required>\n\n        <label for=\"frequency\">Frequency</label>\n        <select name=\"frequency\" id=\"frequency\" value=\"<%= event.frequency%>\" required>\n            <option value=\"Daily\">Daily</option>\n            <option value=\"Weekly\">Weekly</option>\n            <option value=\"Monthly\">Monthly</option>\n            <option value=\"Undefined\">Undefined</option>\n        </select>\n\n        <label for=\"max_members\">Members</label>\n        <input type=\"number\" id=\"max_members\" name=\"max_members\" value=\"<%= event.max_members%>\" min=\"<%= event.members.length%>\" max=\"30\" required><br><br>\n\n        <button type=\"submit\" name=\"submit\" id=\"submit_button_edit\"> Submit </button>\n\n    </form>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Popular Activities: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n    </section>\n    <br>\n</main>"
+  , __lines = "<main id=\"upload\">\n    <section class=\"title\">\n        <h1>Edit your sport activity!</h1>\n    </section>\n\n    <form method=\"POST\" name=\"file\" action=\"/sports/<%= event._id%>?_method=PUT\" encType=\"multipart/form-data\" class=\"upload-section\" id=\"upload-section\">\n\n        <label for=\"sport\"> Sport </label>\n        <input type=\"text\" id=\"sport\" name=\"sport\" value=\"<%= event.sport%>\" placeholder=\"Soccer...\" required>\n\n        <label for=\"description\"> Description</label>\n        <textarea id=\"description\" name=\"description\" rows=\"5\" cols=\"45\" \n            placeholder=\"<%event.description%>\"><%= event.description%></textarea>\n\n        <label for=\"place\"> Place </label>\n        <input type=\"text\" id=\"place\" name=\"place\" value=\"<%= event.place %>\" placeholder=\"Lugano...\" required>\n\n        <label for=\"date\">Starting date</label>\n        <input type=\"date\" id=\"date\" name=\"date\" value=\"<%= event.date %>\" min=\"\" max=\"2025-12-31\" required>\n\n        <label for=\"frequency\">Frequency</label>\n        <select name=\"frequency\" id=\"frequency\" value=\"<%= event.frequency%>\" required>\n            <option value=\"Daily\">Daily</option>\n            <option value=\"Weekly\">Weekly</option>\n            <option value=\"Monthly\">Monthly</option>\n            <option value=\"Undefined\">Undefined</option>\n        </select>\n\n        <label for=\"max_members\">Members</label>\n        <input type=\"number\" id=\"max_members\" name=\"max_members\" value=\"<%= event.max_members%>\" min=\"<%= event.max_members %>\" max=\"30\" required><br><br>\n\n        <button type=\"submit\" name=\"submit\" id=\"submit_button_edit\"> Submit </button>\n\n    </form>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Popular Activities: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n    </section>\n    <br>\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!-- \nthis ejs should take an event object as input\n\nit should autocomplete with the information of the event\n\nEvent:\n{\n    sport : \"\",\n    owner : \"\",\n    description : \"\",\n    place : \"\",\n    date : \"\",\n    frequency : \"\",\n    max_members : 10,\n    members : [],\n}\n-->\n\n<main id=\"upload\">\n    <section class=\"title\">\n        <h1>Edit your sport activity!</h1>\n    </section>\n\n    <form method=\"POST\" name=\"file\" action=\"/sports/")
-    ; __line = 24
+    ; __append("<main id=\"upload\">\n    <section class=\"title\">\n        <h1>Edit your sport activity!</h1>\n    </section>\n\n    <form method=\"POST\" name=\"file\" action=\"/sports/")
+    ; __line = 6
     ; __append(escapeFn( event._id))
     ; __append("?_method=PUT\" encType=\"multipart/form-data\" class=\"upload-section\" id=\"upload-section\">\n\n        <label for=\"sport\"> Sport </label>\n        <input type=\"text\" id=\"sport\" name=\"sport\" value=\"")
-    ; __line = 27
+    ; __line = 9
     ; __append(escapeFn( event.sport))
     ; __append("\" placeholder=\"Soccer...\" required>\n\n        <label for=\"description\"> Description</label>\n        <textarea id=\"description\" name=\"description\" rows=\"5\" cols=\"45\" \n            placeholder=\"")
-    ; __line = 31
+    ; __line = 13
     ; event.description
     ; __append("\">")
     ; __append(escapeFn( event.description))
     ; __append("</textarea>\n\n        <label for=\"place\"> Place </label>\n        <input type=\"text\" id=\"place\" name=\"place\" value=\"")
-    ; __line = 34
+    ; __line = 16
     ; __append(escapeFn( event.place ))
     ; __append("\" placeholder=\"Lugano...\" required>\n\n        <label for=\"date\">Starting date</label>\n        <input type=\"date\" id=\"date\" name=\"date\" value=\"")
-    ; __line = 37
+    ; __line = 19
     ; __append(escapeFn( event.date ))
     ; __append("\" min=\"\" max=\"2025-12-31\" required>\n\n        <label for=\"frequency\">Frequency</label>\n        <select name=\"frequency\" id=\"frequency\" value=\"")
-    ; __line = 40
+    ; __line = 22
     ; __append(escapeFn( event.frequency))
     ; __append("\" required>\n            <option value=\"Daily\">Daily</option>\n            <option value=\"Weekly\">Weekly</option>\n            <option value=\"Monthly\">Monthly</option>\n            <option value=\"Undefined\">Undefined</option>\n        </select>\n\n        <label for=\"max_members\">Members</label>\n        <input type=\"number\" id=\"max_members\" name=\"max_members\" value=\"")
-    ; __line = 48
+    ; __line = 30
     ; __append(escapeFn( event.max_members))
     ; __append("\" min=\"")
-    ; __append(escapeFn( event.members.length))
+    ; __append(escapeFn( event.max_members ))
     ; __append("\" max=\"30\" required><br><br>\n\n        <button type=\"submit\" name=\"submit\" id=\"submit_button_edit\"> Submit </button>\n\n    </form>\n\n    <!-- ADVICE SECTION -->\n    <section class=\"title\">\n        <h1>Popular Activities: </h1>\n    </section>\n\n    <section class=\"advices\">\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"even\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n\n        <a href=\"\" class=\"odd\">\n            <section>\n                placeholder\n            </section>\n            <img src=\"images/img_avatar.png\" alt=\"Linking Park photo\">\n            <section>\n                placeholder\n            </section>\n        </a>\n    </section>\n    <br>\n</main>")
-    ; __line = 111
+    ; __line = 93
   }
   return __output;
 } catch (e) {
@@ -195,119 +195,125 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!--\n    Web Atelier 2021\n    Ejs\n    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)\n-->\n<%\n  function isInside(Arr_Joint, name){\n    event.members.forEach((element)=>{\n      if (element.username == name){\n        return true\n      }\n    });\n\n    return false;\n  }\n%>\n<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n            if(event.owner !== user.username){\n                 if(isInside(event.members, user.username)){%>\n                    <form>\n                      <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                <%} else {\n                    if(event.members.length >= event.max_members){%>\n                      <section>\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                      </section>\n                    <%} else {%>\n                        <form>\n                          <button name=\"submit_join\" id=\"<%=event._id%>\"> Join </button>\n                        </form>\n                    <%}%>\n                <%}\n            }else{%>\n                <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n            <%}\n        }else{%>\n            If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n        <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length +\"/\"+event.max_members%></p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <%if(user && (isInside(event.members, user.username) || (user.username == event.owner))){%>\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n        <%\n        event.chat.forEach(chat =>{\n          if(chat.name == user.username){\n        %>\n        <p class=\"text-right\" style=\"color:white;\"> You </p>\n        <p class=\"message user_message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-right\"><%= chat.time%></p>\n\n        <%}else{%>\n\n        <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n        <p class=\"message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-left\"><%= chat.time%></p>\n\n        <%}})%>\n        \n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n    <%}%>\n\n  </main>"
+  , __lines = "<%\n  let flag = false;\n  function isInside(id){\n    console.log('ID:');\n    console.log(id);\n    event.members.forEach((element)=>{\n      console.log('ELEMENT:')\n      console.log(element)\n      if (element === id){\n        flag = true;\n      }\n    });\n    return flag;\n  }\n%>\n\n<main id=\"event description\">\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n          if(event.owner !== user.username){\n              if(isInside(user._id)){\n                  console.log(\"you are a member\")%>\n                  <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                  </form>\n          <%} else if(event.members.length >= event.max_members) {\n                  console.log(\"event is full\")%>\n                  <section>\n                      Sorry, this event reached the maximum capacity chosen from the owner.\n                  </section>\n          <%} else {\n                  console.log(\"you are NOT a member\")%>\n                  <form>\n                    <button name=\"submit_join\" id=\"<%=event._id%>\"> Join </button>\n                  </form>\n          <%}%>\n          <%} else{\n            console.log(\"you are the OWNER\")%>\n            <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n            <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n          <%}\n      } else {\n        console.log(\"you are not logged in\")%>\n        If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n      <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length + \"/\" +event.max_members%></p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <%if(user && ((user.username == event.owner) || isInside(user._id))){%>\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n        <%\n        event.chat.forEach(chat =>{\n          if(chat.name == user.username){\n        %>\n        <p class=\"text-right\" style=\"color:white;\"> You </p>\n        <p class=\"message user_message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-right\"><%= chat.time%></p>\n\n        <%}else{%>\n\n        <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n        <p class=\"message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-left\"><%= chat.time%></p>\n\n        <%}})%>\n        \n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n    <%}%>\n\n  </main>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!--\n    Web Atelier 2021\n    Ejs\n    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)\n-->\n")
-    ; __line = 6
     ; 
-  function isInside(Arr_Joint, name){
+  let flag = false;
+  function isInside(id){
+    console.log('ID:');
+    console.log(id);
     event.members.forEach((element)=>{
-      if (element.username == name){
-        return true
+      console.log('ELEMENT:')
+      console.log(element)
+      if (element === id){
+        flag = true;
       }
     });
-
-    return false;
+    return flag;
   }
 
-    ; __line = 16
-    ; __append("\n<main id=\"event description\">\n\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1>")
-    ; __line = 21
+    ; __line = 15
+    ; __append("\n\n<main id=\"event description\">\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1>")
+    ; __line = 20
     ; __append(escapeFn(event.sport))
     ; __append("</h1>\n        <p>An event from ")
-    ; __line = 22
+    ; __line = 21
     ; __append(escapeFn(event.owner))
     ; __append(" </p>\n      </section>\n\n      <section>\n        ")
-    ; __line = 26
+    ; __line = 25
     ; if(user){
-            if(event.owner !== user.username){
-                 if(isInside(event.members, user.username)){
+          if(event.owner !== user.username){
+              if(isInside(user._id)){
+                  console.log("you are a member")
     ; __line = 28
-    ; __append("\n                    <form>\n                      <button type=\"submit\" name=\"submit\"> Leave </button>\n                    </form>\n                ")
+    ; __append("\n                  <form>\n                    <button type=\"submit\" name=\"submit\"> Leave </button>\n                  </form>\n          ")
     ; __line = 32
-    ; } else {
-                    if(event.members.length >= event.max_members){
+    ; } else if(event.members.length >= event.max_members) {
+                  console.log("event is full")
     ; __line = 33
-    ; __append("\n                      <section>\n                        Sorry, this event reached the maximum capacity chosen from the owner.\n                      </section>\n                    ")
+    ; __append("\n                  <section>\n                      Sorry, this event reached the maximum capacity chosen from the owner.\n                  </section>\n          ")
     ; __line = 37
     ; } else {
-    ; __append("\n                        <form>\n                          <button name=\"submit_join\" id=\"")
-    ; __line = 39
+                  console.log("you are NOT a member")
+    ; __line = 38
+    ; __append("\n                  <form>\n                    <button name=\"submit_join\" id=\"")
+    ; __line = 40
     ; __append(escapeFn(event._id))
-    ; __append("\"> Join </button>\n                        </form>\n                    ")
-    ; __line = 41
-    ; }
-    ; __append("\n                ")
+    ; __append("\"> Join </button>\n                  </form>\n          ")
     ; __line = 42
     ; }
-            }else{
+    ; __append("\n          ")
     ; __line = 43
-    ; __append("\n                <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/")
+    ; } else{
+            console.log("you are the OWNER")
     ; __line = 44
+    ; __append("\n            <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/")
+    ; __line = 45
     ; __append(escapeFn( event._id))
-    ; __append("/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n            ")
-    ; __line = 46
-    ; }
-        }else{
+    ; __append("/edit\">Edit</a>\n            <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n          ")
     ; __line = 47
-    ; __append("\n            If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n        ")
+    ; }
+      } else {
+        console.log("you are not logged in")
     ; __line = 49
+    ; __append("\n        If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n      ")
+    ; __line = 51
     ; }
     ; __append("\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       ")
-    ; __line = 58
+    ; __line = 60
     ; __append(escapeFn( event.description ))
     ; __append("\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : ")
-    ; __line = 65
+    ; __line = 67
     ; __append(escapeFn( event.place ))
     ; __append("</p>\n      <p>Starting Date : ")
-    ; __line = 66
+    ; __line = 68
     ; __append(escapeFn( event.date ))
     ; __append(" </p>\n      <p>Members : ")
-    ; __line = 67
-    ; __append(escapeFn( event.members.length +"/"+event.max_members))
+    ; __line = 69
+    ; __append(escapeFn( event.members.length + "/" +event.max_members))
     ; __append("</p>\n      <p>Frequency: ")
-    ; __line = 68
+    ; __line = 70
     ; __append(escapeFn( event.frequency ))
     ; __append("</p>\n    </section>\n\n    ")
-    ; __line = 71
-    ; if(user && (isInside(event.members, user.username) || (user.username == event.owner))){
+    ; __line = 73
+    ; if(user && ((user.username == event.owner) || isInside(user._id))){
     ; __append("\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n        ")
-    ; __line = 78
+    ; __line = 80
     ; 
         event.chat.forEach(chat =>{
           if(chat.name == user.username){
         
-    ; __line = 81
+    ; __line = 83
     ; __append("\n        <p class=\"text-right\" style=\"color:white;\"> You </p>\n        <p class=\"message user_message\">\n          ")
-    ; __line = 84
+    ; __line = 86
     ; __append(escapeFn( chat.msg))
     ; __append("\n        </p>\n        <p class=\"text-right\">")
-    ; __line = 86
+    ; __line = 88
     ; __append(escapeFn( chat.time))
     ; __append("</p>\n\n        ")
-    ; __line = 88
+    ; __line = 90
     ; }else{
     ; __append("\n\n        <p class=\"text-left\" style=\"color:white;\">")
-    ; __line = 90
+    ; __line = 92
     ; __append(escapeFn( chat.name))
     ; __append("</p>\n        <p class=\"message\">\n          ")
-    ; __line = 92
+    ; __line = 94
     ; __append(escapeFn( chat.msg))
     ; __append("\n        </p>\n        <p class=\"text-left\">")
-    ; __line = 94
+    ; __line = 96
     ; __append(escapeFn( chat.time))
     ; __append("</p>\n\n        ")
-    ; __line = 96
+    ; __line = 98
     ; }})
     ; __append("\n        \n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\">\n          <input type=\"text_chat\">\n          <button>SEND</button>\n        </form>\n      </div>\n\n    </div>\n    ")
-    ; __line = 109
+    ; __line = 111
     ; }
     ; __append("\n\n  </main>")
-    ; __line = 111
+    ; __line = 113
   }
   return __output;
 } catch (e) {
@@ -868,57 +874,57 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!-- \nthis ejs should take the list of event object from the database\n -->\n<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    <%if(sports.length === 0){%>\n        <section class=\"title\">\n            There are no events\n        </section>\n    <%} else {%>\n    <header>\n        <span></span>\n        <a href=\"sport.html?sort=sport\">Sport</a>\n        <a href=\"sport.html?sort=sport\">Owner</a>\n        <a href=\"sport.html?sort=desc\">Description</a>\n        <a href=\"sport.html?sort=place\">Place</a>\n        <a href=\"sport.html?sort=date\">Starting Date</a>\n        <a href=\"sport.html?sort=max_number\">Frequency</a>\n        <a href=\"sport.html?sort=max_number\">Members</a>\n        <span></span>\n    </header>\n    <%}%>\n\n    <% for(let index = 0; index < sports.length; index++){ \n        let event = sports[index] %>\n\n    <article class=\"sport\">\n        <a id=\"<%=event._id%>\" rel=\"link\" onclick=\"visitEvent(this.id)\">Link</a>\n        <span class=\"sport\"><%=event.sport%></span>\n        <span class=\"owner\"><%=event.owner%></span>\n        <span class=\"description\"><%=event.description%></span>\n        <span class=\"place\"><%=event.place%></span>\n        <span class=\"starting_date\"><%=event.date%></span>\n        <span class=\"date\"><%=event.frequency%></span>\n        <span class=\"Number of Members\"><%=event.members.length%>/<%=event.max_members%></span>\n        <section></section>\n    </article>\n    \n    <%}%>\n</main>"
+  , __lines = "<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    <%if(sports.length === 0){%>\n        <section class=\"title\">\n            There are no events\n        </section>\n    <%} else {%>\n    <header>\n        <span></span>\n        <a href=\"sport.html?sort=sport\">Sport</a>\n        <a href=\"sport.html?sort=sport\">Owner</a>\n        <a href=\"sport.html?sort=desc\">Description</a>\n        <a href=\"sport.html?sort=place\">Place</a>\n        <a href=\"sport.html?sort=date\">Starting Date</a>\n        <a href=\"sport.html?sort=max_number\">Frequency</a>\n        <a href=\"sport.html?sort=max_number\">Members</a>\n        <span></span>\n    </header>\n    <%}%>\n\n    <% for(let index = 0; index < sports.length; index++){ \n        let event = sports[index] %>\n\n    <article class=\"sport\">\n        <a id=\"<%=event._id%>\" rel=\"link\" onclick=\"visitEvent(this.id)\">Link</a>\n        <span class=\"sport\"><%=event.sport%></span>\n        <span class=\"owner\"><%=event.owner%></span>\n        <span class=\"description\"><%=event.description%></span>\n        <span class=\"place\"><%=event.place%></span>\n        <span class=\"starting_date\"><%=event.date%></span>\n        <span class=\"date\"><%=event.frequency%></span>\n        <span class=\"Number of Members\"><%=event.members.length%>/<%=event.max_members%></span>\n        <section></section>\n    </article>\n    \n    <%}%>\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!-- \nthis ejs should take the list of event object from the database\n -->\n<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    ")
-    ; __line = 10
+    ; __append("<main id=\"sports_table\">\n\n    <section class=\"title\">\n        <h1>Group Activities</h1>\n    </section>\n\n    ")
+    ; __line = 7
     ; if(sports.length === 0){
     ; __append("\n        <section class=\"title\">\n            There are no events\n        </section>\n    ")
-    ; __line = 14
+    ; __line = 11
     ; } else {
     ; __append("\n    <header>\n        <span></span>\n        <a href=\"sport.html?sort=sport\">Sport</a>\n        <a href=\"sport.html?sort=sport\">Owner</a>\n        <a href=\"sport.html?sort=desc\">Description</a>\n        <a href=\"sport.html?sort=place\">Place</a>\n        <a href=\"sport.html?sort=date\">Starting Date</a>\n        <a href=\"sport.html?sort=max_number\">Frequency</a>\n        <a href=\"sport.html?sort=max_number\">Members</a>\n        <span></span>\n    </header>\n    ")
-    ; __line = 26
+    ; __line = 23
     ; }
     ; __append("\n\n    ")
-    ; __line = 28
+    ; __line = 25
     ;  for(let index = 0; index < sports.length; index++){ 
         let event = sports[index] 
-    ; __line = 29
+    ; __line = 26
     ; __append("\n\n    <article class=\"sport\">\n        <a id=\"")
-    ; __line = 32
+    ; __line = 29
     ; __append(escapeFn(event._id))
     ; __append("\" rel=\"link\" onclick=\"visitEvent(this.id)\">Link</a>\n        <span class=\"sport\">")
-    ; __line = 33
+    ; __line = 30
     ; __append(escapeFn(event.sport))
     ; __append("</span>\n        <span class=\"owner\">")
-    ; __line = 34
+    ; __line = 31
     ; __append(escapeFn(event.owner))
     ; __append("</span>\n        <span class=\"description\">")
-    ; __line = 35
+    ; __line = 32
     ; __append(escapeFn(event.description))
     ; __append("</span>\n        <span class=\"place\">")
-    ; __line = 36
+    ; __line = 33
     ; __append(escapeFn(event.place))
     ; __append("</span>\n        <span class=\"starting_date\">")
-    ; __line = 37
+    ; __line = 34
     ; __append(escapeFn(event.date))
     ; __append("</span>\n        <span class=\"date\">")
-    ; __line = 38
+    ; __line = 35
     ; __append(escapeFn(event.frequency))
     ; __append("</span>\n        <span class=\"Number of Members\">")
-    ; __line = 39
+    ; __line = 36
     ; __append(escapeFn(event.members.length))
     ; __append("/")
     ; __append(escapeFn(event.max_members))
     ; __append("</span>\n        <section></section>\n    </article>\n    \n    ")
-    ; __line = 43
+    ; __line = 40
     ; }
     ; __append("\n</main>")
-    ; __line = 44
+    ; __line = 41
   }
   return __output;
 } catch (e) {
@@ -1040,7 +1046,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!-- this ejs takes a user object as input\nUser:\n{\n    username: \"\",\n    password: \"\",\n    created: [],\n    joined: [],\n}\n -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>Your Profile: <%=user.username%></h1>\n    </section>\n\n    <section class=\"profile\">\n\n        <h3>Your Activities:</h3>\n\n        <% if(created.length == 0){ %>\n\n        You haven't created any events yet\n\n        <% } else {%>\n\n        <section id=\"sports_table_user\">\n            <header>\n                <span></span>\n                <a href=\"sport.html?sort=sport\">Sport</a>\n                <a href=\"sport.html?sort=sport\">Owner</a>\n                <a href=\"sport.html?sort=desc\">Description</a>\n                <a href=\"sport.html?sort=place\">Place</a>\n                <a href=\"sport.html?sort=date\">Starting Date</a>\n                <a href=\"sport.html?sort=max_number\">Frequency</a>\n                <a href=\"sport.html?sort=max_number\">Members</a>\n                <span></span>\n                <span></span>\n            </header>\n\n            <% for(let index = 0; index < created.length; index++){ \n                let event = created[index]%>\n\n            <article class=\"sport\" id=\"<%= event._id%>\">\n                <a rel=\"link\" href=\"/sports/<%= event._id%>\">Link</a>\n                <span class=\"sport\"><%=event.sport%></span>\n                <span class=\"owner\"><%=event.owner%></span>\n                <span class=\"description\"><%=event.description%></span>\n                <span class=\"place\"><%=event.place%></span>\n                <span class=\"starting_date\"><%=event.date%></span>\n                <span class=\"date\"><%=event.frequency%></span>\n                <span class=\"Number of Members\"><%=event.members.length%>/<%=event.max_members%></span>\n                <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n            </article>\n\n            <%}%>\n        </section>\n        <%}%>\n\n        <h3>Events you joined:</h3>\n\n        <% if(joined.length == 0){ %>\n\n            You haven't joined any events yet\n    \n            <% } else {%>\n    \n            <section id=\"sports_table_user\">\n                <header>\n                    <span></span>\n                    <a href=\"sport.html?sort=sport\">Sport</a>\n                    <a href=\"sport.html?sort=sport\">Owner</a>\n                    <a href=\"sport.html?sort=desc\">Description</a>\n                    <a href=\"sport.html?sort=place\">Place</a>\n                    <a href=\"sport.html?sort=date\">Starting Date</a>\n                    <a href=\"sport.html?sort=max_number\">Frequency</a>\n                    <a href=\"sport.html?sort=max_number\">Members</a>\n                    <span></span>\n                    <span></span>\n                </header>\n    \n                <% for(let index = 0; index < joined.length; index++){ \n                    let event = joined[index]%>\n    \n                <article class=\"sport\">\n                    <a rel=\"link\" href=\"/sports/<%= event._id%>\">Link</a>\n                    <span class=\"sport\"><%=event.sport%></span>\n                    <span class=\"owner\"><%=event.owner%></span>\n                    <span class=\"description\"><%=event.description%></span>\n                    <span class=\"place\"><%=event.place%></span>\n                    <span class=\"starting_date\"><%=event.date%></span>\n                    <span class=\"date\"><%=event.frequency%></span>\n                    <span class=\"Number of Members\">  <%=event.members.length%> /  <%=event.max_members%></span>\n                    <section></section>\n                    <section></section>\n                </article>\n                <%}%>\n            </section>\n            <%}%>\n\n        <h3>If you really want to exit...</h3>\n        <button onclick=\"LogOutUser()\">Log Out</button>\n\n    </section>\n</main>"
+  , __lines = "<!-- this ejs takes a user object as input\nUser:\n{\n    username: \"\",\n    password: \"\",\n    created: [],\n    joined: [],\n}\n -->\n\n<main id=\"about\">\n    <section class=\"title\">\n        <h1>Your Profile: <%=user.username%></h1>\n    </section>\n\n    <section class=\"profile\">\n\n        <h3>Your Activities:</h3>\n\n        <% if(created.length == 0){ %>\n\n        You haven't created any events yet\n\n        <% } else {%>\n\n        <section id=\"sports_table_user\">\n            <header>\n                <span></span>\n                <a href=\"sport.html?sort=sport\">Sport</a>\n                <a href=\"sport.html?sort=sport\">Owner</a>\n                <a href=\"sport.html?sort=desc\">Description</a>\n                <a href=\"sport.html?sort=place\">Place</a>\n                <a href=\"sport.html?sort=date\">Starting Date</a>\n                <a href=\"sport.html?sort=max_number\">Frequency</a>\n                <a href=\"sport.html?sort=max_number\">Members</a>\n                <span></span>\n                <span></span>\n            </header>\n\n            <% for(let index = 0; index < created.length; index++){ \n                let event = created[index]%>\n\n            <article class=\"sport\" id=\"<%= event._id%>\">\n                <a rel=\"link\" href=\"/sports/<%= event._id%>\">Link</a>\n                <span class=\"sport\"><%=event.sport%></span>\n                <span class=\"owner\"><%=event.owner%></span>\n                <span class=\"description\"><%=event.description%></span>\n                <span class=\"place\"><%=event.place%></span>\n                <span class=\"starting_date\"><%=event.date%></span>\n                <span class=\"date\"><%=event.frequency%></span>\n                <span class=\"Number of Members\"><%=event.members.length%>/<%=event.max_members%></span>\n                <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_button\" class=\"<%= event._id%>\" >Delete</a>\n            </article>\n\n            <%}%>\n        </section>\n        <%}%>\n\n        <h3>Events you joined:</h3>\n\n        <% if(joined.length == 0){ %>\n\n            You haven't joined any events yet\n    \n            <% } else {%>\n    \n            <section id=\"sports_table_user\">\n                <header>\n                    <span></span>\n                    <a href=\"sport.html?sort=sport\">Sport</a>\n                    <a href=\"sport.html?sort=sport\">Owner</a>\n                    <a href=\"sport.html?sort=desc\">Description</a>\n                    <a href=\"sport.html?sort=place\">Place</a>\n                    <a href=\"sport.html?sort=date\">Starting Date</a>\n                    <a href=\"sport.html?sort=max_number\">Frequency</a>\n                    <a href=\"sport.html?sort=max_number\">Members</a>\n                    <span></span>\n                    <span></span>\n                </header>\n    \n                <% for(let index = 0; index < joined.length; index++){ \n                    let event = joined[index]%>\n    \n                <article class=\"sport\">\n                    <a rel=\"link\" href=\"/sports/<%= event._id%>\">Link</a>\n                    <span class=\"sport\"><%=event.sport%></span>\n                    <span class=\"owner\"><%=event.owner%></span>\n                    <span class=\"description\"><%=event.description%></span>\n                    <span class=\"place\"><%=event.place%></span>\n                    <span class=\"starting_date\"><%=event.date%></span>\n                    <span class=\"date\"><%=event.frequency%></span>\n                    <span class=\"Number of Members\">  <%=event.members.length%> /  <%=event.max_members%></span>\n                    <section></section>\n                    <section></section>\n                </article>\n                <%}%>\n            </section>\n            <%}%>\n\n        <h3>If you really want to exit...</h3>\n        <button onclick=\"LogOutUser()\">Log Out</button>\n\n    </section>\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -1092,7 +1098,10 @@ try {
     ; __append("</span>\n                <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/")
     ; __line = 52
     ; __append(escapeFn( event._id))
-    ; __append("/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n            </article>\n\n            ")
+    ; __append("/edit\">Edit</a>\n                <a rel=\"delete\" id=\"delete_button\" class=\"")
+    ; __line = 53
+    ; __append(escapeFn( event._id))
+    ; __append("\" >Delete</a>\n            </article>\n\n            ")
     ; __line = 56
     ; }
     ; __append("\n        </section>\n        ")

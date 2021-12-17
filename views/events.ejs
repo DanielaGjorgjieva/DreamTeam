@@ -1,21 +1,20 @@
-<!--
-    Web Atelier 2021
-    Ejs
-    Author: Samuel Corecco & Andrea prato (based on the html of Francesco)
--->
 <%
-  function isInside(Arr_Joint, name){
+  let flag = false;
+  function isInside(id){
+    console.log('ID:');
+    console.log(id);
     event.members.forEach((element)=>{
-      if (element.username == name){
-        return true
+      console.log('ELEMENT:')
+      console.log(element)
+      if (element === id){
+        flag = true;
       }
     });
-
-    return false;
+    return flag;
   }
 %>
-<main id="event description">
 
+<main id="event description">
     <section class="head">
       <section class="title">
         <h1><%=event.sport%></h1>
@@ -24,29 +23,32 @@
 
       <section>
         <%if(user){
-            if(event.owner !== user.username){
-                 if(isInside(event.members, user.username)){%>
-                    <form>
-                      <button type="submit" name="submit"> Leave </button>
-                    </form>
-                <%} else {
-                    if(event.members.length >= event.max_members){%>
-                      <section>
-                        Sorry, this event reached the maximum capacity chosen from the owner.
-                      </section>
-                    <%} else {%>
-                        <form>
-                          <button name="submit_join" id="<%=event._id%>"> Join </button>
-                        </form>
-                    <%}%>
-                <%}
-            }else{%>
-                <a rel="edit" id="edit_sport" href="/sports/<%= event._id%>/edit">Edit</a>
-                <a rel="delete" id="delete_sport" href="" >Delete</a>
-            <%}
-        }else{%>
-            If you want to access the event informations please <a id="login_from_event" href="/login">Login</a>!
-        <%}%>
+          if(event.owner !== user.username){
+              if(isInside(user._id)){
+                  console.log("you are a member")%>
+                  <form>
+                    <button type="submit" name="submit"> Leave </button>
+                  </form>
+          <%} else if(event.members.length >= event.max_members) {
+                  console.log("event is full")%>
+                  <section>
+                      Sorry, this event reached the maximum capacity chosen from the owner.
+                  </section>
+          <%} else {
+                  console.log("you are NOT a member")%>
+                  <form>
+                    <button name="submit_join" id="<%=event._id%>"> Join </button>
+                  </form>
+          <%}%>
+          <%} else{
+            console.log("you are the OWNER")%>
+            <a rel="edit" id="edit_sport" href="/sports/<%= event._id%>/edit">Edit</a>
+            <a rel="delete" id="delete_sport" href="" >Delete</a>
+          <%}
+      } else {
+        console.log("you are not logged in")%>
+        If you want to access the event informations please <a id="login_from_event" href="/login">Login</a>!
+      <%}%>
             </section>
         </section>
 
@@ -64,11 +66,11 @@
       <h2>Details</h2>
       <p>Place : <%= event.place %></p>
       <p>Starting Date : <%= event.date %> </p>
-      <p>Members : <%= event.members.length +"/"+event.max_members%></p>
+      <p>Members : <%= event.members.length + "/" +event.max_members%></p>
       <p>Frequency: <%= event.frequency %></p>
     </section>
 
-    <%if(user && (isInside(event.members, user.username) || (user.username == event.owner))){%>
+    <%if(user && ((user.username == event.owner) || isInside(user._id))){%>
     <div class="container_chat">
       <div class="header">
         <h1>Group Chat</h1>
