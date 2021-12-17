@@ -43,6 +43,21 @@ eventBus.on('sport.uploaded', (event) => {
     io.emit('sport.uploaded', event);
 });
 
+eventBus.on('sport.joined', (event) => {
+    console.log('Someone joined a sport event!');
+    io.emit('sport.joined', event);
+});
+
+eventBus.on('sport.left', (event) => {
+    console.log('Someone left a sport event!');
+    io.emit('sport.left', event);
+});
+
+eventBus.on('sport.upload', (event) => {
+    console.log('A sport event has been uploaded!');
+    io.emit('sport.upload', event);
+})
+
 //NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
 
 //join into list and user profile
