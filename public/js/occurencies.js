@@ -35,7 +35,36 @@ function checkPassword(form) {
     }
 }
 
+
+
+function appendMsg(msg, chat="") {
+    msg.chat = msg.chat || chat;
+
+    document.getElementById("chat").innerHTML +=
+    ejs.views_events(msg);
+}
+
 function setScroolChat() {
+
+
+
+
+    socket.on("message",(msg)=> {
+        console.log(msg);
+        appendMsg(msg);
+    })
+ //here we add a listener to the send button  
+    document.getElementById("send").addEventListener("click", () => {
+        let input = document.getElementById("msg");
+        let text = input.value;
+
+        let msg = {user: user || "?", text};
+
+        socket.emit("message",msg);
+
+        input.value = "";
+        
+    })
     var objDiv = document.getElementById("chat");
     objDiv.scrollTop = objDiv.scrollHeight;
 }

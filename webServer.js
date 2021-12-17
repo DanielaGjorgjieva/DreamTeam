@@ -9,6 +9,8 @@ const io = require('socket.io')();
 const EventEmitter = require('events');
 const eventBus = new EventEmitter();
 
+let map_user_socket = {}
+
 function init(server) {
     io.attach(server);
 
@@ -42,6 +44,19 @@ eventBus.on('sport.uploaded', (event) => {
     console.log('Sport has been uploaded!');
     io.emit('sport.uploaded', event);
 });
+
+
+eventBus.on('message',msg=>{
+    console.log(msg);
+
+   
+    map_user_socket[msg.user] = socket.id;
+
+    
+
+    //send to ALL browsers
+    io.emit('message', msg);
+})
 
 //NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
 
