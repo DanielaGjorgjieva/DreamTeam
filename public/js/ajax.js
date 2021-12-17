@@ -389,7 +389,7 @@ function join_activity(event_id) {
             you.joined.push(obj._id);
 
             fetch("sports/" + event_id).then(res => res.json()).then(obj => {
-                setHash("#event/" + id);
+                setHash("#event/" + event_id);
                 html = ejs.views_events({ user: you, event: obj });
                 document.querySelector("main").outerHTML = html;
             });
