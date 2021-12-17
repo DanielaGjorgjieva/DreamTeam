@@ -50,7 +50,7 @@ User:
                 <span class="date"><%=event.frequency%></span>
                 <span class="Number of Members"><%=event.members.length%>/<%=event.max_members%></span>
                 <a rel="edit" id="edit_sport" href="/sports/<%= event._id%>/edit">Edit</a>
-                <a rel="delete" id="delete_sport" href="" >Delete</a>
+                <a rel="delete" id="delete_button" class="<%= event._id%>" >Delete</a>
             </article>
 
             <%}%>

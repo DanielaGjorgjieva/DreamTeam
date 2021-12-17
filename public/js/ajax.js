@@ -66,9 +66,9 @@ function linkClickHandler(event) {
     }
     if (url.pathname.includes("sports")) {
         if (url.pathname.endsWith("edit")) {
-            let id = url.pathname.replace("/sports/", " ").replace("/edit", "");
+            let id = url.pathname.replace("/sports/", "").replace("/edit", "");
             console.log('PATH:');
-            console.log(url.pathname);
+            console.log(id);
             editSport(id);
         }
     }
@@ -94,6 +94,7 @@ function openYourPage(id) {
                 .then(res => res.json())
                 .then(obj => {
                     sports = obj;
+                    if(you){
                     you.joined.forEach((el) => {
                         console.log('J');
                         console.log(el);
@@ -112,7 +113,7 @@ function openYourPage(id) {
                             }
                         }
                     })
-
+                    }
                     html = ejs.views_user({
                         user: you,
                         created: userCreated,
@@ -127,12 +128,13 @@ function openYourPage(id) {
                             button.addEventListener("click", linkClickHandler);
                         })
                     }
+
                     let delete_button = document.querySelectorAll('a[rel="delete"]');
                     if (delete_button) {
                         delete_button.forEach((button)=>{
                             button.addEventListener("click", (event) => {
                                 event.preventDefault();
-                                deleteSport(id);
+                                deleteSport(button.parentNode.id);
                             });
                         }) 
                     }
@@ -166,8 +168,8 @@ function editSport(id) {
 
 function deleteSport(clicked_id) {
     let id = clicked_id.split("_")[0];
-    let toDelete = document.getElementById(id);
-    fetch("/sports/" + id, { method: "DELETE", headers: { "Accept": "application/json" } })
+    // let toDelete = document.getElementById(id);
+    fetch("/sports/" + clicked_id, { method: "DELETE", headers: { "Accept": "application/json" } })
         .then(res => {
             listSports();
         })
@@ -471,7 +473,9 @@ function parse_path() {
         } else if (hash == "#upload") {
             activityUpload();
         } else if (hash.startsWith('#edit')) {
-            let id = hash.replace('#edit/', '');
+            let id = hash.replace('/sports/ ', '').replace('/edit','');
+            console.log('HASH:');
+            console.log(id);
             // let new_url = new URL('http://localhost:8888/sports/' + id + '/edit');
             editSport(id);
         } else if (hash == "#home") {
