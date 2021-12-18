@@ -179,6 +179,38 @@ router.put('/:id/join/', function (req, res) {
    }
 })
 
+// PUT A NEW MESSAGE ON THE DATABASE
+
+router.put('/:id/message', function(req, res) {
+   
+   let filter = { _id: new ObjectId(req.params.id)};
+   // check if correct
+   let msg = req.body.message;
+
+   try {
+
+      model.sport.findOne(filter)
+      .then((result) => {
+         newMsg = result;
+
+         newMsg.chat.push(msg);
+         return newMsg;
+      })
+      .then((result) => {
+         model.sport.replaceOne(filter, newMsg, {upsert: true});
+      })
+      .then(() => {
+
+         socket.emit('message', newMsg.chat);
+
+         res.status(201).json(newMsg.chat);
+      })
+
+   } catch {
+      res.status(404).end();
+   }
+})
+
 // EDIT THE SPORT ACTIVITY
 router.put('/:id', function (req, res) {
    let filter = { _id: new ObjectId(req.params.id) };

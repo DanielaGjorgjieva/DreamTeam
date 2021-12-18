@@ -104,6 +104,11 @@ worked on ROUTES/ajax.json
 - both server side/client
 - debug
 
+18/12
+- worked on the chat with Daniela
+- ajax.js and sports.js
+- worked on password issue
+
 #### Daniela Gjorgjieva
 03/12
 -created repository
@@ -137,6 +142,13 @@ worked on ROUTES/ajax.json
 16/12
 -worked on the video, did some interviews on friends, and recorded them
 -Helped Francesco and Alessando to debug buttons and links and to fix users.ejs
+17/12
+-fixed some issues on css
+-started implementing the chat
+
+18/12
+-doing the chat with Alessandro
+-fetch, socket for the chat
 
 #### Andrea Prato
 _______

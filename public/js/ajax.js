@@ -91,21 +91,21 @@ function openYourPage(id) {
                 .then(res => res.json())
                 .then(obj => {
                     sports = obj;
-                    if(you){
-                    you.joined.forEach((el) => {
-                        for (let index = 0; index < sports.length; index++) {
-                            if (sports[index]._id == el) {
-                                userJoined.push(sports[index]);
+                    if (you) {
+                        you.joined.forEach((el) => {
+                            for (let index = 0; index < sports.length; index++) {
+                                if (sports[index]._id == el) {
+                                    userJoined.push(sports[index]);
+                                }
                             }
-                        }
-                    })
-                    you.created.forEach((el) => {
-                        for (let index = 0; index < sports.length; index++) {
-                            if (sports[index]._id == el) {
-                                userCreated.push(sports[index]);
+                        })
+                        you.created.forEach((el) => {
+                            for (let index = 0; index < sports.length; index++) {
+                                if (sports[index]._id == el) {
+                                    userCreated.push(sports[index]);
+                                }
                             }
-                        }
-                    })
+                        })
                     }
                     html = ejs.views_user({
                         user: you,
@@ -117,7 +117,7 @@ function openYourPage(id) {
 
                     let edit_button = document.querySelectorAll('a[rel="edit"]');
                     if (edit_button) {
-                        edit_button.forEach((button)=>{
+                        edit_button.forEach((button) => {
                             button.addEventListener("click", (event) => {
                                 event.preventDefault();
                                 editSport(button.parentNode.id);
@@ -126,12 +126,12 @@ function openYourPage(id) {
                     }
                     let delete_button = document.querySelectorAll('a[rel="delete"]');
                     if (delete_button) {
-                        delete_button.forEach((button)=>{
+                        delete_button.forEach((button) => {
                             button.addEventListener("click", (event) => {
                                 event.preventDefault();
                                 deleteSport(button.parentNode.id);
                             });
-                        }) 
+                        })
                     }
                 })
         })
@@ -316,6 +316,8 @@ function addUser() {
 }
 
 
+
+
 function logUser() {
     renderHeader();
     renderLeftSidebar();
@@ -352,6 +354,49 @@ function logUser() {
     });
 }
 
+// add message to the database
+// doubt about that
+function add_message(id) {
+
+    document.getElementById("send").addEventListener("click", (e) => {
+        e.preventDefault();
+        let input = document.getElementById("msg");
+        let text = input.value;
+
+        let msg = { user: user || "?", text: text };
+
+        // socket.on("message",(msg)=> {
+        // console.log(msg);
+        // })
+
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ msg })
+        };
+
+        // fetch ??
+        fetch('/sports/' + id + '/message')
+            .then(res => res.json())
+            .then(obj => {
+                obj.forEach(msg => {
+                    if (msg.user == you.username) {
+                        // render the message to the right
+                    } else {
+                        // render the message to the left
+                    }
+                })
+            })
+
+        socket.emit("message", msg);
+
+        input.value = "";
+
+    })
+
+}
+
 
 function join_activity(event_id) {
     const requestOptions = {
@@ -378,7 +423,7 @@ function join_activity(event_id) {
 }
 
 function leaveEvent(id) {
-    fetch("/sports/"+id+"/leave/"+you._id).then(res => res.json()).then(obj => {
+    fetch("/sports/" + id + "/leave/" + you._id).then(res => res.json()).then(obj => {
         you = obj;
         listSports();
     })
@@ -469,7 +514,7 @@ function parse_path() {
         } else if (hash == "#upload") {
             activityUpload();
         } else if (hash.startsWith('#edit')) {
-            let id = hash.replace('/sports/ ', '').replace('/edit','');
+            let id = hash.replace('/sports/ ', '').replace('/edit', '');
             editSport(id);
         } else if (hash == "#home") {
             goHome();

@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
    try {
       model.user.find({}).toArray()
          .then(result => {
-            res.status(200).json(result); //returns the sport array
+            res.status(200).json(result); //returns the users array
          }).catch(error => {
             console.error(error);
             res.status(404).end();
