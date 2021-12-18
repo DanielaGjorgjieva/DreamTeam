@@ -21,6 +21,11 @@ router.get('/', function (req, res) {
    try {
       model.user.find({}).toArray()
          .then(result => {
+            result.forEach((el) => {
+               el.password = " ";
+            })
+            console.log(result);
+
             res.status(200).json(result); //returns the users array
          }).catch(error => {
             console.error(error);
@@ -43,6 +48,8 @@ router.get('/:id', function (req, res) {
             if (result === null) {
                res.status(404).end();
             } else {
+               result.password = " ";
+
                res.status(200).json(result);
             }
          })
@@ -94,10 +101,12 @@ router.post('/', function (req, res) {
          .then(result => {
             console.log(result);
 
+            result.password = " ";
+
             // INSERT SOCKET EVENT HERE
 
             // sent new object as json response
-            res.status(201).json(newUser);
+            res.status(201).json(result);
          })
          .catch(error => {
             console.error(error);
@@ -134,7 +143,7 @@ router.get('/login/:password/:username', function (req, res) {
                loggedUser = {
                   _id: result._id,
                   username: result.username,
-                  password: '',
+                  password: ' ',
                   created: result.created,
                   joined: result.joined,
                }
@@ -170,10 +179,11 @@ router.put('/:id', function (req, res) {
          .then(result => {
             console.log(result);
 
+            result.password = " ";
             // INSERT SOCKET EVENT HERE
 
             // sent new object as json response
-            res.status(201).json(newUser);
+            res.status(201).json(result);
          })
          .catch(error => {
             console.error(error);
