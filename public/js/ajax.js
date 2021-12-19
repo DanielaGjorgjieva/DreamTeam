@@ -176,7 +176,7 @@ function goHome() {
         .then((json) => {
             events = json;
             renderHeader();
-            renderLeftSidebar();
+//             renderLeftSidebar();
             setHash("#home");
             html = ejs.views_home(); //obj in parenthesis removed
             document.querySelector("main").outerHTML = html;
@@ -188,7 +188,7 @@ function activityUpload() {
         .then(res => res.text())
         .then(obj => {
             renderHeader();
-            renderLeftSidebar();
+//             renderLeftSidebar();
             setHash("#upload");
             html = ejs.views_upload({ user: you });
             document.querySelector("main").outerHTML = html;
@@ -218,7 +218,7 @@ function listSports() {
     fetch("/sports").then(res => res.json()).then(obj => {
         you = tmp;
         renderHeader();
-        renderLeftSidebar();
+//         renderLeftSidebar();
         setHash("#sports");
         html = ejs.views_sports({ sports: obj });
         document.querySelector("main").outerHTML = html;
@@ -229,7 +229,7 @@ function listSports() {
 function listSportsArg(obj) {
 
     renderHeader();
-    renderLeftSidebar();
+//     renderLeftSidebar();
     setHash("#sports");
     html = ejs.views_sports({ sports: obj });
     document.querySelector("main").outerHTML = html;
@@ -246,55 +246,73 @@ function goAbout() {
         })
 }
 
-function filter_table(filter) {
+function filtered_table(filter) {
 
     fetch('/sports')
         .then(res => res.json())
         .then(obj => {
+            console.log("we in filter_table", filter);
 
-            let sportList = { sports: obj };
+            console.log(obj);
 
             let filteredPlace = [];
             let filteredSport = [];
             let filteredOwner = [];
+            let filteredDescription = [];
 
-            // filter by place, sport, owner
-            if (filter === "") {
-                sportList = obj;
-            }
             // place
             obj.forEach(sport => {
-                sport.location.includes(filter) ? filteredPlace.push(sport) : obj = obj;
+                console.log(sport);
+                sport.place.toLowerCase().match(filter.toLowerCase()) ? filteredPlace.push(sport) : obj = obj;
             })
             // sport
             obj.forEach(sport => {
-                sport.sport.includes(filter) ? filteredSport.push(sport) : obj = obj;
+                sport.sport.toLowerCase().match(filter.toLowerCase()) ? filteredSport.push(sport) : obj = obj;
             })
             // owner
             obj.forEach(sport => {
-                sport.owner.includes(filter) ? filteredOwner.push(sport) : obj = obj;
+                sport.owner.toLowerCase().match(filter.toLowerCase()) ? filteredOwner.push(sport) : obj = obj;
+            })
+            // description
+            obj.forEach(sport => {
+                sport.description.toLowerCase().match(filter.toLowerCase()) ? filteredDescription.push(sport) : obj = obj;
             })
 
-            sportList = { sports: Array.from(new Set(filteredPlace.concat(filteredSport, filteredOwner))) };
+            let sportList = { sports: Array.from(new Set(filteredPlace.concat(filteredSport, filteredOwner, filteredDescription))) };
 
+            if (filter === "") {
+                sportList = {sports : obj};
+                listSports();
+                return;
+            }
+
+            renderHeader();
             html = ejs.views_sports(sportList);
             document.querySelector("main").outerHTML = html;
         })
 }
 
 function search_table() {
-    let search = document.querySelector(".search");
+    let search = document.querySelector(".searchForm");
     search.addEventListener("input", (e) => {
         e.preventDefault();
+        console.log('filtering');
 
         let input = document.getElementById("filterSports");
 
         let searchKey = input.value;
 
-        // now fetch the elements that contains the search query
+        if (input.value == '') {
+            console.log('hello');
+            listSports();
+            return;
+        }
+
         filtered_table(searchKey);
     });
 }
+
+
 function addUser() {
     renderHeader();
     renderLeftSidebar();
@@ -413,6 +431,7 @@ function renderLeftSidebar() {
         .then(obj => {
             html = ejs.views_includes_aside({ users: obj });
             document.querySelector('aside').outerHTML = html;
+        search_table();
         })
 }
 
