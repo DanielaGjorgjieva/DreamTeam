@@ -285,7 +285,7 @@ and (min-device-width: 768px) {
 
    .row3 div{
     position: absolute;
-    top:230%;
+    top:240%;
     left: 25%;
     color:blue;
     justify-content: center;
@@ -301,7 +301,7 @@ and (min-device-width: 768px) {
 
    .row4 div{
     position: absolute;
-    top: 295%;
+    top: 305%;
     left: 25%;
     color: blue;
     justify-content: center;
