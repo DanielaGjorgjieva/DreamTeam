@@ -15,6 +15,7 @@ module.exports = router;
 const model = require('../models/index.js').model;
 const ObjectId = require('mongodb').ObjectId;
 
+const { eventBus } = require("../webServer.js");
 // GET ALL USERS
 router.get('/', function (req, res) {
 
@@ -24,7 +25,6 @@ router.get('/', function (req, res) {
             result.forEach((el) => {
                el.password = " ";
             })
-            console.log(result);
 
             res.status(200).json(result); //returns the users array
          }).catch(error => {
@@ -82,40 +82,44 @@ router.get('/login', function (req, res) {
 
 // post user
 router.post('/', function (req, res) {
-   console.log('we are in post/user');
-
-   try {
-      console.log(req.body);
-      const newUser = {
-         // TODO: manage password
-         username: req.body.username,
-         password: req.body.password,
-         created: [],
-         joined: []
-      }
-
-      console.log(newUser);
-
-      // TODO: complete
-      model.user.insertOne(newUser)
-         .then(result => {
-            console.log(result);
-
-            result.password = " ";
-
-            // INSERT SOCKET EVENT HERE
-
-            // sent new object as json response
-            res.status(201).json(result);
-         })
-         .catch(error => {
-            console.error(error);
+   filter = {username: req.body.username};
+   model.user.findOne(filter)
+   .then((result)=>{
+      if(result) {
+         let respone_user = {exist: false};
+         res.status(201).json(respone_user);
+      } else {
+         try {
+            const newUser = {
+               // TODO: manage password
+               username: req.body.username,
+               password: req.body.password,
+               created: [],
+               joined: []
+            }
+            // TODO: complete
+            model.user.insertOne(newUser)
+               .then(result => {
+      
+                  result.password = " ";
+      
+                  let msg = {username: req.body.username};
+                  eventBus.emit('signed.in', msg);
+                  // sent new object as json response
+                  let respone_user = {exist: true};
+                  res.status(201).json(respone_user);
+               })
+               .catch(error => {
+                  console.error(error);
+                  res.status(404).end();
+               })
+               
+         } catch {
             res.status(404).end();
-         })
-         
-   } catch {
-      res.status(404).end();
-   }
+         }
+      }
+   })
+
 })
 
 // password check

@@ -246,7 +246,6 @@ function goAbout() {
         })
 }
 
-
 function filtered_table(filter) {
 
     fetch('/sports')
@@ -313,6 +312,7 @@ function search_table() {
     });
 }
 
+
 function addUser() {
     renderHeader();
     renderLeftSidebar();
@@ -323,11 +323,27 @@ function addUser() {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         let body = new FormData(form);
-        fetch("/users", { method: "POST", body })
-            .then(res => {
-                goHome();
-                setHash("#home");
+
+        let password2 = document.getElementById("pass").value;
+        let password = document.getElementById("password").value;
+        if(password2 === password) {
+            fetch("/users", { method: "POST", body })
+            .then(res =>
+                 res.json()
+            ).then(res => {
+                console.log("inside /users");
+                console.log(res);
+                if(!res.exist) {
+                    alert("This username has already been selected by another user.");
+                } else {
+                    goHome();
+                    setHash("#home");
+                }
+                
             })
+        } else {
+            alert("Not matching passwords")
+        }
     })
     document.getElementById('login').addEventListener('click', linkClickHandler);
 }
@@ -419,19 +435,13 @@ function join_activity(event_id) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: you.username })
+        body: JSON.stringify({ user: you.username , user_id : you._id})
     };
 
     fetch("/sports/" + event_id + "/join/", requestOptions)
         .then(res => res.json())
         .then(obj => {
             you.joined.push(obj._id);
-
-            // fetch("sports/" + event_id).then(res => res.json()).then(obj => {
-            //     setHash("#event/" + event_id);
-            //     html = ejs.views_events({ user: you, event: obj });
-            //     document.querySelector("main").outerHTML = html;
-            // });
             visitEvent(event_id);
         })
         .catch(err => {
@@ -543,7 +553,8 @@ function parse_path() {
         } else if (hash == "#login") {
             logUser();
         } else if (hash.startsWith("#user")) {
-            openYourPage();
+            // openYourPage(you._id);
+            goHome();
         } else if (hash.startsWith("#event")) {
             let id = hash.replace('#event/', '');
             visitEvent(id);
