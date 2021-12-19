@@ -41,7 +41,7 @@ socket.on('sport.left', (event) => {
 });
 
 socket.on('sport.uploaded', (event) => {
-    console.log(event.sport.sport + " ihas been uploaded");
+    console.log(event.sport.sport + " has been uploaded");
     parse_path();
 });
 
@@ -50,3 +50,10 @@ socket.on('signed.in', (event) => {
     renderLeftSidebar();
 });
 
+socket.on('msgSended', (event)=>{
+    console.log('a message on' + event._id + 'was sended');
+    let url = window.location.href;
+    if(url.endsWith(event._id)) {
+        visitEvent(event._id);
+    }
+})

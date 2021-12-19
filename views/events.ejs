@@ -96,18 +96,17 @@
         <p class="text-left"><%= chat.time%></p>
 
         <%}})%>
-        
 
       </div>
 
       <div class="footer">
-        <form class="chat">
+        <form class="chat" method="POST" name="chat" action="/chat" encType="multipart/form-data">
           <input id ="msg" type="text_chat" name="msg" value ="">
           <button id ="send">SEND</button>
         </form>
       </div>
-
+      
     </div>
     <%}%>
 
-  </main>
+</main>

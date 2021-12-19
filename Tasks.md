@@ -65,6 +65,7 @@
 19/12 (My birthday yuhu!)
 - Added alert on not matching passwords.
 - changed fetch on refreshing a user page.
+- made the chat
 
 #### Alessandro Cravioglio
 

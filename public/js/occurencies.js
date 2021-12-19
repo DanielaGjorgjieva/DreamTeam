@@ -36,11 +36,15 @@ function checkPassword(form) {
 }
 
 function setScroolChat() {
-
-
-    // receive msg from server
-
     var objDiv = document.getElementById("chat");
     objDiv.scrollTop = objDiv.scrollHeight;
+}
 
+function time() {
+    let today = new Date();
+    if(today.getMinutes() < 10){
+        return today.getHours() + ':0' + today.getMinutes();
+    } else{
+        return today.getHours() + ':' + today.getMinutes();
+    }
 }

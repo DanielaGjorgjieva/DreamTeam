@@ -129,6 +129,23 @@ router.post('/:owner', function (req, res) {
    }
 });
 
+//messages
+router.post('/:id/chat', function(req,res) {
+   console.log('MESSAGGIO');
+   let msg = {name: req.body.name, msg: req.body.msg, time : req.body.time};
+   console.log(msg);
+   let filter = {_id: new ObjectId(req.params.id)};
+   model.sport.findOne(filter)
+      .then(event => {
+         event.chat.push(msg)
+         model.sport.replaceOne(filter,event)
+            .then(()=>{
+               res.status(201).json(event)
+               eventBus.emit('msgSended', {_id : event._id})
+            })
+      })
+})
+
 // JOIN SPORT
 router.put('/:id/join/', function (req, res) {
    let msg ={user:req.body.user, sport:"", user_id:""};

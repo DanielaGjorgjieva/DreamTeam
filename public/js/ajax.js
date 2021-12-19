@@ -295,6 +295,7 @@ function search_table() {
         filtered_table(searchKey);
     });
 }
+
 function addUser() {
     renderHeader();
     renderLeftSidebar();
@@ -308,21 +309,21 @@ function addUser() {
 
         let password2 = document.getElementById("pass").value;
         let password = document.getElementById("password").value;
-        if(password2 === password) {
+        if (password2 === password) {
             fetch("/users", { method: "POST", body })
-            .then(res =>
-                 res.json()
-            ).then(res => {
-                console.log("inside /users");
-                console.log(res);
-                if(!res.exist) {
-                    alert("This username has already been selected by another user.");
-                } else {
-                    goHome();
-                    setHash("#home");
-                }
-                
-            })
+                .then(res =>
+                    res.json()
+                ).then(res => {
+                    console.log("inside /users");
+                    console.log(res);
+                    if (!res.exist) {
+                        alert("This username has already been selected by another user.");
+                    } else {
+                        goHome();
+                        setHash("#home");
+                    }
+
+                })
         } else {
             alert("Not matching passwords")
         }
@@ -330,7 +331,9 @@ function addUser() {
     document.getElementById('login').addEventListener('click', linkClickHandler);
 }
 
+function addMessage(event_id) {
 
+}
 
 
 function logUser() {
@@ -374,7 +377,7 @@ function join_activity(event_id) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: you.username , user_id : you._id})
+        body: JSON.stringify({ user: you.username, user_id: you._id })
     };
 
     fetch("/sports/" + event_id + "/join/", requestOptions)
@@ -423,6 +426,7 @@ function visitEvent(id) {
             setHash("#event/" + id);
             html = ejs.views_events({ user: you, event: obj });
             document.querySelector("main").outerHTML = html;
+
             let button_join = document.getElementsByName("submit_join")[0];
             if (button_join) {
                 button_join.addEventListener("click", (event) => {
@@ -430,6 +434,7 @@ function visitEvent(id) {
                     join_activity(id);
                 })
             }
+
             let button_leave = document.getElementsByName("submit_leave")[0];
             if (button_leave) {
                 button_leave.addEventListener("click", (event) => {
@@ -437,20 +442,51 @@ function visitEvent(id) {
                     leaveEvent(id);
                 })
             }
+
             let log_ev = document.getElementById("login_from_event");
             if (log_ev) {
                 log_ev.addEventListener("click", linkClickHandler);
             }
+
             let edit_button = document.getElementById("edit_sport");
             if (edit_button) {
                 edit_button.addEventListener("click", linkClickHandler);
             }
+
             let delete_button = document.getElementById("delete_sport");
             if (delete_button) {
                 delete_button.addEventListener("click", (event) => {
                     event.preventDefault();
                     deleteSport(id);
                 });
+            }
+
+            let send = document.getElementById("send");
+            if (send) {
+                setScroolChat();
+                send.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    // let body = new FormData(chat);
+                    let msg = document.getElementById('msg').value;
+                    if (msg != '') {
+                        console.log(you.username);
+                        console.log(msg);
+                        msg.value = '';
+                        console.log(time());
+                        let body = JSON.stringify({name : you.username, msg : msg, time : time()});
+                        console.log(body);
+                        fetch('/sports/'+id+'/chat', { method: "POST", headers: { 'Content-Type': 'application/json' }, body : body })
+                            .then(req => req.json())
+                            .then(json=>{
+                                console.log('done');
+                                console.log(json);
+                                visitEvent(id);
+                            })
+
+                        
+                    }
+
+                })
             }
 
         })

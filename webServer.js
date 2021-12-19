@@ -65,5 +65,11 @@ eventBus.on('sport.left', (event) => {
     io.emit('sport.left', event);
 });
 
+eventBus.on('msgSended', (event)=>{
+    console.log('A message in '+ event._id + ' was sended!');
+    io.emit('msgSended', event);
+})
+
+
 module.exports.eventBus = eventBus;
 module.exports.init = init;
