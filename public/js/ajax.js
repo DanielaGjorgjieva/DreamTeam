@@ -313,7 +313,7 @@ function addUser() {
             .then(res =>
                  res.json()
             ).then(res => {
-                console.log("PENE ENORME ROTTO IN DUE");
+                console.log("inside /users");
                 console.log(res);
                 if(!res.exist) {
                     alert("This username has already been selected by another user.");
@@ -323,6 +323,8 @@ function addUser() {
                 }
                 
             })
+        } else {
+            alert("Not matching passwords")
         }
     })
     document.getElementById('login').addEventListener('click', linkClickHandler);
@@ -489,7 +491,8 @@ function parse_path() {
         } else if (hash == "#login") {
             logUser();
         } else if (hash.startsWith("#user")) {
-            openYourPage();
+            // openYourPage(you._id);
+            goHome();
         } else if (hash.startsWith("#event")) {
             let id = hash.replace('#event/', '');
             visitEvent(id);

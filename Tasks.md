@@ -59,6 +59,13 @@
 -corrected some edit functions
 -improved edit.ejs
 
+18/12
+- day at work to pay USI, impossible to work on the project.
+
+19/12 (My birthday yuhu!)
+- Added alert on not matching passwords.
+- changed fetch on refreshing a user page.
+
 #### Alessandro Cravioglio
 
 09/12
