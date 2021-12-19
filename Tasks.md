@@ -117,6 +117,10 @@ worked on ROUTES/ajax.json
 - ajax.js and sports.js
 - worked on password issue
 
+19/12
+
+- worked on the filter bar
+
 #### Daniela Gjorgjieva
 03/12
 -created repository
