@@ -41,6 +41,12 @@ socket.on('sport.left', (event) => {
 });
 
 socket.on('sport.uploaded', (event) => {
-    console.log(event.sport.sport + " is upload");
+    console.log(event.sport.sport + " ihas been uploaded");
     parse_path();
 });
+
+socket.on('signed.in', (event) => {
+    console.log(event.username + " has signed in!");
+    renderLeftSidebar();
+});
+

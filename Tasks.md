@@ -212,7 +212,10 @@ _______
 19/12
 -Fixed sockets, which weren't working
 -Refactored join route, which is now working
-
+-Created socket transmission for the users bar
+-Modified users POST fetch in order to check the two passwords correspond
+-Modified the user POST route in order to check if another user has the same username
+-Fixed the signin page
 
 #### Samuel Corecco
 
@@ -274,3 +277,7 @@ _______
 19/12
 -rebuilt the join route because it was buggy
 -rearranged the sockets that had stopped going 
+-Created socket transmission for the users bar
+-modfied fetch to check if the two password match (signin)
+-modified post for user to check if the username is already in use
+-socket to upload the left bar with users

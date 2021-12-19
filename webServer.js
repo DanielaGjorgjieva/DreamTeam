@@ -47,7 +47,10 @@ eventBus.on('sport.uploaded', (event) => {
     io.emit('sport.uploaded', event);
 });
 
-
+eventBus.on('signed.in', (event) => {
+    console.log("A new user has signed in!");
+    io.emit('signed.in', event);
+})
 
 //NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
 
