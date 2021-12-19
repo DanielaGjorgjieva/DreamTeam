@@ -20,17 +20,6 @@ function init(server) {
         socket.on('disconnect', function() {
             console.log("A client has disconnected!");
         });
-
-
-    socket.on('message',msg=>{
-        console.log("message", msg);
- 
-        let message = {user: msg.user, text: msg.text}
-
-        //send to ALL browsers
-        socket.broadcast.emit('message', message);
-    })
-
         
     });
 
@@ -63,7 +52,15 @@ eventBus.on('sport.uploaded', (event) => {
 //NEED SPECIFIC EVENT pAGE TO JOIN OR LEAVE
 
 //join into list and user profile
+eventBus.on('sport.joined', (event) => {
+    console.log(event.user + ' has joined an activity!');
+    io.emit('sport.joined', event);
+});
 //leave into list and user profile
+eventBus.on('sport.left', (event) => {
+    console.log(event.user + ' has left n activity!');
+    io.emit('sport.left', event);
+});
 
 module.exports.eventBus = eventBus;
 module.exports.init = init;

@@ -209,6 +209,11 @@ _______
 -Completed sport list-edit/delete/upload communication channels
 -Completed sport list and specific event page-/join/leave communication channels
 
+19/12
+-Fixed sockets, which weren't working
+-Refactored join route, which is now working
+
+
 #### Samuel Corecco
 
 _______
@@ -265,3 +270,7 @@ _______
   .deleted
   .joined
   .left
+
+19/12
+-rebuilt the join route because it was buggy
+-rearranged the sockets that had stopped going 

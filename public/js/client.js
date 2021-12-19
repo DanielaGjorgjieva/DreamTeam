@@ -31,7 +31,7 @@ socket.on('sport.deleted', (event) => {
 });
 
 socket.on('sport.joined', (event) => {
-    console.log("An user joined a soprt event");
+    console.log("An user joined a sport event");
     parse_path();
 });
 
@@ -40,7 +40,7 @@ socket.on('sport.left', (event) => {
     parse_path();
 });
 
-socket.on('sport.upload', (event) => {
+socket.on('sport.uploaded', (event) => {
     console.log(event.sport.sport + " is upload");
     parse_path();
 });

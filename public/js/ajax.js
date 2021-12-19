@@ -354,55 +354,12 @@ function logUser() {
     });
 }
 
-// add message to the database
-// doubt about that
-function add_message(id) {
-
-    document.getElementById("send").addEventListener("click", (e) => {
-        e.preventDefault();
-        let input = document.getElementById("msg");
-        let text = input.value;
-
-        let msg = { user: user || "?", text: text };
-
-        // socket.on("message",(msg)=> {
-        // console.log(msg);
-        // })
-
-
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ msg })
-        };
-
-        // fetch ??
-        fetch('/sports/' + id + '/message')
-            .then(res => res.json())
-            .then(obj => {
-                obj.forEach(msg => {
-                    if (msg.user == you.username) {
-                        // render the message to the right
-                    } else {
-                        // render the message to the left
-                    }
-                })
-            })
-
-        socket.emit("message", msg);
-
-        input.value = "";
-
-    })
-
-}
-
 
 function join_activity(event_id) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: you.username })
+        body: JSON.stringify({ user: you.username , user_id : you._id})
     };
 
     fetch("/sports/" + event_id + "/join/", requestOptions)
