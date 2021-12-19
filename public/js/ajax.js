@@ -176,7 +176,7 @@ function goHome() {
         .then((json) => {
             events = json;
             renderHeader();
-            // renderLeftSidebar();
+            renderLeftSidebar();
             setHash("#home");
             html = ejs.views_home(); //obj in parenthesis removed
             document.querySelector("main").outerHTML = html;
@@ -262,7 +262,6 @@ function filtered_table(filter) {
 
             // place
             obj.forEach(sport => {
-                console.log(sport);
                 sport.place.toLowerCase().match(filter.toLowerCase()) ? filteredPlace.push(sport) : obj = obj;
             })
             // sport
@@ -279,6 +278,9 @@ function filtered_table(filter) {
             })
 
             let sportList = { sports: Array.from(new Set(filteredPlace.concat(filteredSport, filteredOwner, filteredDescription))) };
+            
+            console.log(sportList);
+
 
             if (filter === "") {
                 sportList = {sports : obj};
@@ -296,12 +298,12 @@ function search_table() {
     let search = document.querySelector(".searchForm");
     search.addEventListener("input", (e) => {
         e.preventDefault();
-        console.log('filtering');
 
         let input = document.getElementById("filterSports");
 
         let searchKey = input.value;
 
+        console.log(searchKey);
         if (input.value == '') {
             console.log('hello');
             listSports();

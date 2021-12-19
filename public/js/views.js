@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Sun Dec 19 2021 17:06:16 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Sun Dec 19 2021 17:25:44 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -426,13 +426,13 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<aside class=\"sidebar\" id=\"leftSidebar\">\n    <form action=\"\" method=\"GET\" class=\"searchForm\" id=\"filterSports\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        <h1>Members:</h1>\n    </section>\n\n    <% if (users.length === 0) { %>\n    <section class=\"section\">\n        There are not user.\n    </section>\n    <% }  else {\n       users.forEach((user) => { %>\n    \n    <section class=\"section\">\n            <br><%= user.username %></br> \n    </section>\n\n    <% })} %>\n\n</aside>"
+  , __lines = "<aside class=\"sidebar\" id=\"leftSidebar\">\n    <form action=\"/sports\" method=\"GET\" class=\"searchForm\" autocomplete=\"off\">\n        <input id=\"filterSports\" type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        <h1>Members:</h1>\n    </section>\n\n    <% if (users.length === 0) { %>\n    <section class=\"section\">\n        There are not user.\n    </section>\n    <% }  else {\n       users.forEach((user) => { %>\n    \n    <section class=\"section\">\n            <br><%= user.username %></br> \n    </section>\n\n    <% })} %>\n\n</aside>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<aside class=\"sidebar\" id=\"leftSidebar\">\n    <form action=\"\" method=\"GET\" class=\"searchForm\" id=\"filterSports\">\n        <input type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        <h1>Members:</h1>\n    </section>\n\n    ")
+    ; __append("<aside class=\"sidebar\" id=\"leftSidebar\">\n    <form action=\"/sports\" method=\"GET\" class=\"searchForm\" autocomplete=\"off\">\n        <input id=\"filterSports\" type=\"text\" name=\"search\" placeholder=\"Search for an event...\">\n    </form>\n\n    <section class=\"title\">\n        <h1>Members:</h1>\n    </section>\n\n    ")
     ; __line = 10
     ;  if (users.length === 0) { 
     ; __append("\n    <section class=\"section\">\n        There are not user.\n    </section>\n    ")
