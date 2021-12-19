@@ -104,8 +104,6 @@ router.post('/:owner', function (req, res) {
          console.log('insertONE:');
          console.log(result);
 
-         // eventBus.emit('sport.uploaded', newActivity);
-
          let userFilter = {username: req.params.owner};
          model.user.findOne(userFilter)
          .then((user) => {
@@ -113,8 +111,8 @@ router.post('/:owner', function (req, res) {
             console.log(newActivity._id);
             user.created.push(newActivity._id);
             
-            let msg={sport: newActivity};
-            eventBus.emit('sport.upload', msg);
+            let msg = {sport: newActivity};
+            eventBus.emit('sport.uploaded', msg);
 
             model.user.replaceOne(userFilter, user, {upsert: true})
             .then(()=>res.status(201).json(newActivity));
@@ -133,50 +131,62 @@ router.post('/:owner', function (req, res) {
 
 // JOIN SPORT
 router.put('/:id/join/', function (req, res) {
-   let msg;
-   let sportFilter = { _id: new ObjectId(req.params.id)};
+   let msg ={user:req.body.user, sport:"", user_id:""};
+   let filter = {_id: new ObjectId(req.params.id)};
    let userFilter = {username: req.body.user};
-   console.log(userFilter);
-   let event = undefined;
-   let joinUser = undefined;
-  
-   try {
+   try{
       model.user.findOne(userFilter)
-      .then((result) => {
-         joinUser = result;
-         // sport _id is added to user.joined
-         joinUser.joined.push(sportFilter._id);
-         console.log("joinUser");
-         console.log(joinUser);
-      })
-      .then(() => {
-         model.user.replaceOne(userFilter, joinUser, {upser: true});
+      .then((user_result)=>{
+         user_result.joined.push(req.params.id);
+         model.user.replaceOne(userFilter, user_result);
+         msg.user_id = user_result;
       })
    } catch {
       res.status(404).end();
    }
-
-   try {
-
-      // add user joinUser to sport
-      model.sport.findOne(sportFilter)
-      .then((result) => {
-         result.members.push(joinUser._id);
-         event = result;
-         console.log("result", result);
-         return result;
-      })
-      .then((result) => {
-         model.sport.replaceOne(sportFilter, result, {upsert: true});
-      })
-      .then(() => {
+   try{
+      model.sport.findOne(filter)
+      .then((sport_result) =>{
+         sport_result.members.push(req.body.user_id);
+         msg.sport = sport_result;
+         msg.user_id = req.body.user_id;
          eventBus.emit('sport.joined', msg);
-         res.status(201).json(event);
+         model.sport.replaceOne(filter, sport_result);
+         res.status(201).json(sport_result);
       })
-
-   } catch {
+   }catch{
       res.status(404).end();
    }
+  
+   // try {
+   //    model.user.findOne(userFilter)
+   //    .then((result) => {
+   //       joinUser = result;
+   //       // sport _id is added to user.joined
+   //       joinUser.joined.push(sportFilter._id);
+   //       console.log("joinUser");
+   //       console.log(joinUser);
+   //    })
+   //    .then(() => {
+   //       model.user.replaceOne(userFilter, joinUser, {upsert: true});
+   //       model.sport.findOne(sportFilter)
+   //    .then((result) => {
+   //       result.members.push(joinUser._id);
+   //       event = result;
+   //       console.log("result", result);
+   //       return result;
+   //    })
+   //    .then((result) => {
+   //       model.sport.replaceOne(sportFilter, result, {upsert: true});
+   //    })
+   //    .then(() => {
+   //       eventBus.emit('sport.joined', msg);
+   //       res.status(201).json(event);
+   //    })
+   //    })
+   // } catch {
+   //    res.status(404).end();
+   // }
 })
 
 // PUT A NEW MESSAGE ON THE DATABASE
@@ -255,7 +265,7 @@ router.put('/:id', function (req, res) {
 // DELETE
 router.delete('/:id', function (req, res) {
    let msg = {id: req.params.id};
-   let filter = { _id: new ObjectId(req.params.id) };
+   let filter = {_id: new ObjectId(req.params.id)};
 
    try {
       model.sport.findOneAndDelete(filter)
