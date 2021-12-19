@@ -1,0 +1,102 @@
+/*
+     Created and modified by: Daniela Gjorgjieva and Francesco Casarella
+*/
+@media screen
+
+/*desktop*/
+and (min-device-width: 768px) {
+  #sports_table_user header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+
+  #sports_table_user header {
+    font-size: 15px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: grid;
+    grid-column-gap: 10px;
+    padding-bottom: 10px;
+    grid-template-columns: 10fr 20fr 20fr 50fr 20fr 15fr 15fr 15fr 10fr 10fr;
+    word-wrap: break-word;
+  }
+
+  #sports_table_user article.sport {
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    display: grid;
+    align-items: center;
+    grid-column-gap: 10px;
+    grid-template-columns: 10fr 20fr 20fr 50fr 20fr 15fr 15fr 15fr 10fr 10fr;
+    word-wrap: break-word;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #sports_table_user article.sport span {
+    border-radius: 5px;
+    overflow: hidden;
+    background: #BABABA;
+    transition: 250ms;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  #sports_table_user article.sport:hover span {
+    background: #373737;
+    color: white;
+  }
+
+  #sports_table_user header a {
+    border-radius: 5px;
+    background: #FFCB1E;
+  }
+
+
+  #sports_table_user button {
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    transition: 250ms;
+  }
+
+  #sports_table_user a[rel="link"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("../images/right.png");
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  #sports_table_user a[rel="edit"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("../images/edit.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* opacity: 0%; */
+    transition: 250ms;
+  }
+
+  #sports_table_user a[rel="delete"] {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: -9999px;
+    background-image: url("../images/garbage-can.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* opacity: 0%; */
+    transition: 250ms;
+    cursor: pointer;
+  }
+}

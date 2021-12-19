@@ -1,0 +1,41 @@
+<main id="sports_table">
+
+    <section class="title">
+        <h1>Group Activities</h1>
+    </section>
+
+    <%if(sports.length === 0){%>
+        <section class="title">
+            There are no events
+        </section>
+    <%} else {%>
+    <header>
+        <span></span>
+        <a href="sport.html?sort=sport">Sport</a>
+        <a href="sport.html?sort=sport">Owner</a>
+        <a href="sport.html?sort=desc">Description</a>
+        <a href="sport.html?sort=place">Place</a>
+        <a href="sport.html?sort=date">Starting Date</a>
+        <a href="sport.html?sort=max_number">Frequency</a>
+        <a href="sport.html?sort=max_number">Members</a>
+        <span></span>
+    </header>
+    <%}%>
+
+    <% for(let index = 0; index < sports.length; index++){ 
+        let event = sports[index] %>
+
+    <article class="sport">
+        <a id="<%=event._id%>" rel="link" onclick="visitEvent(this.id)">Link</a>
+        <span class="sport"><%=event.sport%></span>
+        <span class="owner"><%=event.owner%></span>
+        <span class="description"><%=event.description%></span>
+        <span class="place"><%=event.place%></span>
+        <span class="starting_date"><%=event.date%></span>
+        <span class="date"><%=event.frequency%></span>
+        <span class="Number of Members"><%=event.members.length%>/<%=event.max_members%></span>
+        <section></section>
+    </article>
+    
+    <%}%>
+</main>

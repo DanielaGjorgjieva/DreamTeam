@@ -1,0 +1,23 @@
+<aside class="sidebar" id="leftSidebar">
+    <form action="/sports" method="GET" class="searchForm" autocomplete="off">
+        <input id="filterSports" type="text" name="search" placeholder="Search for an event...">
+    </form>
+
+    <section class="title">
+        <h1>Members:</h1>
+    </section>
+
+    <% if (users.length === 0) { %>
+    <section class="section">
+        There are not user.
+    </section>
+    <% }  else {
+       users.forEach((user) => { %>
+    
+    <section class="section">
+            <br><%= user.username %></br> 
+    </section>
+
+    <% })} %>
+
+</aside>

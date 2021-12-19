@@ -1,0 +1,253 @@
+<!--
+   Created and Modified by: Francesco Casarella and Daniela Gjorgjieva
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DreamTeam</title>
+
+  <link href="css/base.css" rel="stylesheet" />
+  <link href="css/homepage.css" rel="stylesheet" />
+  <link href="css/sport-catalog.css" rel="stylesheet" />
+  <link href="css/sport-catalog_user.css" rel="stylesheet" />
+  <link href="css/upload.css" rel="stylesheet" />
+  <link href="css/events.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="author" content="Francesco Casarella">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="js/occurencies.js"></script>
+</head>
+
+<body onload="setScroolChat()">
+  <!-- background="images/ww.jpg" -->
+  <!-- <div class="fade-element"></div> -->
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <a href="index.html">
+      <img src="images/logo-placeholder-png.png" alt="logo">
+    </a>
+    <h1>Sport Web-App</h1>
+    <section class="login">
+      <a href="login.html">Login</a> <br>
+      or <br>
+      <a href="signin.html">Sign in!</a>
+    </section>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="navigation bar">
+    <a href="index.html">Homepage</a>
+    <a href="sports.html">Sports List</a>
+    <a href="upload.html">Create an event</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="event description">
+
+    <section class="head">
+      <section class="title">
+        <h1>Basketball</h1>
+        <p>An event from Owner</p>
+      </section>
+
+      <!-- if you are a member that can join -->
+      <!-- <section>
+        <form>
+          <button type="submit" name="submit"> Join </button>
+        </form>
+      </section> -->
+
+      <!-- if you are a member that can left -->
+      <!-- <section>
+        <form>
+          <button type="submit" name="submit"> Leave </button>
+        </form>
+      </section> -->
+
+      <!-- if you are the owner -->
+      <section>
+        <a rel="edit" href="">Edit</a>
+        <a rel="delete" href="">Delete</a>
+      </section>
+
+      <!-- if the event is full -->
+      <!-- <section>
+        Sorry, this event reached the maximum capacity chosen from the owner.
+      </section> -->
+
+      <!-- if you are not logged in -->
+      <!-- <section>
+        If you want to join the event please <a href="/login">Login</a>!
+      </section> -->
+    </section>
+
+
+
+    <section class="title">
+      <h1>Description</h1>
+      <p class="about">
+        Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a
+        rectangular court, compete with the primary objective of shooting a basketball (approximately 9.4 inches (24 cm)
+        in diameter) through the defender's hoop (a basket 18 inches (46 cm) in diameter mounted 10 feet (3.048 m) high
+        to a backboard at each end of the court) while preventing the opposing team from shooting through their own
+        hoop.
+        A field goal is worth two points, unless made from behind the three-point line, when it is worth three. After a
+        foul, timed play stops and the player fouled or designated to shoot a technical foul is given one, two or three
+        one-point free throws. The team with the most points at the end of the game wins, but if regulation play expires
+        with the score tied, an additional period of play (overtime) is mandated.
+      </p>
+    </section>
+
+
+    <section class="title">
+      <h2>Details</h2>
+      <p>Place : (The exact place of the event)</p>
+      <p>Starting Date : (which date it was created)</p>
+      <p>Members : (how many members are in the team and how many can join)</p>
+      <p>Frequency:</p>
+    </section>
+
+    <div class="container_chat">
+      <div class="header">
+        <h1>Group Chat</h1>
+      </div>
+
+      <div id="chat" class="body">
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+        <p class="text-left" style="color:red;">Francesco</p>
+        <p class="message">
+          Hey! I'm fine. Thanks for asking!
+        </p>
+        <p class="text-left">11:01</p>
+
+
+
+
+        <p class="text-right" style="color:white;">You</p>
+        <p class="message user_message">
+          Nah, I dunno. Play soccer.. or learn more coding perhaps?
+        </p>
+        <p class="text-right">11:02</p>
+
+      </div>
+
+      <div class="footer">
+        <form class="chat">
+          <input id ="msg" type="text_chat" name="msg" value ="">
+          <button id ="send">SEND</button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <aside class="sidebar">
+    <section class="title">
+      Instructors
+    </section>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-right">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+        <img src="images/img_avatar.png" alt="second musician">
+      </section>
+    </a>
+
+    <a href="">
+      <section class="section-left">
+        <img src="images/img_avatar.png" alt="first musician">
+        <p class="Artist-Name">
+          Placeholder <br>
+          <cite> "...something something something..."</cite>
+        </p>
+      </section>
+
+      <a href="">
+        <section class="section-right">
+          <p class="Artist-Name">
+            Placeholder<br>
+            <cite> "...something something something..."</cite>
+          </p>
+          <img src="images/img_avatar.png" alt="second musician">
+        </section>
+      </a>
+
+      <a href="">
+        <section class="section-left">
+          <img src="images/img_avatar.png" alt="first musician">
+          <p class="Artist-Name">
+            Placeholder <br>
+            <cite> "...something something something..."</cite>
+          </p>
+        </section>
+      </a>
+  </aside>
+
+  <footer>
+    © Dream Team - Software Atelier 3
+  </footer>
+</body>
+
+</html>

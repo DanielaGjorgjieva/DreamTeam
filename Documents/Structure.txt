@@ -1,0 +1,82 @@
+Routes:
+
+GET /		                        #homepage
+
+GET /sports	                        #sport table	
+
+GET /upload	                        #upload page, upload form to create a sport event
+
+GET /about	                        #about page
+
+GET/sports/:id	                    #specific sport page
+
+GET/sports/:id/edit                 #edit form to edit sport event
+
+POST/sports                         #on submit button from upload
+
+PUT/sports/:id                      #on submit button from edit
+
+DELETE/sports/:id                   #on submit button in the user page
+
+
+GET/signin                         #sign in page for new user
+
+GET/login                          #log-in page for users
+
+GET/user/:id                        #specific user page
+
+POST/user                           #on submit button in the user page
+
+GET/user/:id/edit                   #user information edit page
+
+PUT/user/:id                        #on submit button in the user  edit page
+
+DELETE/user/:id                     #on submit button in the user page
+
+
+
+Type of objects:
+
+Event:
+{
+    sport : "",
+    owner : "",
+    description : "",
+    place : "",
+    date : "",        #stating date
+    frequency : "",
+    max_members : 10,
+    members : [],
+    chat : "";
+}
+
+User:
+{
+    username: "",
+    password: "",
+    created: [],
+    joined: [],
+}
+
+Idea:
+we can add in the aside bar a list of people that is online right now
+and in the aside bar of the specific event, a list of online and offline users
+
+
+TODO
+
+Crea sport -> manda owner
+
+sidebar with online users names -> in sport activity: online enlisted users
+
+
+
+DA CORREGGERE:
+TO CORRECT:
+
+Se si sbaglia password nel login il sito crasha
+if you put the wrong password in login the website crashes
+
+
+PER SERVER
+-far si che il delete elimini a tutti i membri joinati l'evento <3
