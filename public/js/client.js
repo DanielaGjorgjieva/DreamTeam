@@ -54,6 +54,6 @@ socket.on('msgSended', (event)=>{
     console.log('a message on' + event._id + 'was sended');
     let url = window.location.href;
     if(url.endsWith(event._id)) {
-        visitEvent(event._id);
+        updateChat(event._id);
     }
 })

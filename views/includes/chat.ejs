@@ -1,0 +1,22 @@
+<div id="chat" class="body">
+    <%
+    event.chat.forEach(chat =>{
+      if(chat.name == user.username){
+    %>
+    <p class="text-right" style="color:white;"> You </p>
+    <p class="message user_message">
+      <%= chat.msg%>
+    </p>
+    <p class="text-right"><%= chat.time%></p>
+
+    <%}else{%>
+
+    <p class="text-left" style="color:white;"><%= chat.name%></p>
+    <p class="message">
+      <%= chat.msg%>
+    </p>
+    <p class="text-left"><%= chat.time%></p>
+
+    <%}})%>
+
+  </div>

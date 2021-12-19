@@ -97,5 +97,6 @@ and (min-device-width: 768px) {
     background-repeat: no-repeat;
     /* opacity: 0%; */
     transition: 250ms;
+    cursor: pointer;
   }
 }

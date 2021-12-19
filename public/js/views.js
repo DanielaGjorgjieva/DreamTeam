@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Sun Dec 19 2021 20:10:39 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Sun Dec 19 2021 21:15:20 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -195,7 +195,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<%\n  let flag = false;\n  function isInside(id){\n    console.log('ID:');\n    console.log(id);\n    event.members.forEach((element)=>{\n      console.log('ELEMENT:')\n      console.log(element)\n      if (element === id){\n        flag = true;\n      }\n    });\n    return flag;\n  }\n%>\n\n<main id=\"event description\">\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n          if(event.owner !== user.username){\n              if(isInside(user._id)){\n                  console.log(\"you are a member\")%>\n                  <form>\n                    <button type=\"submit\" name=\"submit_leave\"> Leave </button>\n                  </form>\n          <%} else if(event.members.length >= event.max_members) {\n                  console.log(\"event is full\")%>\n                  <section>\n                      Sorry, this event reached the maximum capacity chosen from the owner.\n                  </section>\n          <%} else {\n                  console.log(\"you are NOT a member\")%>\n                  <form>\n                    <button name=\"submit_join\" id=\"<%=event._id%>\"> Join </button>\n                  </form>\n          <%}%>\n          <%} else{\n            console.log(\"you are the OWNER\")%>\n            <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n            <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n          <%}\n      } else {\n        console.log(\"you are not logged in\")%>\n        If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n      <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length + \"/\" +event.max_members%></p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <%if(user && ((user.username == event.owner) || isInside(user._id))){%>\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n        <%\n        event.chat.forEach(chat =>{\n          if(chat.name == user.username){\n        %>\n        <p class=\"text-right\" style=\"color:white;\"> You </p>\n        <p class=\"message user_message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-right\"><%= chat.time%></p>\n\n        <%}else{%>\n\n        <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n        <p class=\"message\">\n          <%= chat.msg%>\n        </p>\n        <p class=\"text-left\"><%= chat.time%></p>\n\n        <%}})%>\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\" method=\"POST\" name=\"chat\" action=\"/chat\" encType=\"multipart/form-data\">\n          <input id =\"msg\" type=\"text_chat\" name=\"msg\" value =\"\">\n          <button id =\"send\">SEND</button>\n        </form>\n      </div>\n      \n    </div>\n    <%}%>\n\n</main>"
+  , __lines = "<%\n  let flag = false;\n  function isInside(id){\n    console.log('ID:');\n    console.log(id);\n    event.members.forEach((element)=>{\n      console.log('ELEMENT:')\n      console.log(element)\n      if (element === id){\n        flag = true;\n      }\n    });\n    return flag;\n  }\n%>\n\n<main id=\"event description\">\n    <section class=\"head\">\n      <section class=\"title\">\n        <h1><%=event.sport%></h1>\n        <p>An event from <%=event.owner%> </p>\n      </section>\n\n      <section>\n        <%if(user){\n          if(event.owner !== user.username){\n              if(isInside(user._id)){\n                  console.log(\"you are a member\")%>\n                  <form>\n                    <button type=\"submit\" name=\"submit_leave\"> Leave </button>\n                  </form>\n          <%} else if(event.members.length >= event.max_members) {\n                  console.log(\"event is full\")%>\n                  <section>\n                      Sorry, this event reached the maximum capacity chosen from the owner.\n                  </section>\n          <%} else {\n                  console.log(\"you are NOT a member\")%>\n                  <form>\n                    <button name=\"submit_join\" id=\"<%=event._id%>\"> Join </button>\n                  </form>\n          <%}%>\n          <%} else{\n            console.log(\"you are the OWNER\")%>\n            <a rel=\"edit\" id=\"edit_sport\" href=\"/sports/<%= event._id%>/edit\">Edit</a>\n            <a rel=\"delete\" id=\"delete_sport\" href=\"\" >Delete</a>\n          <%}\n      } else {\n        console.log(\"you are not logged in\")%>\n        If you want to access the event informations please <a id=\"login_from_event\" href=\"/login\">Login</a>!\n      <%}%>\n            </section>\n        </section>\n\n\n\n    <section class=\"title\">\n      <h1>Description</h1>\n      <p class=\"about\">\n       <%= event.description %>\n      </p>\n    </section>\n\n\n    <section class=\"title\">\n      <h2>Details</h2>\n      <p>Place : <%= event.place %></p>\n      <p>Starting Date : <%= event.date %> </p>\n      <p>Members : <%= event.members.length + \"/\" +event.max_members%></p>\n      <p>Frequency: <%= event.frequency %></p>\n    </section>\n\n    <%if(user && ((user.username == event.owner) || isInside(user._id))){%>\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <%- include('includes/chat') -%>\n\n      <div class=\"footer\">\n        <form class=\"chat\" method=\"POST\" name=\"chat\" action=\"/chat\" encType=\"multipart/form-data\">\n          <input id =\"msg\" type=\"text_chat\" name=\"msg\" value =\"\">\n          <button id =\"send\">SEND</button>\n        </form>\n      </div>\n\n    </div>\n    <%}%>\n\n</main>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -281,39 +281,14 @@ try {
     ; __append("</p>\n    </section>\n\n    ")
     ; __line = 73
     ; if(user && ((user.username == event.owner) || isInside(user._id))){
-    ; __append("\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      <div id=\"chat\" class=\"body\">\n        ")
-    ; __line = 80
-    ; 
-        event.chat.forEach(chat =>{
-          if(chat.name == user.username){
-        
-    ; __line = 83
-    ; __append("\n        <p class=\"text-right\" style=\"color:white;\"> You </p>\n        <p class=\"message user_message\">\n          ")
-    ; __line = 86
-    ; __append(escapeFn( chat.msg))
-    ; __append("\n        </p>\n        <p class=\"text-right\">")
-    ; __line = 88
-    ; __append(escapeFn( chat.time))
-    ; __append("</p>\n\n        ")
-    ; __line = 90
-    ; }else{
-    ; __append("\n\n        <p class=\"text-left\" style=\"color:white;\">")
-    ; __line = 92
-    ; __append(escapeFn( chat.name))
-    ; __append("</p>\n        <p class=\"message\">\n          ")
-    ; __line = 94
-    ; __append(escapeFn( chat.msg))
-    ; __append("\n        </p>\n        <p class=\"text-left\">")
-    ; __line = 96
-    ; __append(escapeFn( chat.time))
-    ; __append("</p>\n\n        ")
-    ; __line = 98
-    ; }})
-    ; __append("\n\n      </div>\n\n      <div class=\"footer\">\n        <form class=\"chat\" method=\"POST\" name=\"chat\" action=\"/chat\" encType=\"multipart/form-data\">\n          <input id =\"msg\" type=\"text_chat\" name=\"msg\" value =\"\">\n          <button id =\"send\">SEND</button>\n        </form>\n      </div>\n      \n    </div>\n    ")
-    ; __line = 110
+    ; __append("\n    <div class=\"container_chat\">\n      <div class=\"header\">\n        <h1>Group Chat</h1>\n      </div>\n\n      ")
+    ; __line = 79
+    ; __append( include('includes/chat') )
+    ; __append("\n      <div class=\"footer\">\n        <form class=\"chat\" method=\"POST\" name=\"chat\" action=\"/chat\" encType=\"multipart/form-data\">\n          <input id =\"msg\" type=\"text_chat\" name=\"msg\" value =\"\">\n          <button id =\"send\">SEND</button>\n        </form>\n      </div>\n\n    </div>\n    ")
+    ; __line = 89
     ; }
     ; __append("\n\n</main>")
-    ; __line = 112
+    ; __line = 91
   }
   return __output;
 } catch (e) {
@@ -448,6 +423,94 @@ try {
     ;  })} 
     ; __append("\n\n</aside>")
     ; __line = 23
+  }
+  return __output;
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+ejs.views_includes_chat = function(locals, escapeFn, include = ejs.views_include(locals), rethrow
+) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc) {
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm);
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+var __line = 1
+  , __lines = "<div id=\"chat\" class=\"body\">\n    <%\n    event.chat.forEach(chat =>{\n      if(chat.name == user.username){\n    %>\n    <p class=\"text-right\" style=\"color:white;\"> You </p>\n    <p class=\"message user_message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-right\"><%= chat.time%></p>\n\n    <%}else{%>\n\n    <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n    <p class=\"message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-left\"><%= chat.time%></p>\n\n    <%}})%>\n\n  </div>"
+  , __filename = undefined;
+try {
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  with (locals || {}) {
+    ; __append("<div id=\"chat\" class=\"body\">\n    ")
+    ; __line = 2
+    ; 
+    event.chat.forEach(chat =>{
+      if(chat.name == user.username){
+    
+    ; __line = 5
+    ; __append("\n    <p class=\"text-right\" style=\"color:white;\"> You </p>\n    <p class=\"message user_message\">\n      ")
+    ; __line = 8
+    ; __append(escapeFn( chat.msg))
+    ; __append("\n    </p>\n    <p class=\"text-right\">")
+    ; __line = 10
+    ; __append(escapeFn( chat.time))
+    ; __append("</p>\n\n    ")
+    ; __line = 12
+    ; }else{
+    ; __append("\n\n    <p class=\"text-left\" style=\"color:white;\">")
+    ; __line = 14
+    ; __append(escapeFn( chat.name))
+    ; __append("</p>\n    <p class=\"message\">\n      ")
+    ; __line = 16
+    ; __append(escapeFn( chat.msg))
+    ; __append("\n    </p>\n    <p class=\"text-left\">")
+    ; __line = 18
+    ; __append(escapeFn( chat.time))
+    ; __append("</p>\n\n    ")
+    ; __line = 20
+    ; }})
+    ; __append("\n\n  </div>")
+    ; __line = 22
   }
   return __output;
 } catch (e) {

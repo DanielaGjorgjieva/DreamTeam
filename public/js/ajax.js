@@ -542,7 +542,9 @@ function visitEvent(id) {
                             .then(json=>{
                                 console.log('done');
                                 console.log(json);
-                                visitEvent(id);
+                                // visitEvent(id);
+                                updateChat(id);
+                                document.getElementById("msg").value = "";
                             })
 
                         
@@ -551,6 +553,16 @@ function visitEvent(id) {
                 })
             }
 
+        })
+}
+
+function updateChat(id){
+    fetch("sports/" + id)
+        .then(res => res.json())
+        .then(json => {
+            html = ejs.views_includes_chat({ user: you, event: json });
+            document.getElementById('chat').outerHTML = html;
+            setScroolChat();
         })
 }
 
