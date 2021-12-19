@@ -178,8 +178,11 @@ function goHome() {
             renderHeader();
             renderLeftSidebar();
             setHash("#home");
-            html = ejs.views_home(); //obj in parenthesis removed
+            html = ejs.views_home();
             document.querySelector("main").outerHTML = html;
+            document.getElementById("homepage").querySelectorAll("a.text").forEach((a)=>{
+                a.addEventListener("click", linkClickHandler);
+            });
         });
 }
 
@@ -348,11 +351,6 @@ function addUser() {
     })
     document.getElementById('login').addEventListener('click', linkClickHandler);
 }
-
-function addMessage(event_id) {
-
-}
-
 
 function logUser() {
     renderHeader();

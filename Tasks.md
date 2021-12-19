@@ -67,6 +67,10 @@
 - changed fetch on refreshing a user page.
 - made the chat
 
+- improved the chat
+- improved the homepage style
+- debugging
+
 #### Alessandro Cravioglio
 
 09/12
