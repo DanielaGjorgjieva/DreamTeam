@@ -10,6 +10,8 @@
 // const model = require('../../models/index.js').model;
 // const ObjectId = require('mongodb').ObjectId;
 
+// const { log } = require("console");
+
 // const { json } = require("express");
 
 // your user
@@ -153,7 +155,7 @@ function editSport(id) {
                 event.preventDefault();
                 let body = new FormData(form);
                 fetch("/sports/" + id, { method: "PUT", body })
-                    .then(res => {
+                    .then(() => {
                         listSports();
                     })
             })
@@ -588,7 +590,9 @@ function parse_path() {
         } else if (hash == "#upload") {
             activityUpload();
         } else if (hash.startsWith('#edit')) {
-            let id = hash.replace('/sports/ ', '').replace('/edit', '');
+            // let id = hash.replace('/sports/ ', '').replace('/edit', '');
+            let id = hash.replace('#edit/','')
+            // console.log(hash);
             editSport(id);
         } else if (hash == "#home") {
             goHome();

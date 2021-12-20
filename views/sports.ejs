@@ -29,7 +29,7 @@
         <a id="<%=event._id%>" rel="link" onclick="visitEvent(this.id)">Link</a>
         <span class="sport"><%=event.sport%></span>
         <span class="owner"><%=event.owner%></span>
-        <span class="description"><%=event.description%></span>
+        <span class="description"><%= truncate(event.description) %></span>
         <span class="place"><%=event.place%></span>
         <span class="starting_date"><%=event.date%></span>
         <span class="date"><%=event.frequency%></span>

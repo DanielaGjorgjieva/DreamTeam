@@ -73,7 +73,7 @@
     <%if(user && ((user.username == event.owner) || isInside(user._id))){%>
     <div class="container_chat">
       <div class="header">
-        <h1>Group Chat</h1>
+        <h1><%= event.sport %> Chat</h1>
       </div>
 
       <%- include('includes/chat') -%>

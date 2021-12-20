@@ -48,3 +48,11 @@ function time() {
         return today.getHours() + ':' + today.getMinutes();
     }
 }
+
+function truncate(input) {
+    if (input.length > 120) {
+       return input.substring(0, 120) + '...';
+    }
+    return input;
+ };
+    
