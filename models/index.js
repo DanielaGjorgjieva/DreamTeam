@@ -29,8 +29,8 @@ const model = {};
 // now using ATLAS to deploy the MONGOdb database
 
 // env file? -> useful?
-const url = process.env.ATLAS_URI;
-
+// const url = process.env.ATLAS_URI;
+const url = 'mongodb+srv://alessandro_cravioglio:12345@teamproject.ol3il.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 // connection parameters
 
