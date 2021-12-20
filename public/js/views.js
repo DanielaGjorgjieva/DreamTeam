@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Mon Dec 20 2021 10:47:15 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Mon Dec 20 2021 10:58:56 GMT+0100 (Central European Standard Time)
 ejs.views_include = function(locals) {
     console.log("views_include_setup",locals);
     return function(path, d) {
@@ -478,7 +478,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<div id=\"chat\" class=\"body\">\n    <%\n    event.chat.forEach(chat =>{\n      if(chat.name == user.username){\n    %>\n    <p class=\"text-right\" style=\"color:white;\"> You </p>\n    <p class=\"message user_message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-right\"><%= chat.time%></p>\n\n    <%}else{%>\n\n    <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n    <p class=\"message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-left\"><%= chat.time%></p>\n\n    <%}})%>\n\n  </div>"
+  , __lines = "<div id=\"chat\" class=\"body\">\n    <%\n    event.chat.forEach(chat =>{\n      if(chat.name == user.username){\n    %>\n    <p class=\"text-right\" style=\"color:white;\"> You </p>\n    <p class=\"message user_message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-right\"><%= chat.time%></p>\n\n    <%}else{\n      if(chat.name == event.owner){%>\n        <p class=\"text-left\" style=\"color:white;\"><%= chat.name%> (Owner)</p>\n    <%} else {%>\n        <p class=\"text-left\" style=\"color:white;\"><%= chat.name%></p>\n    <%}%>\n    <p class=\"message\">\n      <%= chat.msg%>\n    </p>\n    <p class=\"text-left\"><%= chat.time%></p>\n\n    <%}})%>\n\n  </div>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -500,20 +500,31 @@ try {
     ; __append("</p>\n\n    ")
     ; __line = 12
     ; }else{
-    ; __append("\n\n    <p class=\"text-left\" style=\"color:white;\">")
+      if(chat.name == event.owner){
+    ; __line = 13
+    ; __append("\n        <p class=\"text-left\" style=\"color:white;\">")
     ; __line = 14
     ; __append(escapeFn( chat.name))
-    ; __append("</p>\n    <p class=\"message\">\n      ")
+    ; __append(" (Owner)</p>\n    ")
+    ; __line = 15
+    ; } else {
+    ; __append("\n        <p class=\"text-left\" style=\"color:white;\">")
     ; __line = 16
+    ; __append(escapeFn( chat.name))
+    ; __append("</p>\n    ")
+    ; __line = 17
+    ; }
+    ; __append("\n    <p class=\"message\">\n      ")
+    ; __line = 19
     ; __append(escapeFn( chat.msg))
     ; __append("\n    </p>\n    <p class=\"text-left\">")
-    ; __line = 18
+    ; __line = 21
     ; __append(escapeFn( chat.time))
     ; __append("</p>\n\n    ")
-    ; __line = 20
+    ; __line = 23
     ; }})
     ; __append("\n\n  </div>")
-    ; __line = 22
+    ; __line = 25
   }
   return __output;
 } catch (e) {

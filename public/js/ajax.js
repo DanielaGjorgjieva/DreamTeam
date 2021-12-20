@@ -156,7 +156,8 @@ function editSport(id) {
                 let body = new FormData(form);
                 fetch("/sports/" + id, { method: "PUT", body })
                     .then(() => {
-                        listSports();
+                        // listSports();
+                        visitEvent(id);
                     })
             })
         })

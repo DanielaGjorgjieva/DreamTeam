@@ -9,9 +9,12 @@
     </p>
     <p class="text-right"><%= chat.time%></p>
 
-    <%}else{%>
-
-    <p class="text-left" style="color:white;"><%= chat.name%></p>
+    <%}else{
+      if(chat.name == event.owner){%>
+        <p class="text-left" style="color:white;"><%= chat.name%> (Owner)</p>
+    <%} else {%>
+        <p class="text-left" style="color:white;"><%= chat.name%></p>
+    <%}%>
     <p class="message">
       <%= chat.msg%>
     </p>
